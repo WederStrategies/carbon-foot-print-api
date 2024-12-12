@@ -1,59 +1,93 @@
 const mongoose = require("mongoose");
 
 // Enums for predefined values
-const EnergyTypeEnum = ["electric", "charcoal", "gas", "solar"];
-const HousingTypeEnum = ["Apartment", "Detached House", "Townhouse"];
-const TransportTypeEnum = ["gas powered", "electric powered"];
+const HousingTypeEnum = ["Apartment", "Condo", "Townhouse"];
 const RecycleEnum = ["Yes", "No"];
 
-// Subschemas
-const EnergySchema = new mongoose.Schema({
-  type: { type: String, required: true, enum: EnergyTypeEnum },
-  value: { type: String, required: true },
-});
-
-const TransportSchema = new mongoose.Schema({
-  type: { type: String, required: true, enum: TransportTypeEnum },
-  distance: { type: String, required: true },
-  usagePerWeek: { type: String, required: true },
-});
-
-const WaterUsageSchema = new mongoose.Schema({
-  washingClothes: { type: Number, required: true },
-  showers: {
-    daysPerWeek: { type: Number, required: true },
-    averageDuration: { type: Number, required: true },
+// Subschemas for Household Energy
+const HeatingAndCoolingSchema = new mongoose.Schema({
+  type: {
+    type: String,
+    enum: ["Electric", "charcoal", "dont use any "],
   },
-  gardenWatering: { type: Number, required: false },
+  hourlyUsagePerDay: { type: Number, required: true },
+});
+
+const CookingSchema = new mongoose.Schema({
+  type: {
+    type: String,
+    enum: ["Electric", "charcoal", "dont use any"],
+  },
+  hourlyUsagePerDay: { type: Number },
+});
+
+const ElectricApplianceSchema = new mongoose.Schema({
+  type: { type: String, enum: ["Tv", "Washing", "Iron"] },
+  hourlyUsagePerDay: { type: Number },
+});
+
+const LightBulbSchema = new mongoose.Schema({
+  type: {
+    type: String,
+    enum: ["Light Bulbs", "Solar"],
+  },
+  hourlyUsagePerDay: { type: Number },
+});
+
+// Subschemas for Transportation
+const TransportSchema = new mongoose.Schema({
+  type: {
+    type: String,
+    enum: ["gas powered", "electric powered"],
+  },
+  distance: { type: Number },
+  frequencyperWeek: { type: Number },
+});
+const TransportSchemaBicycle = new mongoose.Schema({
+  distance: { type: Number },
+  frequencyperWeek: { type: Number },
+});
+
+// Subschema for Water Usage
+const WaterUsageSchema = new mongoose.Schema({
+  washingClothes: { frequencyperWeek: { type: Number } },
+  showers: {
+    daysPerWeek: { type: Number },
+    averageDuration: { type: Number },
+  },
+  gardenWatering: {
+    daysPerWeek: { type: Number },
+    averageDuration: { type: Number },
+  },
 });
 
 // Main Schema
 const CarbonFootprintSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    name: { type: String, default: "Anonymous" },
     housingType: { type: String, required: true, enum: HousingTypeEnum },
     householdEnergy: {
-      heatingAndCooling: [EnergySchema],
-      cooking: [EnergySchema],
-      electricAppliance: [EnergySchema],
-      lightBulbs: [EnergySchema],
+      heatingAndCooling: [HeatingAndCoolingSchema],
+      cooking: [CookingSchema],
+      electricAppliance: [ElectricApplianceSchema],
+      lightBulbs: [LightBulbSchema],
     },
     transportationMode: {
       ownAutomobile: [TransportSchema],
       publicTransport: [TransportSchema],
-      bicycle: [TransportSchema],
-      walking: [TransportSchema],
+      bicycle: [TransportSchemaBicycle],
+      walking: [TransportSchemaBicycle],
     },
     dietAndFood: {
-      poultry: { type: String },
-      vegetable: { type: String },
-      meat: { type: String },
-      fish: { type: String },
+      poultry: { dailyUsage: { type: Number } },
+      vegetable: { dailyUsage: { type: Number } },
+      meat: { dailyUsage: { type: Number } },
+      fish: { dailyUsage: { type: Number } },
     },
-    wasteDisposal: { type: String },
+    wasteDisposal: { type: Number },
     foodWastage: {
-      weeklyCollection: { type: Number, required: true },
-      recycleHabit: { type: String, required: true, enum: RecycleEnum },
+      weeklyCollection: { frequency: { type: Number } },
+      recycleHabit: { type: String, enum: RecycleEnum },
     },
     waterUsage: WaterUsageSchema,
   },
