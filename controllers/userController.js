@@ -166,8 +166,9 @@ const getAllUsers = async (req, res) => {
 
 const searchUserByName = async (req, res) => {
   try {
-    const { name } = req.params;
-    console.log(name);
+    const { name } = req.query;
+
+    console.log(req.query);
     const regex = new RegExp(name, "i");
     const users = await User.find({ name: regex });
 
@@ -182,14 +183,15 @@ const deleteUser = async (req, res) => {
   try {
     const find = await User.findById({ _id: req.params.userId });
     if (!find) {
-      return res.status(404).json({ error: "dataset not found" });
+      return res.status(404).json({ error: "user not found" });
     }
     const deltedUser = await User.deleteOne({ _id: req.params.userId });
-    res.status(204).json(deltedUser);
+    res.status(204).json({ success: true, message: "user deleted" });
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 module.exports = {
   createUser,
   loginUser,

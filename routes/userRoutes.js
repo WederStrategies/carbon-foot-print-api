@@ -37,7 +37,7 @@ userRouter.get(
   userController.getAllUsers
 );
 
-// search user by name
+//search user by name
 userRouter.get(
   "/search/:name",
   authMiddleware,
@@ -47,7 +47,7 @@ userRouter.get(
 
 // delete user
 userRouter.delete(
-  "/userId",
+  "/:userId",
   authMiddleware,
   roleMiddleware("admin"),
   userController.deleteUser
