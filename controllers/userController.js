@@ -185,7 +185,7 @@ const deleteUser = async (req, res) => {
     if (!find) {
       return res.status(404).json({ error: "user not found" });
     }
-    const deltedUser = await User.deleteOne({ _id: req.params.userId });
+    await User.deleteOne({ _id: req.params.userId });
     res.status(204).json({ success: true, message: "user deleted" });
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error" });
