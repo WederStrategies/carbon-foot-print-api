@@ -50,8 +50,28 @@ const getCarbonFootprintById = async (req, res) => {
   }
 };
 
+// Delete a carbon footprint entry by ID
+const deleteCarbonFootprint = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedEntry = await CarbonFootPrint.findByIdAndDelete(id);
+
+    if (!deletedEntry) {
+      return res.status(404).json({ message: "Carbon footprint not found" });
+    }
+
+    res.status(200).json({ message: "Carbon footprint deleted successfully" });
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to delete carbon footprint",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createCarbonFootprint,
   getAllCarbonFootprints,
   getCarbonFootprintById,
+  deleteCarbonFootprint,
 };

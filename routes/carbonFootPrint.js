@@ -18,11 +18,18 @@ carbonFootPrintRouter.get(
   carbonFootPrintController.getAllCarbonFootprints
 );
 
+// get carbon foot prints by id
 carbonFootPrintRouter.get(
   "/:id",
   authMiddleware,
   roleMiddleware("admin"),
   carbonFootPrintController.getCarbonFootprintById
+);
+
+// delete carbon foot prints by id
+carbonFootPrintRouter.delete(
+  "/:id",
+  carbonFootPrintController.deleteCarbonFootprint
 );
 
 module.exports = carbonFootPrintRouter;
