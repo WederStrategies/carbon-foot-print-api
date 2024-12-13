@@ -11,6 +11,17 @@ const createQuestion = async (req, res) => {
   }
 };
 
+// Get all questions
+const getAllQuestions = async (req, res) => {
+  try {
+    const questions = await Question.find();
+    res.status(200).json(questions);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch questions", error });
+  }
+};
+
 module.exports = {
   createQuestion,
+  getAllQuestions,
 };
