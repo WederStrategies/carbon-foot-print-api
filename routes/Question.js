@@ -8,4 +8,7 @@ questionRouter.post("/", questionController.createQuestion);
 // get all questions
 questionRouter.get("/", questionController.getAllQuestions);
 
+// get question by id
+questionRouter.get("/:id", questionController.getQuestionById);
+
 module.exports = questionRouter;
