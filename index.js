@@ -34,6 +34,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/user", require("./routes/userRoutes"));
 app.use("/api/v1/carbonFootPrint", require("./routes/carbonFootPrint"));
+app.use("/api/v1/question", require("./routes/Question"));
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
