@@ -31,7 +31,27 @@ const getAllCarbonFootprints = async (req, res) => {
   }
 };
 
+// Retrieve a specific carbon footprint entry by ID
+const getCarbonFootprintById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const entry = await CarbonFootPrint.findById(id);
+
+    if (!entry) {
+      return res.status(404).json({ message: "Carbon footprint not found" });
+    }
+
+    res.status(200).json(entry);
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to retrieve carbon footprint",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createCarbonFootprint,
   getAllCarbonFootprints,
+  getCarbonFootprintById,
 };
