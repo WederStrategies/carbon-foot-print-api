@@ -4,6 +4,9 @@ const Question = require("../models/Question");
 const createQuestion = async (req, res) => {
   try {
     const question = new Question(req.body);
+    if (!question.translations.length) {
+      res.status(201).json({ message: "Language not selected" });
+    }
     await question.save();
     res.status(201).json(question);
   } catch (error) {
