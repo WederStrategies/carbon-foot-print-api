@@ -88,14 +88,14 @@ const deleteQuestion = async (req, res) => {
 // Add a new translation (language) to an existing question
 const addTranslationToQuestion = async (req, res) => {
   const { id } = req.params;
-  const { language, questionText, options, explanation } = req.body;
+  const { language, question, options } = req.body;
 
   try {
-    const question = await Question.findById(id);
-    if (!question) {
+    const entry = await Question.findById(id);
+    if (!entry) {
       return res.status(404).json({ message: "Question not found" });
     }
-    const languageExists = question.translations.some(
+    const languageExists = entry.translations.some(
       (translation) => translation.language === language
     );
 
@@ -106,19 +106,19 @@ const addTranslationToQuestion = async (req, res) => {
     }
     const newTranslation = {
       language,
-      question: questionText,
+      question,
       options: options.map((option) => ({
         text: option.text,
         isCorrect: option.isCorrect,
+        explanation: option.explanation,
       })),
-      explanation,
     };
-    question.translations.push(newTranslation);
+    entry.translations.push(newTranslation);
 
-    await question.save();
+    await entry.save();
     return res
       .status(200)
-      .json({ message: "Translation added successfully", question });
+      .json({ message: "Translation added successfully", entry });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Server error" });
