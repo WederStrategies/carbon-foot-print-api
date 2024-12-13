@@ -9,19 +9,22 @@ const LanguageEnum = ["English", "Amaharic", "Oromifa", "Tigrinya"];
 const OptionSchema = new mongoose.Schema({
   text: { type: String, required: true },
   isCorrect: { type: Boolean, required: true },
+});
+
+//Subschema for language translations
+const translationSchema = new mongoose.Schema({
+  language: { type: String, enum: LanguageEnum, required: true },
+  question: { type: String, required: true },
+  options: [OptionSchema],
   explanation: { type: String },
 });
 
 // Main schema for questions
 const QuestionSchema = new mongoose.Schema(
   {
-    question: { type: String, required: true },
-    options: { type: [OptionSchema], required: true },
     category: { type: String, required: true, enum: CategoryEnum },
-    language: { type: String, required: true, enum: LanguageEnum },
     difficulty: { type: String, required: true, enum: DifficultyEnum },
-    explanation: { type: String },
-    createdAt: { type: Date, default: Date.now },
+    translations: [translationSchema],
   },
   { timestamps: true }
 );
