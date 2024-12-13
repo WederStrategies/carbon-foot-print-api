@@ -14,4 +14,7 @@ questionRouter.get("/:id", questionController.getQuestionById);
 // update question by id
 questionRouter.patch("/:id", questionController.updateQuestion);
 
+// delte question by id
+questionRouter.delete("/:id", questionController.deleteQuestion);
+
 module.exports = questionRouter;
