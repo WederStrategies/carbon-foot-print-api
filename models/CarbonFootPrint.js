@@ -8,6 +8,7 @@ const RecycleEnum = ["Yes", "No"];
 const HeatingAndCoolingSchema = new mongoose.Schema({
   type: {
     type: String,
+    required: true,
     enum: ["Electric", "charcoal", "dont use any "],
   },
   hourlyUsagePerDay: { type: Number, required: true },
@@ -16,48 +17,51 @@ const HeatingAndCoolingSchema = new mongoose.Schema({
 const CookingSchema = new mongoose.Schema({
   type: {
     type: String,
+    required: true,
     enum: ["Electric", "charcoal", "dont use any"],
   },
-  hourlyUsagePerDay: { type: Number },
+  hourlyUsagePerDay: { type: Number, required: true },
 });
 
 const ElectricApplianceSchema = new mongoose.Schema({
-  type: { type: String, enum: ["Tv", "Washing", "Iron"] },
-  hourlyUsagePerDay: { type: Number },
+  type: { type: String, required: true, enum: ["Tv", "Washing", "Iron"] },
+  hourlyUsagePerDay: { type: Number, required: true },
 });
 
 const LightBulbSchema = new mongoose.Schema({
   type: {
     type: String,
+    required: true,
     enum: ["Light Bulbs", "Solar"],
   },
-  hourlyUsagePerDay: { type: Number },
+  hourlyUsagePerDay: { type: Number, required: true },
 });
 
 // Subschemas for Transportation
 const TransportSchema = new mongoose.Schema({
   type: {
     type: String,
+    required: true,
     enum: ["gas powered", "electric powered"],
   },
-  distance: { type: Number },
-  frequencyperWeek: { type: Number },
+  distance: { type: Number, required: true },
+  frequencyperWeek: { type: Number, required: true },
 });
 const TransportSchemaBicycle = new mongoose.Schema({
-  distance: { type: Number },
-  frequencyperWeek: { type: Number },
+  distance: { type: Number, required: true },
+  frequencyperWeek: { type: Number, required: true },
 });
 
 // Subschema for Water Usage
 const WaterUsageSchema = new mongoose.Schema({
-  washingClothes: { frequencyperWeek: { type: Number } },
+  washingClothes: { frequencyperWeek: { type: Number, required: true } },
   showers: {
-    daysPerWeek: { type: Number },
-    averageDuration: { type: Number },
+    daysPerWeek: { type: Number, required: true },
+    averageDuration: { type: Number, required: true },
   },
   gardenWatering: {
-    daysPerWeek: { type: Number },
-    averageDuration: { type: Number },
+    daysPerWeek: { type: Number, required: true },
+    averageDuration: { type: Number, required: true },
   },
 });
 
