@@ -1,5 +1,6 @@
 const CarbonFootPrint = require("../models/CarbonFootPrint");
 
+// Create a new carbon footprint entry
 const createCarbonFootprint = async (req, res) => {
   try {
     const data = req.body;
@@ -17,6 +18,20 @@ const createCarbonFootprint = async (req, res) => {
   }
 };
 
+// Retrieve all carbon footprint entries
+const getAllCarbonFootprints = async (req, res) => {
+  try {
+    const entries = await CarbonFootPrint.find();
+    res.status(200).json(entries);
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to retrieve carbon footprints",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createCarbonFootprint,
+  getAllCarbonFootprints,
 };
