@@ -11,4 +11,7 @@ questionRouter.get("/", questionController.getAllQuestions);
 // get question by id
 questionRouter.get("/:id", questionController.getQuestionById);
 
+// update question by id
+questionRouter.patch("/:id", questionController.updateQuestion);
+
 module.exports = questionRouter;

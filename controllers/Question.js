@@ -37,8 +37,28 @@ const getQuestionById = async (req, res) => {
   }
 };
 
+// Update a question by ID
+const updateQuestion = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedQuestion = await Question.findByIdAndUpdate(id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!updatedQuestion) {
+      return res.status(404).json({ message: "Question not found" });
+    }
+
+    res.status(200).json(updatedQuestion);
+  } catch (error) {
+    res.status(400).json({ message: "Failed to update question", error });
+  }
+};
+
 module.exports = {
   createQuestion,
   getAllQuestions,
   getQuestionById,
+  updateQuestion,
 };
