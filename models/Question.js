@@ -9,6 +9,7 @@ const LanguageEnum = ["English", "Amaharic", "Oromifa", "Tigrinya"];
 const OptionSchema = new mongoose.Schema({
   text: { type: String, required: true },
   isCorrect: { type: Boolean, required: true },
+  explanation: { type: String, required: true },
 });
 
 //Subschema for language translations
@@ -16,7 +17,6 @@ const translationSchema = new mongoose.Schema({
   language: { type: String, enum: LanguageEnum, required: true },
   question: { type: String, required: true },
   options: [OptionSchema],
-  explanation: { type: String },
 });
 
 // Main schema for questions

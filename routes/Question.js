@@ -17,4 +17,10 @@ questionRouter.patch("/:id", questionController.updateQuestion);
 // delte question by id
 questionRouter.delete("/:id", questionController.deleteQuestion);
 
+// add a new translation to an existing quesion
+questionRouter.patch(
+  "/translate/:id",
+  questionController.addTranslationToQuestion
+);
+
 module.exports = questionRouter;
