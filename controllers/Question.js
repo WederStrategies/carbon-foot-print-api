@@ -125,6 +125,44 @@ const addTranslationToQuestion = async (req, res) => {
   }
 };
 
+// Method to fetch random questions for Socket.IO
+const getRandomQuestions = async () => {
+  const categories = ["Energy", "Water", "Waste", "Transportation", "Diet"];
+  const questions = {};
+
+  for (const category of categories) {
+    const randomQuestions = await Question.aggregate([
+      { $match: { category } },
+      { $sample: { size: 10 } },
+    ]);
+    questions[category] = randomQuestions;
+  }
+
+  return questions;
+};
+
+// Handle Socket.IO
+const handleSocket = (socket) => {
+  console.log("A user connected:", socket.id);
+
+  // Listen for client request
+  socket.on("fetch-questions", async () => {
+    try {
+      const questions = await getRandomQuestions();
+      // Send data back to client
+      socket.emit("questions-data", questions);
+    } catch (error) {
+      console.error("Error fetching questions:", error);
+      socket.emit("error", "Failed to fetch questions");
+    }
+  });
+
+  // Handle disconnection
+  socket.on("disconnect", () => {
+    console.log("A user disconnected:", socket.id);
+  });
+};
+
 module.exports = {
   createQuestion,
   getAllQuestions,
@@ -132,4 +170,5 @@ module.exports = {
   updateQuestion,
   deleteQuestion,
   addTranslationToQuestion,
+  handleSocket,
 };
