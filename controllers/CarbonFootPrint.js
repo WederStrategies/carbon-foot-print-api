@@ -1,11 +1,18 @@
 const CarbonFootPrint = require("../models/CarbonFootPrint");
+const EndUser = require("../models/EndUser");
 
 // Create a new carbon footprint entry
 const createCarbonFootprint = async (req, res) => {
   try {
     const data = req.body;
+    const newEndUser = await EndUser.create({
+      name: data.name ? data.name : `User-${Date.now}`,
+      userId: `user-${Date.now()}`,
+    });
+
     const carbonFootprint = new CarbonFootPrint(data);
-    const savedEntry = await carbonFootprint.save();
+    carbonFootprint.endUser = newEndUser._id;
+    const savedEntry = await carbonFootprint.save(carbonFootprint);
     res.status(201).json({
       message: "Carbon footprint created successfully",
       data: savedEntry,

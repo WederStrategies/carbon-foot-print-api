@@ -127,18 +127,25 @@ const addTranslationToQuestion = async (req, res) => {
 
 // Method to fetch random questions for Socket.IO
 const getRandomQuestions = async () => {
-  const categories = ["Energy", "Water", "Waste", "Transportation", "Diet"];
-  const questions = {};
-
-  for (const category of categories) {
-    const randomQuestions = await Question.aggregate([
-      { $match: { category } },
-      { $sample: { size: 10 } },
-    ]);
-    questions[category] = randomQuestions;
+  try {
+    const questions = await Question.find();
+    return questions;
+  } catch (error) {
+    console.log(error);
   }
+  // const categories = ["Energy", "Water", "Waste", "Transportation", "Diet"];
+  // const questions = {};
+  // console.log(questions, "random selected question");
 
-  return questions;
+  // for (const category of categories) {
+  //   const randomQuestions = await Question.aggregate([
+  //     { $match: { category } },
+  //     { $sample: { size: 10 } },
+  //   ]);
+  //   questions[category] = randomQuestions;
+  // }
+
+  // return questions;
 };
 
 // Handle Socket.IO
@@ -146,14 +153,29 @@ const handleSocket = (socket) => {
   console.log("A user connected:", socket.id);
 
   // Listen for client request
-  socket.on("fetch-questions", async () => {
+  socket.on("fetch-questions", async (data) => {
+    const { language, catagoryList } = data;
     try {
       const questions = await getRandomQuestions();
-      // Send data back to client
+
       socket.emit("questions-data", questions);
     } catch (error) {
       console.error("Error fetching questions:", error);
       socket.emit("error", "Failed to fetch questions");
+    }
+  });
+
+  // Listen for client submited answer
+  socket.on("submit-answer", async (data) => {
+    try {
+      const { id, answer } = data;
+
+      const question = await Question.findById(id);
+      if (!question) {
+        console.log("invalid question id recieved");
+      }
+    } catch (error) {
+      console.log(error);
     }
   });
 

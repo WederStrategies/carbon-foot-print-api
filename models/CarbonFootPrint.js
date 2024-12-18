@@ -80,7 +80,11 @@ const WaterUsageSchema = new mongoose.Schema({
 // Main Schema
 const CarbonFootprintSchema = new mongoose.Schema(
   {
-    name: { type: String, default: "Anonymous" },
+    endUser: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "EndUser",
+      required: true,
+    },
     housingType: { type: String, required: true, enum: HousingTypeEnum },
     householdEnergy: {
       heatingAndCooling: [HeatingAndCoolingSchema],

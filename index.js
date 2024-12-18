@@ -1,12 +1,22 @@
 const express = require("express");
+const http = require("http");
+const { Server } = require("socket.io");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
+const questionController = require("./controllers/Question");
 
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3000", // React app URL
+    methods: ["GET", "POST"],
+  },
+});
 
 const corsOptions = {
-  origin: ["http://localhost:4302"],
+  origin: ["http://localhost:3000"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
   credentials: true,
   allowedHeaders: ["Content-Type", "x-auth"],
@@ -36,5 +46,10 @@ app.use("/api/v1/user", require("./routes/userRoutes"));
 app.use("/api/v1/carbonFootPrint", require("./routes/carbonFootPrint"));
 app.use("/api/v1/question", require("./routes/Question"));
 
+// Integrate Socket.IO
+io.on("connection", (socket) => {
+  questionController.handleSocket(socket); // Use Socket.IO handler from QuestionController
+});
+
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+server.listen(port, () => console.log(`Server is running on port ${port}`));
