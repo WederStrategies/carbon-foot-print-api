@@ -32,7 +32,7 @@ const LightBulbSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["Light Bulbs", "Solar"],
+    enum: ["Incandescent", "CFL", "LED"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
 });
@@ -47,6 +47,18 @@ const TransportSchema = new mongoose.Schema({
   distance: { type: Number, required: true },
   frequencyperWeek: { type: Number, required: true },
 });
+
+// Subschemas for Transportation
+const PublicTransportSchema = new mongoose.Schema({
+  type: {
+    type: String,
+    required: true,
+    enum: ["bus", "taxi", "train", "ride"],
+  },
+  distance: { type: Number, required: true },
+  frequencyperWeek: { type: Number, required: true },
+});
+
 const TransportSchemaBicycle = new mongoose.Schema({
   distance: { type: Number, required: true },
   frequencyperWeek: { type: Number, required: true },
@@ -78,7 +90,7 @@ const CarbonFootprintSchema = new mongoose.Schema(
     },
     transportationMode: {
       ownAutomobile: [TransportSchema],
-      publicTransport: [TransportSchema],
+      publicTransport: [PublicTransportSchema],
       bicycle: [TransportSchemaBicycle],
       walking: [TransportSchemaBicycle],
     },
