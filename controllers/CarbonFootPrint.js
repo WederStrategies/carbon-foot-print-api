@@ -5,8 +5,10 @@ const EndUser = require("../models/EndUser");
 const createCarbonFootprint = async (req, res) => {
   try {
     const data = req.body;
+    const userName = data.name;
+
     const newEndUser = await EndUser.create({
-      name: data.name ? data.name : `User-${Date.now}`,
+      name: userName,
       userId: `user-${Date.now()}`,
     });
 
@@ -28,7 +30,7 @@ const createCarbonFootprint = async (req, res) => {
 // Retrieve all carbon footprint entries
 const getAllCarbonFootprints = async (req, res) => {
   try {
-    const entries = await CarbonFootPrint.find();
+    const entries = await CarbonFootPrint.find().populate("endUser");
     res.status(200).json(entries);
   } catch (error) {
     res.status(500).json({
@@ -42,7 +44,7 @@ const getAllCarbonFootprints = async (req, res) => {
 const getCarbonFootprintById = async (req, res) => {
   try {
     const { id } = req.params;
-    const entry = await CarbonFootPrint.findById(id);
+    const entry = await CarbonFootPrint.findById(id).populate("endUser");
 
     if (!entry) {
       return res.status(404).json({ message: "Carbon footprint not found" });

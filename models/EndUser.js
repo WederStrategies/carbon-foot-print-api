@@ -5,6 +5,7 @@ const EndUserSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
+      default: `user ${Date.now()}`,
     },
     userId: {
       type: String,

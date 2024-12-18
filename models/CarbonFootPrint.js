@@ -24,7 +24,11 @@ const CookingSchema = new mongoose.Schema({
 });
 
 const ElectricApplianceSchema = new mongoose.Schema({
-  type: { type: String, required: true, enum: ["Tv", "Washing", "Iron"] },
+  type: {
+    type: String,
+    required: true,
+    enum: ["Tv", "Washing Machine", "Iron"],
+  },
   hourlyUsagePerDay: { type: Number, required: true },
 });
 
@@ -32,7 +36,7 @@ const LightBulbSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["Incandescent", "CFL", "LED"],
+    enum: ["Incandescent", "CFL", "LED", "Fluorescent"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
 });
@@ -104,8 +108,8 @@ const CarbonFootprintSchema = new mongoose.Schema(
       meat: { dailyUsage: { type: Number } },
       fish: { dailyUsage: { type: Number } },
     },
-    wasteDisposal: { type: Number },
-    foodWastage: {
+    foodWastage: { type: Number },
+    wasteDisposal: {
       weeklyCollection: { frequency: { type: Number } },
       recycleHabit: { type: String, enum: RecycleEnum },
     },
