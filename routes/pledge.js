@@ -14,4 +14,7 @@ pledgeRouter.get("/endUser/:id", pledgeController.getPlageByEndUserId);
 // get pledge by ID
 pledgeRouter.get("/:id", pledgeController.getPlageById);
 
+// delete pledge by ID
+pledgeRouter.delete("/:id", pledgeController.deletePlage);
+
 module.exports = pledgeRouter;

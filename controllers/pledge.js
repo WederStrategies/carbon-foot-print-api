@@ -1,22 +1,22 @@
 const EndUser = require("../models/EndUser");
-const Plage = require("../models/Pledge");
+const Pledge = require("../models/Pledge");
 
 // Create a new plage
 const createPlage = async (req, res) => {
   const data = req.body;
-  const plage = new Plage(data);
+  const pledge = new Pledge(data);
   try {
     if (data.endUser !== undefined) {
-      plage.endUser = data.endUser;
+      pledge.endUser = data.endUser;
     } else {
       const newEndUser = await EndUser.create({
-        name: plage.name,
+        name: pledge.name,
         userId: `user-${Date.now()}`,
       });
-      plage.endUser = newEndUser._id;
+      pledge.endUser = newEndUser._id;
     }
 
-    const entryData = await plage.save();
+    const entryData = await pledge.save();
 
     res.status(201).json({
       message: "Plage created successfully",
@@ -30,8 +30,8 @@ const createPlage = async (req, res) => {
 // get all plages
 const getAllPlages = async (req, res) => {
   try {
-    const plages = await Plage.find().populate("endUser");
-    res.status(200).json(plages);
+    const pledges = await Pledge.find().populate("endUser");
+    res.status(200).json(pledges);
   } catch (error) {
     res.status(500).json({
       message: "Failed to retrieve plages",
@@ -44,8 +44,11 @@ const getAllPlages = async (req, res) => {
 const getPlageById = async (req, res) => {
   try {
     const { id } = req.params;
-    const plage = await Plage.findById(id).populate("endUser");
-    res.status(200).json(plage);
+    const pledge = await Pledge.findById(id).populate("endUser");
+    if (!pledge) {
+      return res.status(404).json({ message: "Plage not found" });
+    }
+    res.status(200).json(pledge);
   } catch (error) {
     res.status(500).json({
       message: "Failed to retrieve plage",
@@ -59,11 +62,31 @@ const getPlageById = async (req, res) => {
 const getPlageByEndUserId = async (req, res) => {
   try {
     const { id } = req.params;
-    const plage = await Plage.find({ endUser: id }).populate("endUser");
+    const pledge = await Pledge.find({ endUser: id }).populate("endUser");
+    if (!pledge) {
+      return res.status(404).json({ message: "Plage not found" });
+    }
     res.status(200).json(plage);
   } catch (error) {
     res.status(500).json({
       message: "Failed to retrieve plage",
+      error: error.message,
+    });
+  }
+};
+
+// delete a plage by ID
+const deletePlage = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedPledge = await Pledge.findByIdAndDelete(id);
+    if (!deletedPledge) {
+      return res.status(404).json({ message: "Plage not found" });
+    }
+    res.status(200).json({ message: "Plage deleted successfully" });
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to delete plage",
       error: error.message,
     });
   }
@@ -74,4 +97,5 @@ module.exports = {
   getAllPlages,
   getPlageById,
   getPlageByEndUserId,
+  deletePlage,
 };
