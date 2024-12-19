@@ -106,5 +106,5 @@ module.exports = {
   getAllCarbonFootprints,
   getCarbonFootprintById,
   deleteCarbonFootprint,
-  getCarbonFootPrintByEndUserId, // Add the new method to exports
+  getCarbonFootPrintByEndUserId,
 };

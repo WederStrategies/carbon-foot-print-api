@@ -45,10 +45,9 @@ app.get("/", (req, res) => {
 app.use("/api/v1/user", require("./routes/userRoutes"));
 app.use("/api/v1/carbonFootPrint", require("./routes/carbonFootPrint"));
 app.use("/api/v1/question", require("./routes/Question"));
-// app.use("/api/v1/endUser", require("./routes/endUser"));
 app.use("/api/v1/endUser", require("./routes/endUser"));
+app.use("/api/v1/pledge", require("./routes/pledge"));
 
-// Integrate Socket.IO
 io.on("connection", (socket) => {
   questionController.handleSocket(socket); // Use Socket.IO handler from QuestionController
 });
