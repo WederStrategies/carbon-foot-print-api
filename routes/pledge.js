@@ -8,6 +8,8 @@ pledgeRouter.post("/", pledgeController.createPlage);
 
 // get all pledges
 pledgeRouter.get("/", pledgeController.getAllPlages);
+//get pledge by endUser ID
+pledgeRouter.get("/endUser/:id", pledgeController.getPlageByEndUserId);
 
 // get pledge by ID
 pledgeRouter.get("/:id", pledgeController.getPlageById);
