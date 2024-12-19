@@ -89,6 +89,7 @@ const PledgeSchema = new mongoose.Schema(
       ref: "EndUser",
       required: true,
     },
+    name: { type: String, required: true },
     housingType: { type: String, required: true, enum: HousingTypeEnum },
     householdEnergy: {
       heatingAndCooling: [HeatingAndCoolingSchema],

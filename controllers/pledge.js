@@ -6,12 +6,11 @@ const createPlage = async (req, res) => {
   const data = req.body;
   const plage = new Plage(data);
   try {
-    console.log(data.endUser);
     if (data.endUser !== undefined) {
       plage.endUser = data.endUser;
     } else {
       const newEndUser = await EndUser.create({
-        name: `user-${Date.now()}`,
+        name: plage.name,
         userId: `user-${Date.now()}`,
       });
       plage.endUser = newEndUser._id;
@@ -28,4 +27,17 @@ const createPlage = async (req, res) => {
   }
 };
 
-module.exports = { createPlage };
+// get all plages
+const getAllPlages = async (req, res) => {
+  try {
+    const plages = await Plage.find().populate("endUser");
+    res.status(200).json(plages);
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to retrieve plages",
+      error: error.message,
+    });
+  }
+};
+
+module.exports = { createPlage, getAllPlages };
