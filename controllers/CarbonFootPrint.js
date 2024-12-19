@@ -78,9 +78,33 @@ const deleteCarbonFootprint = async (req, res) => {
   }
 };
 
+// Retrieve carbon footprint entries by endUserId
+const getCarbonFootPrintByEndUserId = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const entries = await CarbonFootPrint.find({ endUser: id }).populate(
+      "endUser"
+    );
+
+    if (!entries.length) {
+      return res
+        .status(404)
+        .json({ message: "No carbon footprints found for this user" });
+    }
+
+    res.status(200).json(entries);
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to retrieve carbon footprints",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createCarbonFootprint,
   getAllCarbonFootprints,
   getCarbonFootprintById,
   deleteCarbonFootprint,
+  getCarbonFootPrintByEndUserId, // Add the new method to exports
 };
