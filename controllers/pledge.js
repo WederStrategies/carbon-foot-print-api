@@ -40,4 +40,18 @@ const getAllPlages = async (req, res) => {
   }
 };
 
-module.exports = { createPlage, getAllPlages };
+// get plage by ID
+const getPlageById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const plage = await Plage.findById(id).populate("endUser");
+    res.status(200).json(plage);
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to retrieve plage",
+      error: error.message,
+    });
+  }
+};
+
+module.exports = { createPlage, getAllPlages, getPlageById };
