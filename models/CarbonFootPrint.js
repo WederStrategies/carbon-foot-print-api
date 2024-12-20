@@ -128,10 +128,17 @@ const CarbonFootprintSchema = new mongoose.Schema(
             ) {
               return false;
             }
+            if (
+              this.wasteDisposal.recycleHabit === "no" &&
+              value &&
+              value.length > 0
+            ) {
+              return false;
+            }
             return true;
           },
           message:
-            "Please select at least one recycling material if you recycle.",
+            "Please select at least one recycling material if you recycle, or leave it empty if you don't.",
         },
       },
     },
