@@ -5,6 +5,7 @@ const EndUser = require("../models/EndUser");
 const createCarbonFootprint = async (req, res) => {
   try {
     const data = req.body;
+    // console.log(data);
     const userName = data.name;
 
     const newEndUser = await EndUser.create({

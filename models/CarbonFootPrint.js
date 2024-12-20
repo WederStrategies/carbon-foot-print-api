@@ -1,15 +1,16 @@
 const mongoose = require("mongoose");
 
 // Enums for predefined values
-const HousingTypeEnum = ["Apartment", "Condo", "Townhouse"];
-const RecycleEnum = ["Yes", "No"];
+const HousingTypeEnum = ["apartment", "condo", "vila", "hut"];
+const RecycleEnum = ["yes", "no"];
+const RecycleMaterialsEnum = ["paper", "plastic", "bottle", "metal"];
 
 // Subschemas for Household Energy
 const HeatingAndCoolingSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["Electric", "charcoal", "dont use any "],
+    enum: ["electric", "charcoal", "dont use any "],
   },
   hourlyUsagePerDay: { type: Number, required: true },
 });
@@ -18,7 +19,7 @@ const CookingSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["Electric", "charcoal", "dont use any"],
+    enum: ["electric", "charcoal", "gas", "wood", "dont use any"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
 });
@@ -27,7 +28,7 @@ const ElectricApplianceSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["Tv", "Washing Machine", "Iron"],
+    enum: ["tv", "washingMachine", "iron"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
 });
@@ -36,7 +37,7 @@ const LightBulbSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["Incandescent", "CFL", "LED", "Fluorescent"],
+    enum: ["incandescent", "cfl", "led", "fluorescent"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
 });
@@ -46,7 +47,7 @@ const TransportSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["gas powered", "electric powered"],
+    enum: ["gasPowered", "electricPowered"],
   },
   distance: { type: Number, required: true },
   frequencyperWeek: { type: Number, required: true },
@@ -111,7 +112,28 @@ const CarbonFootprintSchema = new mongoose.Schema(
     foodWastage: { type: Number },
     wasteDisposal: {
       weeklyCollection: { frequency: { type: Number } },
-      recycleHabit: { type: String, enum: RecycleEnum },
+      recycleHabit: {
+        type: String,
+        enum: RecycleEnum,
+        required: true,
+      },
+      recycleMaterials: {
+        type: [String],
+        enum: RecycleMaterialsEnum,
+        validate: {
+          validator: function (value) {
+            if (
+              this.wasteDisposal.recycleHabit === "yes" &&
+              (!value || value.length === 0)
+            ) {
+              return false;
+            }
+            return true;
+          },
+          message:
+            "Please select at least one recycling material if you recycle.",
+        },
+      },
     },
     waterUsage: WaterUsageSchema,
   },
