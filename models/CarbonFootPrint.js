@@ -10,7 +10,7 @@ const HeatingAndCoolingSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["electric", "charcoal", "dont use any "],
+    enum: ["electric", "charcoal", "none"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
 });
@@ -28,7 +28,7 @@ const ElectricApplianceSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["tv", "washingMachine", "iron"],
+    enum: ["tv", "washingMachine", "iron", "refrigerator"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
 });
@@ -47,7 +47,7 @@ const TransportSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["gasPowered", "electricPowered"],
+    enum: ["gasPowered", "electricPowered", "hybrid"],
   },
   distance: { type: Number, required: true },
   frequencyperWeek: { type: Number, required: true },
@@ -104,10 +104,10 @@ const CarbonFootprintSchema = new mongoose.Schema(
       walking: [TransportSchemaBicycle],
     },
     dietAndFood: {
-      poultry: { dailyUsage: { type: Number } },
-      vegetable: { dailyUsage: { type: Number } },
-      meat: { dailyUsage: { type: Number } },
-      fish: { dailyUsage: { type: Number } },
+      poultry: { weeklyUsage: { type: Number } },
+      vegetable: { weeklyUsage: { type: Number } },
+      meat: { weeklyUsage: { type: Number } },
+      fish: { weeklyUsage: { type: Number } },
     },
     foodWastage: { type: Number },
     wasteDisposal: {
@@ -115,7 +115,6 @@ const CarbonFootprintSchema = new mongoose.Schema(
       recycleHabit: {
         type: String,
         enum: RecycleEnum,
-        required: true,
       },
       recycleMaterials: {
         type: [String],
