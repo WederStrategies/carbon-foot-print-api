@@ -1,3 +1,4 @@
+const { over } = require("lodash");
 const CarbonFootPrint = require("../models/CarbonFootPrint");
 const EndUser = require("../models/EndUser");
 const carbonFootPrintCalculator = require("../utility/carbonFootPrintCalculator");
@@ -13,9 +14,12 @@ const createCarbonFootprint = async (req, res) => {
       userId: `user-${Date.now()}`,
     });
 
+    const { totalSum, average } =
+      carbonFootPrintCalculator.totalCarbonFootPrintCalculator(data);
     const carbonFootprint = new CarbonFootPrint(data);
     carbonFootprint.endUser = newEndUser._id;
-    const savedEntry = await carbonFootprint.save(carbonFootprint);
+
+    await carbonFootprint.save(carbonFootprint);
 
     res.status(201).json({
       message: "Carbon footprint created successfully",
@@ -23,43 +27,37 @@ const createCarbonFootprint = async (req, res) => {
         (carbonFootPrintCalculator.householdCarbonFootPrintCalculator(
           data.householdEnergy
         ) /
-          carbonFootPrintCalculator.totalCarbonFootPrintCalculator(data)
-            .totalSum) *
+          totalSum) *
         100,
       transportationMode:
         (carbonFootPrintCalculator.transportationModeCarbonFootPrintCalculator(
           data.transportationMode
         ) /
-          carbonFootPrintCalculator.totalCarbonFootPrintCalculator(data)
-            .totalSum) *
+          totalSum) *
         100,
       dietAndFood:
         (carbonFootPrintCalculator.dietAndFoodCarbonFootPrintCalculator(
           data.dietAndFood
         ) /
-          carbonFootPrintCalculator.totalCarbonFootPrintCalculator(data)
-            .totalSum) *
+          totalSum) *
         100,
       foodWastage:
         (carbonFootPrintCalculator.foodWastageCarbonFootPrintCalculator(
           data.foodWastage
         ) /
-          carbonFootPrintCalculator.totalCarbonFootPrintCalculator(data)
-            .totalSum) *
+          totalSum) *
         100,
       wasteDisposal:
         (carbonFootPrintCalculator.wasteDisposalCarbonFootPrintCalculator(
           data.wasteDisposal
         ) /
-          carbonFootPrintCalculator.totalCarbonFootPrintCalculator(data)
-            .totalSum) *
+          totalSum) *
         100,
       waterUsage:
         (carbonFootPrintCalculator.waterUsageCarbonFootPrintCalculator(
           data.waterUsage
         ) /
-          carbonFootPrintCalculator.totalCarbonFootPrintCalculator(data)
-            .totalSum) *
+          totalSum) *
         100,
     });
   } catch (error) {

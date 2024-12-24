@@ -31,6 +31,7 @@ const ElectricApplianceSchema = new mongoose.Schema({
     enum: ["tv", "washingMachine", "iron", "refrigerator"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
+  frequencyperWeek: { type: Number, default: 7, required: true },
 });
 
 const LightBulbSchema = new mongoose.Schema({

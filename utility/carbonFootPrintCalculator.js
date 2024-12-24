@@ -1,143 +1,3 @@
-const data = {
-  name: "Kebede",
-  housingType: "apartment",
-  householdEnergy: {
-    heatingAndCooling: [
-      {
-        type: "electric",
-        hourlyUsagePerDay: 6,
-      },
-      {
-        type: "charcoal",
-        hourlyUsagePerDay: 2,
-      },
-    ],
-    cooking: [
-      {
-        type: "electric",
-        hourlyUsagePerDay: 3,
-      },
-    ],
-    electricAppliance: [
-      {
-        type: "tv",
-        hourlyUsagePerDay: 4,
-      },
-      {
-        type: "washingMachine",
-        hourlyUsagePerDay: 1.5,
-        frequencyperWeek: 2,
-      },
-      {
-        type: "iron",
-        hourlyUsagePerDay: 1.5,
-        frequencyperWeek: 2,
-      },
-    ],
-    lightBulbs: [
-      {
-        type: "incandescent",
-        hourlyUsagePerDay: 5,
-      },
-      {
-        type: "cfl",
-        hourlyUsagePerDay: 2,
-      },
-      {
-        type: "led",
-        hourlyUsagePerDay: 2,
-      },
-      {
-        type: "fluorescent",
-        hourlyUsagePerDay: 2,
-      },
-    ],
-  },
-  transportationMode: {
-    ownAutomobile: [
-      {
-        type: "gasPowered",
-        distance: 50,
-        frequencyperWeek: 5,
-      },
-      {
-        type: "electricPowered",
-        distance: 50,
-        frequencyperWeek: 5,
-      },
-    ],
-    publicTransport: [
-      {
-        type: "bus",
-        distance: 30,
-        frequencyperWeek: 3,
-      },
-      {
-        type: "taxi",
-        distance: 30,
-        frequencyperWeek: 3,
-      },
-      {
-        type: "train",
-        distance: 30,
-        frequencyperWeek: 3,
-      },
-      {
-        type: "ride",
-        distance: 30,
-        frequencyperWeek: 3,
-      },
-    ],
-    bicycle: [
-      {
-        distance: 10,
-        frequencyperWeek: 4,
-      },
-    ],
-    walking: [
-      {
-        distance: 5,
-        frequencyperWeek: 7,
-      },
-    ],
-  },
-  dietAndFood: {
-    poultry: {
-      weeklyUsage: 0.2,
-    },
-    vegetable: {
-      weeklyUsage: 0.5,
-    },
-    meat: {
-      weeklyUsage: 0.3,
-    },
-    fish: {
-      weeklyUsage: 0.1,
-    },
-  },
-  foodWastage: 15,
-  wasteDisposal: {
-    weeklyCollection: {
-      frequency: 2,
-    },
-    recycleHabit: "yes",
-    recycleMaterials: ["plastic", "paper", "metal"],
-  },
-  waterUsage: {
-    washingClothes: {
-      frequencyperWeek: 3,
-    },
-    showers: {
-      daysPerWeek: 7,
-      averageDuration: 10,
-    },
-    gardenWatering: {
-      daysPerWeek: 3,
-      averageDuration: 15,
-    },
-  },
-};
-
 const year = 365;
 const week = 52;
 const electricCarbonEmitedKgPerKwh = 0.024;
@@ -147,9 +7,9 @@ const woodCarbonEmitedCo2PerKg = 2.1;
 
 const householdCarbonFootPrintCalculator = (data) => {
   const householdEnergy = data;
-  console.log(householdEnergy.heatingAndCooling, "gg");
   const heatingAndCooling = householdEnergy.heatingAndCooling;
   let heatingAndCoolingCarbonFootPrint = 0;
+
   heatingAndCooling.forEach((item) => {
     if (item.type === "electric") {
       heatingAndCoolingCarbonFootPrint +=
@@ -157,7 +17,7 @@ const householdCarbonFootPrintCalculator = (data) => {
     } else if (item.type === "charcoal") {
       heatingAndCoolingCarbonFootPrint +=
         item.hourlyUsagePerDay * charcoalCarbonEmitedCo2PerKg * 0.58 * year;
-    } else if (item.type === "butane") {
+    } else if (item.type === "buthen") {
       heatingAndCoolingCarbonFootPrint +=
         item.hourlyUsagePerDay * buthenCarbonEmitedCo2Perkg * 0.189 * year;
     } else if (item.type === "wood") {
@@ -192,23 +52,26 @@ const householdCarbonFootPrintCalculator = (data) => {
       electricApplianceCarbonFootPrint +=
         item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.1 * year; // 0.1kw is the average wattage of a tv by assuming an avarage of 40 inch lcd tv
     } else if (item.type === "washingMachine") {
+      frequencyperWeek = item.frequencyperWeek ? item.frequencyperWeek : 7;
       electricApplianceCarbonFootPrint +=
         item.hourlyUsagePerDay *
-        item.frequencyperWeek *
+        frequencyperWeek *
         0.5 *
         electricCarbonEmitedKgPerKwh *
         week; // 0.5kw is the average wattage of a washing machine
     } else if (item.type === "iron") {
+      frequencyperWeek = item.frequencyperWeek ? item.frequencyperWeek : 7;
       electricApplianceCarbonFootPrint +=
         item.hourlyUsagePerDay *
-        item.frequencyperWeek *
+        frequencyperWeek *
         electricCarbonEmitedKgPerKwh *
         1.1 *
         week; // 1.1kw is the average wattage of an iron
     } else if (item.type === "refrigerator") {
+      electricApplianceCarbonFootPrint +=
+        24 * electricCarbonEmitedKgPerKwh * 0.15 * year;
     }
-    electricApplianceCarbonFootPrint +=
-      24 * electricCarbonEmitedKgPerKwh * 0.15 * year; // 0.15kw is the average wattage of a refrigerator
+    // 0.15kw is the average wattage of a refrigerator
   });
 
   // for light bulbs
@@ -236,7 +99,6 @@ const householdCarbonFootPrintCalculator = (data) => {
 };
 
 // transportation mode carbon footprint calculator
-
 const transportationModeCarbonFootPrintCalculator = (data) => {
   //for own automobile
   const ownAutomobile = data.ownAutomobile;
@@ -248,6 +110,9 @@ const transportationModeCarbonFootPrintCalculator = (data) => {
     } else if (item.type === "electricPowered") {
       ownAutomobileCarbonFootPrint +=
         item.distance * item.frequencyperWeek * 0.037 * week; // 0.033kg is the average co2 emission of an electric car per km
+    } else if (item.type === "hybrid") {
+      ownAutomobileCarbonFootPrint +=
+        item.distance * item.frequencyperWeek * 0.08 * week; // 0.08kg is the average co2 emission of an electric car per km
     }
   });
 
@@ -298,7 +163,6 @@ const transportationModeCarbonFootPrintCalculator = (data) => {
 };
 
 // diet and food carbon footprint calculator
-
 const dietAndFoodCarbonFootPrintCalculator = (data) => {
   // for poultry
   const poultry = data.poultry;
@@ -329,11 +193,8 @@ const dietAndFoodCarbonFootPrintCalculator = (data) => {
   );
 };
 
-// weste disposal carbon footprint calculator. This Calculator is based on addis ababa city waset disposal data
-
+// waste disposal carbon footprint calculator. This Calculator is based on addis ababa city waset disposal data
 const wasteDisposalCarbonFootPrintCalculator = (data) => {
-  // for weekly collection
-
   const frequency = data.weeklyCollection.frequency;
   let weeklyCollectionCarbonFootPrint = 0;
   weeklyCollectionCarbonFootPrint = frequency * 0.685 * year; // in addis ababa the avarage co2 emisssion form waste desposal is 836120 Ton c02 per year,so the average co2 emmission per a person is 0.685 kg per day by using 3,353,000 people in addis ababa.
@@ -373,32 +234,49 @@ const waterUsageCarbonFootPrintCalculator = (data) => {
 const foodWastageCarbonFootPrintCalculator = (data) => {
   const foodWastage = data;
   let foodWastageCarbonFootPrint = 0;
-  foodWastageCarbonFootPrint += foodWastage * 2.5 * year; // 2.5kg is the average co2 emission of a food wastage per kg
-
+  foodWastageCarbonFootPrint += foodWastage * 2.5 * week; // 2.5kg is the average co2 emission of a food wastage per kg
   return foodWastageCarbonFootPrint;
 };
 
-console.log(householdCarbonFootPrintCalculator(data.householdEnergy));
-console.log(
-  transportationModeCarbonFootPrintCalculator(data.transportationMode)
-);
-console.log(dietAndFoodCarbonFootPrintCalculator(data.dietAndFood));
-console.log(wasteDisposalCarbonFootPrintCalculator(data.wasteDisposal));
-console.log(waterUsageCarbonFootPrintCalculator(data.waterUsage));
-console.log(foodWastageCarbonFootPrintCalculator(data.foodWastage));
-
 // total carbon footprint calculator
 const totalCarbonFootPrintCalculator = (data) => {
-  const sum =
-    householdCarbonFootPrintCalculator(data.householdEnergy) +
-    transportationModeCarbonFootPrintCalculator(data.transportationMode) +
-    dietAndFoodCarbonFootPrintCalculator(data.dietAndFood) +
-    wasteDisposalCarbonFootPrintCalculator(data.wasteDisposal) +
-    waterUsageCarbonFootPrintCalculator(data.waterUsage) +
-    foodWastageCarbonFootPrintCalculator(data.foodWastage);
+  const categories = [
+    {
+      value: data.householdEnergy,
+      calculator: householdCarbonFootPrintCalculator,
+    },
+    {
+      value: data.transportationMode,
+      calculator: transportationModeCarbonFootPrintCalculator,
+    },
+    {
+      value: data.dietAndFood,
+      calculator: dietAndFoodCarbonFootPrintCalculator,
+    },
+    {
+      value: data.wasteDisposal,
+      calculator: wasteDisposalCarbonFootPrintCalculator,
+    },
+    { value: data.waterUsage, calculator: waterUsageCarbonFootPrintCalculator },
+    {
+      value: data.foodWastage,
+      calculator: foodWastageCarbonFootPrintCalculator,
+    },
+  ];
+
+  let sum = 0;
+  let count = 0;
+
+  categories.forEach((category) => {
+    if (category.value !== null && category.value !== undefined) {
+      sum += category.calculator(category.value);
+      count++;
+    }
+  });
+
   return {
     totalSum: sum,
-    average: sum / 6,
+    average: count > 0 ? sum / count : 0, // Avoid dividing by zero
   };
 };
 
