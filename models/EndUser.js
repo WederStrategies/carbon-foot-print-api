@@ -1,3 +1,4 @@
+const { uniq } = require("lodash");
 const mongoose = require("mongoose");
 
 const EndUserSchema = new mongoose.Schema(
@@ -11,6 +12,14 @@ const EndUserSchema = new mongoose.Schema(
       type: String,
       unique: true,
       required: true,
+    },
+    email: {
+      type: String,
+      unique: true,
+    },
+    phoneNumber: {
+      type: String,
+      unique: true,
     },
   },
   { timestamps: true }

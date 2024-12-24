@@ -48,8 +48,34 @@ const getEndUsersForLast24Hours = async (req, res) => {
   }
 };
 
+// update end user data
+const updateEnduserData = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, email, phoneNumber } = req.body;
+
+    const enduser = await EndUser.findById(id);
+    if (!enduser) {
+      return res.status(404).json({ message: "End user not found" });
+    }
+    if (enduser)
+      if (name) {
+        enduser.name = name;
+      }
+    (enduser.email = email), (enduser.phoneNumber = phoneNumber);
+    const updateEnduser = await enduser.save();
+    res.status(201).json(updateEnduser);
+  } catch (error) {
+    res.status(500).json({
+      message: "Faild to update end user",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   getEndUsers,
   getEndUsersForLast24Hours,
   geteEndUsersByid,
+  updateEnduserData,
 };

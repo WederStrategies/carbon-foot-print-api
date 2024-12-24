@@ -12,4 +12,8 @@ endUserRouter.get("/:id", endUserController.geteEndUsersByid);
 // Get all end users
 endUserRouter.get("/", endUserController.getEndUsers);
 
+// update end user data
+
+endUserRouter.patch("/:id", endUserController.updateEnduserData);
+
 module.exports = endUserRouter;
