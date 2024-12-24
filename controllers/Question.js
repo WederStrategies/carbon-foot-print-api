@@ -125,6 +125,48 @@ const addTranslationToQuestion = async (req, res) => {
   }
 };
 
+// Send an equal number of random questions by categories in a different order
+const getRandomQuestionsByCategories = async (req, res) => {
+  try {
+    const { categories } = req.body;
+    if (!categories || !categories.length > 0) {
+      return res.status(401).json({
+        message: "Catagory is required ",
+      });
+    }
+    const numberOfQuestions = 10;
+    const questionsPerCategory = Math.floor(
+      numberOfQuestions / categories.length
+    );
+    let questions = [];
+
+    for (const category of categories) {
+      const randomQuestions = await Question.aggregate([
+        { $match: { category } },
+        { $sample: { size: questionsPerCategory } },
+      ]);
+      questions = questions.concat(randomQuestions);
+    }
+
+    // Add extra questions to make up the total number of questions
+    const remainingQuestions = numberOfQuestions - questions.length;
+    if (remainingQuestions > 0) {
+      const extraCategory = categories[0]; // Choose the first category for extra questions
+      const extraQuestions = await Question.aggregate([
+        { $match: { category: extraCategory } },
+        { $sample: { size: remainingQuestions } },
+      ]);
+      questions = questions.concat(extraQuestions);
+    }
+    questions = questions.sort(() => Math.random() - 0.5);
+
+    res.status(200).json(questions);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Server error" });
+  }
+};
+
 // Method to fetch random questions for Socket.IO
 const getRandomQuestions = async () => {
   try {
@@ -133,19 +175,6 @@ const getRandomQuestions = async () => {
   } catch (error) {
     console.log(error);
   }
-  // const categories = ["Energy", "Water", "Waste", "Transportation", "Diet"];
-  // const questions = {};
-  // console.log(questions, "random selected question");
-
-  // for (const category of categories) {
-  //   const randomQuestions = await Question.aggregate([
-  //     { $match: { category } },
-  //     { $sample: { size: 10 } },
-  //   ]);
-  //   questions[category] = randomQuestions;
-  // }
-
-  // return questions;
 };
 
 // Handle Socket.IO
@@ -193,4 +222,5 @@ module.exports = {
   deleteQuestion,
   addTranslationToQuestion,
   handleSocket,
+  getRandomQuestionsByCategories,
 };
