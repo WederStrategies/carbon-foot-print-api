@@ -129,7 +129,7 @@ const addTranslationToQuestion = async (req, res) => {
 const getRandomQuestionsByCategories = async (req, res) => {
   try {
     const { categories } = req.body;
-    if (!categories || !categories.length > 0) {
+    if (!categories || categories.length === 0) {
       return res.status(401).json({
         message: "Catagory is required ",
       });
@@ -168,13 +168,32 @@ const getRandomQuestionsByCategories = async (req, res) => {
 };
 
 // Method to fetch random questions for Socket.IO
-const getRandomQuestions = async () => {
-  try {
-    const questions = await Question.find();
-    return questions;
-  } catch (error) {
-    console.log(error);
+const getRandomQuestions = async (categories) => {
+  const numberOfQuestions = 10;
+  const questionsPerCategory = Math.floor(
+    numberOfQuestions / categories.length
+  );
+  let questions = [];
+
+  for (const category of categories) {
+    const randomQuestions = await Question.aggregate([
+      { $match: { category } },
+      { $sample: { size: questionsPerCategory } },
+    ]);
+    questions = questions.concat(randomQuestions);
   }
+  // Add extra questions to make up the total number of questions
+  const remainingQuestions = numberOfQuestions - questions.length;
+  if (remainingQuestions > 0) {
+    const extraCategory = categories[0]; // Choose the first category for extra questions
+    const extraQuestions = await Question.aggregate([
+      { $match: { category: extraCategory } },
+      { $sample: { size: remainingQuestions } },
+    ]);
+    questions = questions.concat(extraQuestions);
+  }
+  questions = questions.sort(() => Math.random() - 0.5);
+  return questions;
 };
 
 // Handle Socket.IO
@@ -183,9 +202,12 @@ const handleSocket = (socket) => {
 
   // Listen for client request
   socket.on("fetch-questions", async (data) => {
-    const { language, catagoryList } = data;
+    const { categories } = data;
     try {
-      const questions = await getRandomQuestions();
+      if (!categories || categories.length === 0) {
+        return socket.emit("questions-data", "Category list is required");
+      }
+      const questions = await getRandomQuestions(categories);
 
       socket.emit("questions-data", questions);
     } catch (error) {
