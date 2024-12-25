@@ -129,9 +129,10 @@ const addTranslationToQuestion = async (req, res) => {
 const getRandomQuestionsByCategories = async (req, res) => {
   try {
     const { categories } = req.body;
+
     if (!categories || categories.length === 0) {
       return res.status(401).json({
-        message: "Catagory is required ",
+        message: "Category is required",
       });
     }
     const numberOfQuestions = 10;
@@ -142,10 +143,22 @@ const getRandomQuestionsByCategories = async (req, res) => {
 
     for (const category of categories) {
       const randomQuestions = await Question.aggregate([
-        { $match: { category } },
-        { $sample: { size: questionsPerCategory } },
+        { $match: { category, difficulty: "General" } },
+        { $sample: { size: Math.ceil(questionsPerCategory / 3) } },
       ]);
       questions = questions.concat(randomQuestions);
+
+      const randomQuestionsMedium = await Question.aggregate([
+        { $match: { category, difficulty: "CarbonFootPrint" } },
+        { $sample: { size: Math.ceil(questionsPerCategory / 3) } },
+      ]);
+      questions = questions.concat(randomQuestionsMedium);
+
+      const randomQuestionsHard = await Question.aggregate([
+        { $match: { category, difficulty: "Action" } },
+        { $sample: { size: Math.floor(questionsPerCategory / 3) } },
+      ]);
+      questions = questions.concat(randomQuestionsHard);
     }
 
     // Add extra questions to make up the total number of questions
@@ -153,7 +166,7 @@ const getRandomQuestionsByCategories = async (req, res) => {
     if (remainingQuestions > 0) {
       const extraCategory = categories[0]; // Choose the first category for extra questions
       const extraQuestions = await Question.aggregate([
-        { $match: { category: extraCategory } },
+        { $match: { category: extraCategory, difficulty: "General" } },
         { $sample: { size: remainingQuestions } },
       ]);
       questions = questions.concat(extraQuestions);
@@ -177,11 +190,24 @@ const getRandomQuestions = async (categories) => {
 
   for (const category of categories) {
     const randomQuestions = await Question.aggregate([
-      { $match: { category } },
-      { $sample: { size: questionsPerCategory } },
+      { $match: { category, difficulty: "easy" } },
+      { $sample: { size: Math.ceil(questionsPerCategory / 3) } },
     ]);
     questions = questions.concat(randomQuestions);
+
+    const randomQuestionsMedium = await Question.aggregate([
+      { $match: { category, difficulty: "medium" } },
+      { $sample: { size: Math.ceil(questionsPerCategory / 3) } },
+    ]);
+    questions = questions.concat(randomQuestionsMedium);
+
+    const randomQuestionsHard = await Question.aggregate([
+      { $match: { category, difficulty: "hard" } },
+      { $sample: { size: Math.floor(questionsPerCategory / 3) } },
+    ]);
+    questions = questions.concat(randomQuestionsHard);
   }
+
   // Add extra questions to make up the total number of questions
   const remainingQuestions = numberOfQuestions - questions.length;
   if (remainingQuestions > 0) {

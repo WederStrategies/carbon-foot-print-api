@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 // Enums for predefined values
 const CategoryEnum = ["Energy", "Water", "Waste", "Transportation", "Diet"];
-const DifficultyEnum = ["Easy", "Medium", "Hard"];
+const DifficultyEnum = ["General", "CarbonFootPrint", "Action"];
 const LanguageEnum = ["English", "Amaharic", "Oromifa", "Tigrinya"];
 
 // Subschema for options
