@@ -1,4 +1,3 @@
-const { uniq } = require("lodash");
 const mongoose = require("mongoose");
 
 const EndUserSchema = new mongoose.Schema(

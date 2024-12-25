@@ -1,4 +1,3 @@
-const { over } = require("lodash");
 const CarbonFootPrint = require("../models/CarbonFootPrint");
 const EndUser = require("../models/EndUser");
 const carbonFootPrintCalculator = require("../utility/carbonFootPrintCalculator");
@@ -59,6 +58,33 @@ const createCarbonFootprint = async (req, res) => {
         ) /
           totalSum) *
         100,
+
+      data: {
+        householdEnergy:
+          carbonFootPrintCalculator.householdCarbonFootPrintCalculator(
+            data.householdEnergy
+          ),
+        transportationMode:
+          carbonFootPrintCalculator.transportationModeCarbonFootPrintCalculator(
+            data.transportationMode
+          ),
+        dietAndFood:
+          carbonFootPrintCalculator.dietAndFoodCarbonFootPrintCalculator(
+            data.dietAndFood
+          ),
+        foodWastage:
+          carbonFootPrintCalculator.foodWastageCarbonFootPrintCalculator(
+            data.foodWastage
+          ),
+        wasteDisposal:
+          carbonFootPrintCalculator.wasteDisposalCarbonFootPrintCalculator(
+            data.wasteDisposal
+          ),
+        waterusage:
+          carbonFootPrintCalculator.waterUsageCarbonFootPrintCalculator(
+            data.waterUsage
+          ),
+      },
     });
   } catch (error) {
     res.status(500).json({

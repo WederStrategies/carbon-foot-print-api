@@ -6,7 +6,7 @@ const questionRouter = express.Router();
 questionRouter.post("/", questionController.createQuestion);
 
 // send random questions by categories
-questionRouter.get("/rnd", questionController.getRandomQuestionsByCategories);
+questionRouter.post("/rnd", questionController.getRandomQuestionsByCategories);
 
 // get all questions
 questionRouter.get("/", questionController.getAllQuestions);

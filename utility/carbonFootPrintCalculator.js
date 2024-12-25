@@ -10,34 +10,36 @@ const householdCarbonFootPrintCalculator = (data) => {
   const heatingAndCooling = householdEnergy.heatingAndCooling;
   let heatingAndCoolingCarbonFootPrint = 0;
 
+  // for heating and cooling
   heatingAndCooling.forEach((item) => {
     if (item.type === "electric") {
       heatingAndCoolingCarbonFootPrint +=
-        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 1.5 * year;
+        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 1.5 * year; // 1.5 kw is an average heater capacity
     } else if (item.type === "charcoal") {
       heatingAndCoolingCarbonFootPrint +=
-        item.hourlyUsagePerDay * charcoalCarbonEmitedCo2PerKg * 0.58 * year;
+        item.hourlyUsagePerDay * charcoalCarbonEmitedCo2PerKg * 0.58 * year; // 0.58 kg charcoal is used per hour on average
     } else if (item.type === "buthen") {
       heatingAndCoolingCarbonFootPrint +=
-        item.hourlyUsagePerDay * buthenCarbonEmitedCo2Perkg * 0.189 * year;
+        item.hourlyUsagePerDay * buthenCarbonEmitedCo2Perkg * 0.189 * year; // 0.189 kg lpg is used per hour on average
     } else if (item.type === "wood") {
       heatingAndCoolingCarbonFootPrint +=
-        item.hourlyUsagePerDay * woodCarbonEmitedCo2PerKg * 0.58 * year;
+        item.hourlyUsagePerDay * woodCarbonEmitedCo2PerKg * 1.3 * year; // // Hourly Firewood Consumption Patterns and CO2 Emission Patterns in Rural Households of Nepal
     }
   });
+
   // for cooking
   const cooking = householdEnergy.cooking;
   let cookingCarbonFootPrint = 0;
   cooking.forEach((item) => {
     if (item.type === "electric") {
       cookingCarbonFootPrint +=
-        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 1.5 * year;
+        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 1.5 * year; // 1.5 kw is an average heater capacity
     } else if (item.type === "charcoal") {
       cookingCarbonFootPrint +=
-        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.58 * year;
+        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.58 * year; // 0.58 kg charcoal is used per hour on average
     } else if (item.type === "gas") {
       cookingCarbonFootPrint +=
-        item.hourlyUsagePerDay * buthenCarbonEmitedCo2Perkg * 0.189 * year;
+        item.hourlyUsagePerDay * buthenCarbonEmitedCo2Perkg * 0.189 * year; // 0.189 kg lpg is used per hour on average
     } else if (item.type === "wood") {
       cookingCarbonFootPrint +=
         item.hourlyUsagePerDay * woodCarbonEmitedCo2PerKg * 1.3 * year; // Hourly Firewood Consumption Patterns and CO2 Emission Patterns in Rural Households of Nepal
@@ -52,7 +54,7 @@ const householdCarbonFootPrintCalculator = (data) => {
       electricApplianceCarbonFootPrint +=
         item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.1 * year; // 0.1kw is the average wattage of a tv by assuming an avarage of 40 inch lcd tv
     } else if (item.type === "washingMachine") {
-      frequencyperWeek = item.frequencyperWeek ? item.frequencyperWeek : 7;
+      frequencyperWeek = item.frequencyperWeek ? item.frequencyperWeek : 3;
       electricApplianceCarbonFootPrint +=
         item.hourlyUsagePerDay *
         frequencyperWeek *
@@ -60,7 +62,7 @@ const householdCarbonFootPrintCalculator = (data) => {
         electricCarbonEmitedKgPerKwh *
         week; // 0.5kw is the average wattage of a washing machine
     } else if (item.type === "iron") {
-      frequencyperWeek = item.frequencyperWeek ? item.frequencyperWeek : 7;
+      frequencyperWeek = item.frequencyperWeek ? item.frequencyperWeek : 3;
       electricApplianceCarbonFootPrint +=
         item.hourlyUsagePerDay *
         frequencyperWeek *
@@ -197,7 +199,7 @@ const dietAndFoodCarbonFootPrintCalculator = (data) => {
 const wasteDisposalCarbonFootPrintCalculator = (data) => {
   const frequency = data.weeklyCollection.frequency;
   let weeklyCollectionCarbonFootPrint = 0;
-  weeklyCollectionCarbonFootPrint = frequency * 0.685 * year; // in addis ababa the avarage co2 emisssion form waste desposal is 836120 Ton c02 per year,so the average co2 emmission per a person is 0.685 kg per day by using 3,353,000 people in addis ababa.
+  weeklyCollectionCarbonFootPrint = frequency * 0.685 * week; // in addis ababa the avarage co2 emisssion form waste desposal is 836120 Ton c02 per year,so the average co2 emmission per a person is 0.685 kg per day by using 3,353,000 people in addis ababa.
   return weeklyCollectionCarbonFootPrint; //https://epa.gov.et/images/PDF/Climatechange/2016_Addis_Ababa_GHG_Emssion_Report.pdf
 };
 
@@ -206,12 +208,12 @@ const waterUsageCarbonFootPrintCalculator = (data) => {
   const washingClothes = data.washingClothes;
   let washingClothesCarbonFootPrint = 0;
   washingClothesCarbonFootPrint +=
-    washingClothes.frequencyperWeek * 50 * 0.0082 * year; // 50 liters is the average water usage per washing a clothes for a one time frequency. 0.0082 is the avarage kg co2 emmitted per liter of water usage.
+    washingClothes.frequencyperWeek * 50 * 0.0082 * week; // 50 liters is the average water usage per washing a clothes for a one time frequency. 0.0082 is the avarage kg co2 emmitted per liter of water usage.
 
   const showers = data.showers;
   let showersCarbonFootPrint = 0;
   showersCarbonFootPrint +=
-    showers.daysPerWeek * showers.averageDuration * 7.5 * 0.0082 * year; // 7.5 liters is the average water usage per shower  in one minute
+    showers.daysPerWeek * showers.averageDuration * 7.5 * 0.0082 * week; // 7.5 liters is the average water usage per shower  in one minute. 0.0082 is the avarage kg co2 emmitted per liter of water usage.
 
   const gardenWatering = data.gardenWatering;
   let gardenWateringCarbonFootPrint = 0;
@@ -220,7 +222,7 @@ const waterUsageCarbonFootPrintCalculator = (data) => {
     gardenWatering.averageDuration *
     34 *
     0.0082 *
-    year; // 34 liters is the average water usage per garden watering in  one minute
+    week; // 34 liters is the average water usage per garden watering in  one minute. 0.0082 is the avarage kg co2 emmitted per liter of water usage.
 
   return (
     washingClothesCarbonFootPrint +
