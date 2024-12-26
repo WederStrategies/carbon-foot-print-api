@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Question = require("./Question");
 
 const QuestionAttemptSchema = new mongoose.Schema(
   {
@@ -10,6 +11,19 @@ const QuestionAttemptSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    questions: [
+      {
+        questionId: {
+          type: mongoose.Schema.ObjectId,
+          ref: Question,
+          required: true,
+        },
+        answerId: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
   },
   { timestamps: true }
 );

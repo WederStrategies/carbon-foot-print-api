@@ -3,11 +3,12 @@ const QuestionAttempt = require("../models/QuestionAttempt");
 // Record a new question attempt
 const recordQuestionAttempt = async (req, res) => {
   try {
-    const { name, score } = req.body;
+    const { name, score, questions } = req.body;
 
     const newAttempt = new QuestionAttempt({
       name,
       score,
+      questions,
     });
 
     const savedAttempt = await newAttempt.save();
@@ -23,8 +24,8 @@ const recordQuestionAttempt = async (req, res) => {
   }
 };
 
-// get all quesiotn attempts
-const getAllQuesionAttempts = async (req, res) => {
+// get all question attempts
+const getAllQuestionAttempts = async (req, res) => {
   try {
     const questionAttempts = await QuestionAttempt.find();
     if (questionAttempts.length === 0) {
@@ -33,14 +34,13 @@ const getAllQuesionAttempts = async (req, res) => {
     return res.status(202).json(questionAttempts);
   } catch (error) {
     res.status(500).json({
-      message: " Faild to retrive question attempts ",
+      message: "Failed to retrieve question attempts",
       error: error.message,
     });
   }
 };
 
 // get top 10 question attempts
-
 const getTop10QuestionAttempts = async (req, res) => {
   try {
     const topAttempts = await QuestionAttempt.find()
@@ -50,7 +50,7 @@ const getTop10QuestionAttempts = async (req, res) => {
     res.status(200).json(topAttempts);
   } catch (error) {
     res.status(500).json({
-      message: "Error featching question attempts",
+      message: "Error fetching question attempts",
       error: error.message,
     });
   }
@@ -72,11 +72,9 @@ const getQuestionAttemptsByName = async (req, res) => {
   }
 };
 
-//
-
 module.exports = {
   recordQuestionAttempt,
   getQuestionAttemptsByName,
-  getAllQuesionAttempts,
+  getAllQuestionAttempts,
   getTop10QuestionAttempts,
 };

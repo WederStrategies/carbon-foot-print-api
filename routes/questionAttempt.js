@@ -7,7 +7,10 @@ questionAttemptRouter.post(
   "/",
   questionAttemptController.recordQuestionAttempt
 );
-questionAttemptRouter.get("/", questionAttemptController.getAllQuesionAttempts);
+questionAttemptRouter.get(
+  "/",
+  questionAttemptController.getAllQuestionAttempts
+);
 questionAttemptRouter.get(
   "/top10",
   questionAttemptController.getTop10QuestionAttempts
