@@ -160,6 +160,7 @@ const getCarbonFootPrintByEndUserId = async (req, res) => {
     }
 
     res.status(200).json({
+      value: entries[0],
       data: {
         householdEnergy:
           carbonFootPrintCalculator.householdCarbonFootPrintCalculator(
