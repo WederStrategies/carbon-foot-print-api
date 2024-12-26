@@ -159,7 +159,34 @@ const getCarbonFootPrintByEndUserId = async (req, res) => {
         .json({ message: "No carbon footprints found for this user" });
     }
 
-    res.status(200).json(entries);
+    res.status(200).json({
+      data: {
+        householdEnergy:
+          carbonFootPrintCalculator.householdCarbonFootPrintCalculator(
+            entries[0].householdEnergy
+          ),
+        transportationMode:
+          carbonFootPrintCalculator.transportationModeCarbonFootPrintCalculator(
+            entries[0].transportationMode
+          ),
+        dietAndFood:
+          carbonFootPrintCalculator.dietAndFoodCarbonFootPrintCalculator(
+            entries[0].dietAndFood
+          ),
+        foodWastage:
+          carbonFootPrintCalculator.foodWastageCarbonFootPrintCalculator(
+            entries[0].foodWastage
+          ),
+        wasteDisposal:
+          carbonFootPrintCalculator.wasteDisposalCarbonFootPrintCalculator(
+            entries[0].wasteDisposal
+          ),
+        waterusage:
+          carbonFootPrintCalculator.waterUsageCarbonFootPrintCalculator(
+            entries[0].waterUsage
+          ),
+      },
+    });
   } catch (error) {
     res.status(500).json({
       message: "Failed to retrieve carbon footprints",
