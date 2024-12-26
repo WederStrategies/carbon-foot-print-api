@@ -12,7 +12,7 @@ questionAttemptRouter.get(
   questionAttemptController.getAllQuestionAttempts
 );
 questionAttemptRouter.get(
-  "/top10",
+  "/top10/:attemptId",
   questionAttemptController.getTop10QuestionAttempts
 );
 questionAttemptRouter.get(
