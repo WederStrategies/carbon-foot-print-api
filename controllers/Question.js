@@ -171,9 +171,15 @@ const getRandomQuestionsByCategories = async (req, res) => {
       ]);
       questions = questions.concat(extraQuestions);
     }
-    questions = questions.sort(() => Math.random() - 0.5);
 
-    res.status(200).json(questions);
+    const difficultyOrder = ["General", "CarbonFootPrint", "Action"];
+    const sortedData = questions.sort((a, b) => {
+      const difficultyA = difficultyOrder.indexOf(a.difficulty);
+      const difficultyB = difficultyOrder.indexOf(b.difficulty);
+      return difficultyA - difficultyB;
+    });
+
+    res.status(200).json(sortedData);
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Server error" });
