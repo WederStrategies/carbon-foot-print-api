@@ -14,6 +14,8 @@ const createQuestion = async (req, res) => {
         message: `Category with name ${category} does not exist`,
       });
     }
+    categoryExists.numberOfQuestions += 1;
+    await categoryExists.save();
 
     if (!translations.length) {
       return res.status(404).json({ message: "Language not selected " });
@@ -79,15 +81,57 @@ const updateQuestion = async (req, res) => {
       return res.status(404).json({ message: "Language not selected " });
     }
 
-    // Validate languages in translations
-    for (const translation of translations) {
-      const languageExists = await Language.findOne({
-        name: translation.language,
+    const question = await Question.findById(id);
+    if (!question) {
+      return res.status(404).json({ message: "Question not found" });
+    }
+
+    // Decrement the number of questions in the old category if different
+    if (question.category !== category) {
+      const oldCategory = await QuestionCategory.findOne({
+        name: question.category,
       });
-      if (!languageExists) {
+      if (oldCategory) {
+        oldCategory.numberOfQuestions -= 1;
+        await oldCategory.save();
+      }
+
+      // Increment the number of questions in the new category
+      const newCategory = await QuestionCategory.findOne({ name: category });
+      if (!newCategory) {
         return res.status(400).json({
-          message: `Language with name ${translation.language} does not exist`,
+          message: `Category with name ${category} does not exist`,
         });
+      }
+      newCategory.numberOfQuestions += 1;
+      await newCategory.save();
+    }
+
+    // Decrement the number of questions in the old languages if different
+    const oldLanguages = question.translations.map((t) => t.language);
+    const newLanguages = translations.map((t) => t.language);
+
+    for (const oldLanguage of oldLanguages) {
+      if (!newLanguages.includes(oldLanguage)) {
+        const languageDoc = await Language.findOne({ name: oldLanguage });
+        if (languageDoc) {
+          languageDoc.numberOfQuestions -= 1;
+          await languageDoc.save();
+        }
+      }
+    }
+
+    // Increment the number of questions in the new languages if different
+    for (const newLanguage of newLanguages) {
+      if (!oldLanguages.includes(newLanguage)) {
+        const languageDoc = await Language.findOne({ name: newLanguage });
+        if (!languageDoc) {
+          return res.status(400).json({
+            message: `Language with name ${newLanguage} does not exist`,
+          });
+        }
+        languageDoc.numberOfQuestions += 1;
+        await languageDoc.save();
       }
     }
 
@@ -95,10 +139,6 @@ const updateQuestion = async (req, res) => {
       new: true,
       runValidators: true,
     });
-
-    if (!updatedQuestion) {
-      return res.status(404).json({ message: "Question not found" });
-    }
 
     res.status(200).json(updatedQuestion);
   } catch (error) {
@@ -110,10 +150,28 @@ const updateQuestion = async (req, res) => {
 const deleteQuestion = async (req, res) => {
   try {
     const { id } = req.params;
-    const deletedQuestion = await Question.findByIdAndDelete(id);
+    const question = await Question.findByIdAndDelete(id);
 
-    if (!deletedQuestion) {
+    if (!question) {
       return res.status(404).json({ message: "Question not found" });
+    }
+
+    // Decrement the number of questions in the category
+    const category = await QuestionCategory.findOne({
+      name: question.category,
+    });
+    if (category) {
+      category.numberOfQuestions -= 1;
+      await category.save();
+    }
+
+    // Decrement the number of questions in the languages
+    for (const translation of question.translations) {
+      const language = await Language.findOne({ name: translation.language });
+      if (language) {
+        language.numberOfQuestions -= 1;
+        await language.save();
+      }
     }
 
     res.status(200).json({ message: "Question deleted successfully" });

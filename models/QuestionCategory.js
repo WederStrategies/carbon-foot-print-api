@@ -7,6 +7,10 @@ const QuestionCategorySchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    numberOfQuestions: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );
