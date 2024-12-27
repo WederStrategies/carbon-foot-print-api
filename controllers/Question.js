@@ -19,16 +19,16 @@ const createQuestion = async (req, res) => {
       return res.status(404).json({ message: "Language not selected " });
     }
 
-    // Validate languages in translations
+    // Validate languages in translations and increment the number of questions
     for (const translation of translations) {
-      const languageExists = await Language.findOne({
-        name: translation.language,
-      });
-      if (!languageExists) {
+      const language = await Language.findOne({ name: translation.language });
+      if (!language) {
         return res.status(400).json({
           message: `Language with name ${translation.language} does not exist`,
         });
       }
+      language.numberOfQuestions += 1;
+      await language.save();
     }
 
     const question = new Question(req.body);
@@ -141,6 +141,17 @@ const addTranslationToQuestion = async (req, res) => {
         .status(400)
         .json({ message: `Translation for ${language} already exists` });
     }
+
+    // Increment the number of questions in the Language schema
+    const languageDoc = await Language.findOne({ name: language });
+    if (!languageDoc) {
+      return res.status(400).json({
+        message: `Language with name ${language} does not exist`,
+      });
+    }
+    languageDoc.numberOfQuestions += 1;
+    await languageDoc.save();
+
     const newTranslation = {
       language,
       question,
