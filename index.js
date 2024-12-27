@@ -48,6 +48,7 @@ app.use("/api/v1/question", require("./routes/Question"));
 app.use("/api/v1/endUser", require("./routes/endUser"));
 app.use("/api/v1/pledge", require("./routes/pledge"));
 app.use("/api/v1/questionAttempts", require("./routes/questionAttempt"));
+app.use("/api/v1/languages", require("./routes/language"));
 
 io.on("connection", (socket) => {
   questionController.handleSocket(socket); // Use Socket.IO handler from QuestionController
