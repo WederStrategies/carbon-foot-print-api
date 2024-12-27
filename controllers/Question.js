@@ -1,12 +1,24 @@
 const Question = require("../models/Question");
+const Language = require("../models/Language");
 
 // Create a new question
 const createQuestion = async (req, res) => {
   try {
-    const question = new Question(req.body);
-    if (!question.translations.length) {
-      res.status(201).json({ message: "Language not selected" });
+    const { translations } = req.body;
+
+    // Validate languages in translations
+    for (const translation of translations) {
+      const languageExists = await Language.findOne({
+        name: translation.language,
+      });
+      if (!languageExists) {
+        return res.status(400).json({
+          message: `Language with name ${translation.language} does not exist`,
+        });
+      }
     }
+
+    const question = new Question(req.body);
     await question.save();
     res.status(201).json(question);
   } catch (error) {
