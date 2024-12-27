@@ -1,14 +1,24 @@
 const Question = require("../models/Question");
 const Language = require("../models/Language");
+const QuestionCategory = require("../models/QuestionCategory");
 
 // Create a new question
 const createQuestion = async (req, res) => {
   try {
-    const { translations } = req.body;
+    const { category, translations } = req.body;
+
+    // Validate category
+    const categoryExists = await QuestionCategory.findOne({ name: category });
+    if (!categoryExists) {
+      return res.status(400).json({
+        message: `Category with name ${category} does not exist`,
+      });
+    }
 
     if (!translations.length) {
       return res.status(404).json({ message: "Language not selected " });
     }
+
     // Validate languages in translations
     for (const translation of translations) {
       const languageExists = await Language.findOne({

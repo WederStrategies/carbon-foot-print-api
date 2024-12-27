@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 // Enums for predefined values
-const CategoryEnum = ["Energy", "Water", "Waste", "Transportation", "Diet"];
 const DifficultyEnum = ["General", "CarbonFootPrint", "Action"];
 
 // Subschema for options
@@ -24,7 +23,7 @@ const translationSchema = new mongoose.Schema({
 // Main schema for questions
 const QuestionSchema = new mongoose.Schema(
   {
-    category: { type: String, required: true, enum: CategoryEnum },
+    category: { type: String, required: true },
     difficulty: { type: String, required: true, enum: DifficultyEnum },
     translations: [translationSchema],
   },
