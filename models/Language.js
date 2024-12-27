@@ -7,10 +7,9 @@ const LanguageSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    code: {
-      type: String,
-      required: true,
-      unique: true,
+    numberOfQuestions: {
+      type: Number,
+      default: 0,
     },
   },
   { timestamps: true }

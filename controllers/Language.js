@@ -3,17 +3,16 @@ const Language = require("../models/Language");
 // Create a new language
 const createLanguage = async (req, res) => {
   try {
-    const { name, code } = req.body;
-    const existingLanguage = await Language.findOne({
-      $or: [{ name }, { code }],
-    });
+    const { name } = req.body;
+
+    const existingLanguage = await Language.findOne({ name });
     if (existingLanguage) {
       return res.status(400).json({
-        message: `Language with name ${name} or code ${code} already exists`,
+        message: `Language with name ${name} already exists`,
       });
     }
 
-    const language = new Language({ name, code });
+    const language = new Language({ name });
     const savedLanguage = await language.save();
     res.status(201).json({
       message: "Language created successfully",
