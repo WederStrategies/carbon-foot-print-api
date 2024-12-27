@@ -6,6 +6,9 @@ const createQuestion = async (req, res) => {
   try {
     const { translations } = req.body;
 
+    if (!translations.length) {
+      return res.status(404).json({ message: "Language not selected " });
+    }
     // Validate languages in translations
     for (const translation of translations) {
       const languageExists = await Language.findOne({
@@ -64,6 +67,18 @@ const updateQuestion = async (req, res) => {
 
     if (!translations.length) {
       return res.status(404).json({ message: "Language not selected " });
+    }
+
+    // Validate languages in translations
+    for (const translation of translations) {
+      const languageExists = await Language.findOne({
+        name: translation.language,
+      });
+      if (!languageExists) {
+        return res.status(400).json({
+          message: `Language with name ${translation.language} does not exist`,
+        });
+      }
     }
 
     const updatedQuestion = await Question.findByIdAndUpdate(id, req.body, {
