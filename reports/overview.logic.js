@@ -1,0 +1,29 @@
+const express = require("express");
+const User = require("../models/User"); // Assuming you have a User model
+const Question = require("../models/Question"); // Assuming you have a Question model
+const EndUser = require("../models/EndUser");
+
+const router = express.Router();
+
+// get total number of endUsers, Q/A and Data Managers
+const getSummary = async (req, res) => {
+  try {
+    const totalEndUsers = await EndUser.countDocuments();
+    const totalQuestions = await Question.countDocuments();
+    const totalDataManagers = await User.countDocuments({
+      role: "data_manager",
+    });
+
+    res.json({
+      totalEndUsers,
+      totalQuestions,
+      totalDataManagers,
+    });
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+module.exports = {
+  getSummary,
+};

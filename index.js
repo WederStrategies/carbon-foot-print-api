@@ -51,6 +51,9 @@ app.use("/api/v1/questionAttempts", require("./routes/questionAttempt"));
 app.use("/api/v1/languages", require("./routes/language"));
 app.use("/api/v1/questionCatagories", require("./routes/questionCategory"));
 
+// for all reports
+app.use("/api/v1/reports/overview", require("./reports/overview.routes"));
+
 io.on("connection", (socket) => {
   questionController.handleSocket(socket); // Use Socket.IO handler from QuestionController
 });
