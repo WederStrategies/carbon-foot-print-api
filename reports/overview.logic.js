@@ -2,6 +2,7 @@ const express = require("express");
 const User = require("../models/User"); // Assuming you have a User model
 const Question = require("../models/Question"); // Assuming you have a Question model
 const EndUser = require("../models/EndUser");
+const CarbonFootprintSummary = require("../models/CarbonFootPrintSummary");
 
 const router = express.Router();
 
@@ -24,6 +25,16 @@ const getSummary = async (req, res) => {
   }
 };
 
+const getCarbonFootprintSummary = async (req, res) => {
+  try {
+    const carbonFootprintData = await CarbonFootprintSummary.find();
+    res.json(carbonFootprintData);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 module.exports = {
   getSummary,
+  getCarbonFootprintSummary,
 };
