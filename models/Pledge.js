@@ -9,7 +9,7 @@ const HeatingAndCoolingSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["Electric", "charcoal", "dont use any "],
+    enum: ["electric", "charcoal", "none"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
 });
@@ -18,7 +18,7 @@ const CookingSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["Electric", "charcoal", "dont use any"],
+    enum: ["electric", "charcoal", "gas", "wood", "dont use any"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
 });
@@ -27,16 +27,17 @@ const ElectricApplianceSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["Tv", "Washing Machine", "Iron"],
+    enum: ["tv", "washingMachine", "iron", "refrigerator"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
+  frequencyperWeek: { type: Number, default: 7, required: true },
 });
 
 const LightBulbSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["Incandescent", "CFL", "LED", "Fluorescent"],
+    enum: ["incandescent", "cfl", "led", "fluorescent"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
 });
@@ -46,7 +47,7 @@ const TransportSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["gas powered", "electric powered"],
+    enum: ["gasPowered", "electricPowered", "hybrid"],
   },
   distance: { type: Number, required: true },
   frequencyperWeek: { type: Number, required: true },

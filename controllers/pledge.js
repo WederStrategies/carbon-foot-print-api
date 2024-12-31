@@ -1,5 +1,7 @@
 const EndUser = require("../models/EndUser");
 const Pledge = require("../models/Pledge");
+const PledgeSummary = require("../models/PledgeSummary");
+const carbonFootPrintCalculator = require("../utility/carbonFootPrintCalculator");
 
 // Create a new plage
 const createPlage = async (req, res) => {
@@ -17,6 +19,71 @@ const createPlage = async (req, res) => {
     }
 
     const entryData = await pledge.save();
+
+    const householdEnergy =
+      carbonFootPrintCalculator.householdCarbonFootPrintCalculator(
+        data.householdEnergy
+      );
+    const transportationMode =
+      carbonFootPrintCalculator.transportationModeCarbonFootPrintCalculator(
+        data.transportationMode
+      );
+    const dietAndFood =
+      carbonFootPrintCalculator.dietAndFoodCarbonFootPrintCalculator(
+        data.dietAndFood
+      );
+    const foodWastage =
+      carbonFootPrintCalculator.foodWastageCarbonFootPrintCalculator(
+        data.foodWastage
+      );
+    const wasteDisposal =
+      carbonFootPrintCalculator.wasteDisposalCarbonFootPrintCalculator(
+        data.wasteDisposal
+      );
+    const waterUsage =
+      carbonFootPrintCalculator.waterUsageCarbonFootPrintCalculator(
+        data.waterUsage
+      );
+
+    const pledgeData = {
+      householdEnergy,
+      transportationMode,
+      dietAndFood,
+      foodWastage,
+      wasteDisposal,
+      waterUsage,
+    };
+
+    let existingPledgeSummary = await PledgeSummary.findOne();
+    if (existingPledgeSummary) {
+      existingPledgeSummary.householdEnergy =
+        (existingPledgeSummary.householdEnergy + pledgeData.householdEnergy) /
+        2;
+      existingPledgeSummary.transportationMode =
+        (existingPledgeSummary.transportationMode +
+          pledgeData.transportationMode) /
+        2;
+      existingPledgeSummary.dietAndFood =
+        (existingPledgeSummary.dietAndFood + pledgeData.dietAndFood) / 2;
+      existingPledgeSummary.foodWastage =
+        (existingPledgeSummary.foodWastage + pledgeData.foodWastage) / 2;
+      existingPledgeSummary.wasteDisposal =
+        (existingPledgeSummary.wasteDisposal + pledgeData.wasteDisposal) / 2;
+      existingPledgeSummary.waterUsage =
+        (existingPledgeSummary.waterUsage + pledgeData.waterUsage) / 2;
+
+      await existingPledgeSummary.save();
+    } else {
+      const newSummary = new PledgeSummary({
+        householdEnergy: pledgeData.householdEnergy,
+        transportationMode: pledgeData.transportationMode,
+        dietAndFood: pledgeData.dietAndFood,
+        foodWastage: pledgeData.foodWastage,
+        wasteDisposal: pledgeData.wasteDisposal,
+        waterUsage: pledgeData.waterUsage,
+      });
+      await newSummary.save();
+    }
 
     res.status(201).json({
       message: "Plage created successfully",
