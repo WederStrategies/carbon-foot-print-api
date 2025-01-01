@@ -8,12 +8,8 @@ const getSummary = async (req, res) => {
     const today = new Date();
 
     today.setHours(0, 0, 0, 0);
-    // console.log(today);
-
     const startOfWeek = new Date(today);
-    // console.log(startOfWeek);
     startOfWeek.setDate(today.getDate() - today.getDay());
-    // console.log(startOfWeek);
     const guestsToday = await CarbonFootPrint.countDocuments({
       createdAt: { $gte: today },
     });
