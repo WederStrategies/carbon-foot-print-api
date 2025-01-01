@@ -53,6 +53,10 @@ app.use("/api/v1/questionCatagories", require("./routes/questionCategory"));
 
 // for all reports
 app.use("/api/v1/reports/overview", require("./reports/overview.routes"));
+app.use(
+  "/api/v1/reports/carbonFootprint",
+  require("./reports/carbonFootprint.routes")
+);
 
 io.on("connection", (socket) => {
   questionController.handleSocket(socket); // Use Socket.IO handler from QuestionController
