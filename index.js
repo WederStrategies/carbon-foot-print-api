@@ -16,8 +16,12 @@ const io = new Server(server, {
 });
 
 const corsOptions = {
-  origin: ["http://localhost:1029"],
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+  origin: [
+    "http://localhost:1029",
+    "https://project-carbon-footprint-website.vercel.app",
+    "https://project-carbon-footprint-website.vercel.app/pledge",
+  ],
+  methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"],
   credentials: true,
   allowedHeaders: ["Content-Type", "x-auth"],
 };
