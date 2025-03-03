@@ -10,7 +10,7 @@ const HeatingAndCoolingSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["electric", "charcoal", "none"],
+    enum: ["electric", "charcoal", "buthen", "wood"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
 });

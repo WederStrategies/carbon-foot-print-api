@@ -61,6 +61,7 @@ app.use(
   "/api/v1/reports/carbonFootprint",
   require("./reports/carbonFootprint.routes")
 );
+app.use("/api/v1/reports/pledge", require("./reports/pledge.routes"));
 
 io.on("connection", (socket) => {
   questionController.handleSocket(socket); // Use Socket.IO handler from QuestionController

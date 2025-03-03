@@ -5,17 +5,17 @@ const QuestionCategory = require("../models/QuestionCategory");
 // Create a new question
 const createQuestion = async (req, res) => {
   try {
-    const { category, translations } = req.body;
+    const { translations } = req.body;
 
     // Validate category
-    const categoryExists = await QuestionCategory.findOne({ name: category });
-    if (!categoryExists) {
-      return res.status(400).json({
-        message: `Category with name ${category} does not exist`,
-      });
-    }
-    categoryExists.numberOfQuestions += 1;
-    await categoryExists.save();
+    // const categoryExists = await QuestionCategory.findOne({ name: category });
+    // if (!categoryExists) {
+    //   return res.status(400).json({
+    //     message: `Category with name ${category} does not exist`,
+    //   });
+    // }
+    // categoryExists.numberOfQuestions += 1;
+    // await categoryExists.save();
 
     if (!translations.length) {
       return res.status(404).json({ message: "Language not selected " });
@@ -71,9 +71,9 @@ const getQuestionById = async (req, res) => {
 const updateQuestion = async (req, res) => {
   try {
     const { id } = req.params;
-    const { difficulty, category, translations } = req.body;
+    const { difficulty, translations } = req.body;
 
-    if (!difficulty || !category || !translations) {
+    if (!difficulty || !translations) {
       return res.status(404).json({ message: " All fields are required" });
     }
 
@@ -86,26 +86,26 @@ const updateQuestion = async (req, res) => {
       return res.status(404).json({ message: "Question not found" });
     }
 
-    // Decrement the number of questions in the old category if different
-    if (question.category !== category) {
-      const oldCategory = await QuestionCategory.findOne({
-        name: question.category,
-      });
-      if (oldCategory) {
-        oldCategory.numberOfQuestions -= 1;
-        await oldCategory.save();
-      }
+    // // Decrement the number of questions in the old category if different
+    // if (question.category !== category) {
+    //   const oldCategory = await QuestionCategory.findOne({
+    //     name: question.category,
+    //   });
+    //   if (oldCategory) {
+    //     oldCategory.numberOfQuestions -= 1;
+    //     await oldCategory.save();
+    //   }
 
-      // Increment the number of questions in the new category
-      const newCategory = await QuestionCategory.findOne({ name: category });
-      if (!newCategory) {
-        return res.status(400).json({
-          message: `Category with name ${category} does not exist`,
-        });
-      }
-      newCategory.numberOfQuestions += 1;
-      await newCategory.save();
-    }
+    //   // Increment the number of questions in the new category
+    //   const newCategory = await QuestionCategory.findOne({ name: category });
+    //   if (!newCategory) {
+    //     return res.status(400).json({
+    //       message: `Category with name ${category} does not exist`,
+    //     });
+    //   }
+    //   newCategory.numberOfQuestions += 1;
+    //   await newCategory.save();
+    // }
 
     // Decrement the number of questions in the old languages if different
     const oldLanguages = question.translations.map((t) => t.language);

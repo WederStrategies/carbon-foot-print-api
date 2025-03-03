@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 // Enums for predefined values
-const DifficultyEnum = ["General", "CarbonFootPrint", "Action"];
+const DifficultyEnum = ["Easy", "Medium", "Hard"];
 
 // Subschema for options
 const OptionSchema = new mongoose.Schema({
   text: { type: String, required: true },
   isCorrect: { type: Boolean, required: true },
-  explanation: { type: String, required: true },
+  explanation: { type: String },
 });
 
 //Subschema for language translations
@@ -23,7 +23,7 @@ const translationSchema = new mongoose.Schema({
 // Main schema for questions
 const QuestionSchema = new mongoose.Schema(
   {
-    category: { type: String, required: true },
+    // category: { type: String, required: true },
     difficulty: { type: String, required: true, enum: DifficultyEnum },
     translations: [translationSchema],
   },
