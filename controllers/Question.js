@@ -302,21 +302,22 @@ const getRandomQuestionsByCategories = async (req, res) => {
   }
 };
 
-// Get 10 random questions: 4 from easy, 4 from medium, and 2 from hard
+// Get 10 random questions: 4 from easy, 4 from medium, and 2 from hard, considering the requested language
 const getRandomQuestionsByDifficulty = async (req, res) => {
+  const { language } = req.body;
   try {
     const easyQuestions = await Question.aggregate([
-      { $match: { difficulty: "Easy" } },
+      { $match: { difficulty: "Easy", "translations.language": language } },
       { $sample: { size: 4 } },
     ]);
 
     const mediumQuestions = await Question.aggregate([
-      { $match: { difficulty: "Medium" } },
+      { $match: { difficulty: "Medium", "translations.language": language } },
       { $sample: { size: 4 } },
     ]);
 
     const hardQuestions = await Question.aggregate([
-      { $match: { difficulty: "Hard" } },
+      { $match: { difficulty: "Hard", "translations.language": language } },
       { $sample: { size: 2 } },
     ]);
 

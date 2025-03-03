@@ -17,7 +17,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:1029", // React app URL
+    origin: "http://10.40.0.119:1029", // React app URL
     methods: ["GET", "POST", "DELETE", "PUT"],
   },
 });
