@@ -17,7 +17,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://10.40.0.119:1029", // React app URL
+    origin: ["http://10.40.0.119:1029", "https://pcarbon.vercel.app"], // React app URL
     methods: ["GET", "POST", "DELETE", "PUT"],
   },
 });
@@ -25,6 +25,7 @@ const io = new Server(server, {
 const corsOptions = {
   origin: [
     "http://localhost:3000",
+    "https://pcarbon.vercel.app",
     "https://project-carbon-footprint-website.vercel.app",
     "https://project-carbon-footprint-website.vercel.app/pledge",
   ],
