@@ -17,7 +17,7 @@ const io = new Server(server, {
 
 const corsOptions = {
   origin: [
-    "http://localhost:1029",
+    "http://localhost:3000",
     "https://project-carbon-footprint-website.vercel.app",
     "https://project-carbon-footprint-website.vercel.app/pledge",
   ],

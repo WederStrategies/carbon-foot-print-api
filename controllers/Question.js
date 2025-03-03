@@ -180,6 +180,16 @@ const deleteQuestion = async (req, res) => {
   }
 };
 
+// Delete all questions
+const deleteAllQuestions = async (req, res) => {
+  try {
+    await Question.deleteMany();
+    res.status(200).json({ message: "All questions deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to delete questions", error });
+  }
+};
+
 // Add a new translation (language) to an existing question
 const addTranslationToQuestion = async (req, res) => {
   const { id } = req.params;
@@ -292,6 +302,33 @@ const getRandomQuestionsByCategories = async (req, res) => {
   }
 };
 
+// Get 10 random questions: 4 from easy, 4 from medium, and 2 from hard
+const getRandomQuestionsByDifficulty = async (req, res) => {
+  try {
+    const easyQuestions = await Question.aggregate([
+      { $match: { difficulty: "Easy" } },
+      { $sample: { size: 4 } },
+    ]);
+
+    const mediumQuestions = await Question.aggregate([
+      { $match: { difficulty: "Medium" } },
+      { $sample: { size: 4 } },
+    ]);
+
+    const hardQuestions = await Question.aggregate([
+      { $match: { difficulty: "Hard" } },
+      { $sample: { size: 2 } },
+    ]);
+
+    const questions = [...easyQuestions, ...mediumQuestions, ...hardQuestions];
+    res.status(200).json(questions);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Failed to fetch random questions", error });
+  }
+};
+
 // Method to fetch random questions for Socket.IO
 const getRandomQuestions = async (categories) => {
   const numberOfQuestions = 10;
@@ -383,4 +420,6 @@ module.exports = {
   addTranslationToQuestion,
   handleSocket,
   getRandomQuestionsByCategories,
+  deleteAllQuestions,
+  getRandomQuestionsByDifficulty, // Add the new function to exports
 };

@@ -5,8 +5,8 @@ const questionRouter = express.Router();
 // create a new quesiton
 questionRouter.post("/", questionController.createQuestion);
 
-// send random questions by categories
-questionRouter.post("/rnd", questionController.getRandomQuestionsByCategories);
+// send random questions by difficluty
+questionRouter.post("/rnd", questionController.getRandomQuestionsByDifficulty);
 
 // get all questions
 questionRouter.get("/", questionController.getAllQuestions);
@@ -25,5 +25,7 @@ questionRouter.patch(
   "/translate/:id",
   questionController.addTranslationToQuestion
 );
+
+questionRouter.delete("/alld", questionController.deleteAllQuestions);
 
 module.exports = questionRouter;

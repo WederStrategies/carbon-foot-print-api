@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // Enums for predefined values
-const DifficultyEnum = ["Easy", "Medium", "Hard"];
+const DifficultyEnum = ["Easy", "Medium", "Difficult"];
 
 // Subschema for options
 const OptionSchema = new mongoose.Schema({
