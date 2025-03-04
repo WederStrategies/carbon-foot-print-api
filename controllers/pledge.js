@@ -44,6 +44,7 @@ const createPlage = async (req, res) => {
       carbonFootPrintCalculator.waterUsageCarbonFootPrintCalculator(
         data.waterUsage
       );
+    const numberOfTreesPledged = data.numberOfTreesPledged;
 
     const pledgeData = {
       householdEnergy,
@@ -52,6 +53,7 @@ const createPlage = async (req, res) => {
       foodWastage,
       wasteDisposal,
       waterUsage,
+      numberOfTreesPledged,
     };
 
     let existingPledgeSummary = await PledgeSummary.findOne();
@@ -71,6 +73,8 @@ const createPlage = async (req, res) => {
         (existingPledgeSummary.wasteDisposal + pledgeData.wasteDisposal) / 2;
       existingPledgeSummary.waterUsage =
         (existingPledgeSummary.waterUsage + pledgeData.waterUsage) / 2;
+      existingPledgeSummary.numberOfTrees =
+        existingPledgeSummary.numberOfTrees + pledgeData.numberOfTreesPledged;
 
       await existingPledgeSummary.save();
     } else {
@@ -81,6 +85,7 @@ const createPlage = async (req, res) => {
         foodWastage: pledgeData.foodWastage,
         wasteDisposal: pledgeData.wasteDisposal,
         waterUsage: pledgeData.waterUsage,
+        numberOfTrees: pledgeData.numberOfTreesPledged,
       });
       await newSummary.save();
     }

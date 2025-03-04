@@ -40,6 +40,7 @@ const getCarbonFootPrintAndPledgeSummary = async (req, res) => {
   try {
     const carbonFootPrintData = await CarbonFootprintSummary.find();
     const pledgeData = await PledgeSummary.find();
+    // console.log(pledgeData);
     res.json({
       carbonFootPerint: carbonFootPrintData,
       pledge: pledgeData,

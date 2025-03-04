@@ -27,7 +27,9 @@ const recordQuestionAttempt = async (req, res) => {
 // get all question attempts
 const getAllQuestionAttempts = async (req, res) => {
   try {
-    const questionAttempts = await QuestionAttempt.find();
+    const questionAttempts = await QuestionAttempt.find().sort({
+      createdAt: -1,
+    });
     if (questionAttempts.length === 0) {
       return res.status(404).json({ message: "Question attempt not found" });
     }

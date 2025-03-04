@@ -26,6 +26,10 @@ const PledgeSummarySchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    numberOfTrees: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );

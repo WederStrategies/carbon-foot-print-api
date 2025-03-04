@@ -24,7 +24,7 @@ const CarbonFootPrintSummarySchema = new mongoose.Schema(
     },
     waterUsage: {
       type: Number,
-      default: 0, 
+      default: 0,
     },
   },
   { timestamps: true }

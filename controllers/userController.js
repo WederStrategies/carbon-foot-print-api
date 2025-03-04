@@ -6,10 +6,11 @@ const isValidEmail = require("../utility/validateEmail");
 require("dotenv/config");
 
 const createUser = async (req, res) => {
-  let { name, email, password, confirmPassword, role } = req.body;
+  let { name, email, password, role } = req.body;
+  console.log(req.body);
 
   try {
-    if (!name || !email || !password || !confirmPassword || !role) {
+    if (!name || !email || !password || !role) {
       return res.status(400).json({ error: "all fileds are required" });
     }
 
@@ -18,9 +19,7 @@ const createUser = async (req, res) => {
         .status(400)
         .json({ error: "Min password length should be atleast 7" });
     }
-    if (password !== confirmPassword) {
-      return res.status(401).json({ error: "Password incorrect" });
-    }
+
     if (!isValidEmail(email)) {
       return res.status(400).json({ error: "Invalid email format" });
     }
@@ -93,38 +92,38 @@ const loginUser = async (req, res) => {
     res.status(500).json({ Error: "Internal Server Error" });
   }
 };
-
 const updateUser = async (req, res) => {
-  const { name, email, password, role, confirmPassword } = req.body;
+  const { name, email, password, role } = req.body;
   try {
-    if (!name || !email || !password || !role || !confirmPassword) {
-      return res.status(400).json({ error: "all fileds are required" });
+    if (!name || !email || !role) {
+      return res.status(400).json({ error: "all fields are required" });
     }
-    if (password && password.length < 7) {
-      return res
-        .status(400)
-        .json({ error: "Min password length should be atleast 7" });
-    }
-    if (password !== confirmPassword) {
-      return res
-        .status(400)
-        .json({ error: "Passwords do not match. Please check and try again" });
-    }
+
     if (!isValidEmail(email)) {
       return res.status(400).json({ error: "Invalid email format" });
     }
+
     const user = await User.findById({ _id: req.params.userId });
-    const saltRound = 10;
-    const passwordHash = await bcrypt.hash(password, saltRound);
     if (!user) {
       return res.status(404).json({ error: "user not found" });
     }
-    (user.name = name),
-      (user.email = email),
-      (user.password = passwordHash),
-      (user.role = role);
+
+    user.name = name;
+    user.email = email;
+    user.role = role;
+
+    if (password) {
+      if (password.length < 7) {
+        return res
+          .status(400)
+          .json({ error: "Min password length should be at least 7" });
+      }
+      const saltRound = 10;
+      user.password = await bcrypt.hash(password, saltRound);
+    }
+
     const updatedUser = await user.save();
-    res.status(200).json(updatedUser);
+    res.status(200).json({ success: true, user: updatedUser });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message });

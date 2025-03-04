@@ -317,7 +317,9 @@ const getRandomQuestionsByDifficulty = async (req, res) => {
     ]);
 
     const hardQuestions = await Question.aggregate([
-      { $match: { difficulty: "Hard", "translations.language": language } },
+      {
+        $match: { difficulty: "Difficult", "translations.language": language },
+      },
       { $sample: { size: 2 } },
     ]);
 
