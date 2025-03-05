@@ -15,6 +15,7 @@ const io = new Server(server, {
     origin: [
       "http://10.40.0.119:1029",
       "http://10.40.0.143:1029",
+      "http://10.40.110.0:1029",
       "http://localhost:1029",
       "https://pcarbon.vercel.app",
     ], // React app URL
@@ -26,6 +27,7 @@ const corsOptions = {
   origin: [
     "http://localhost:3000",
     "http://localhost:1029",
+    "http://10.40.110.0:1029",
     "http://10.40.0.143:1029",
     "https://pcarbon.vercel.app",
     "https://project-carbon-footprint-website.vercel.app",
@@ -42,14 +44,33 @@ app.use(cors(corsOptions));
 // Middle ware to parse json
 app.use(express.json());
 
-// Database Connection
-mongoose
-  .connect(process.env.DB_CONNECTION, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Connected to MongoDB successfully"))
-  .catch((error) => console.error("Error connecting to MongoDB:", error));
+// MongoDB connection logic with retry functionality
+const connectWithRetry = async () => {
+  try {
+    await mongoose.connect(process.env.DB_CONNECTION, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("✅ Connected to MongoDB successfully");
+  } catch (error) {
+    console.error("❌ Error connecting to MongoDB:", error.message);
+    console.log("🔄 Retrying in 5 seconds...");
+    setTimeout(connectWithRetry, 5000); // Retry after 5 seconds
+  }
+};
+
+// Initial MongoDB connection attempt
+connectWithRetry();
+
+// MongoDB event handlers for disconnection and error handling
+mongoose.connection.on("disconnected", () => {
+  console.log("⚠️ MongoDB disconnected! Retrying...");
+  connectWithRetry();
+});
+
+mongoose.connection.on("error", (err) => {
+  console.error("❌ MongoDB connection error:", err.message);
+});
 
 // Test route
 app.get("/", (req, res) => {
@@ -67,7 +88,6 @@ app.use("/api/v1/questionCatagories", require("./routes/questionCategory"));
 
 // for all reports
 app.use("/api/v1/reports/overview", require("./reports/overview.routes"));
-
 app.use(
   "/api/v1/reports/carbonFootprint",
   require("./reports/carbonFootprint.routes")

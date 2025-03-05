@@ -1,49 +1,51 @@
-var defaultRoomName = "room-123"
-const carbonSocket = socket => {
-  console.log("New client connected:", socket.id)
+var defaultRoomName = "room-123";
+const carbonSocket = (socket) => {
+  console.log("New client connected:", socket.id);
 
-  socket.emit("checkSocketC", "Hello Nigga")
+  socket.emit("checkSocketC", "Hello Nigga");
 
-  socket.on("checkSocket", data => {
-    socket.emit("connectionWorks")
-  })
+  socket.on("checkSocket", (data) => {
+    socket.emit("connectionWorks");
+  });
 
-  socket.on("page_mode", data => {
-    const dataJSON = JSON.parse(data)
+  socket.on("page_mode", (data) => {
+    const dataJSON = JSON.parse(data);
 
-    socket.join(dataJSON.unique_code)
+    socket.join(dataJSON.unique_code);
     // console.log(dataJSON)
-  })
+  });
 
-  socket.on("join-room", room => {
+  socket.on("join-room", (room) => {
     // console.log("Room Joined", room)
-    socket.join(room)
-  })
+    socket.join(room);
+  });
 
-  socket.on("get-rooms", data => {
-    const clients = io.sockets.adapter.rooms.get(dataJSON.unique_code)
-    console.log(clients)
-  })
+  socket.on("get-rooms", (data) => {
+    const clients = io.sockets.adapter.rooms.get(dataJSON.unique_code);
+    console.log(clients);
+  });
 
   // Page 1
   // Change Page
 
-  socket.on("language-change-option-server", data => {
-    const dataJSON = JSON.parse(data)
-    socket.to(dataJSON.room).emit("language-change-option-client", data)
-  })
+  socket.on("language-change-option-server", (data) => {
+    const dataJSON = JSON.parse(data);
+    socket.to(dataJSON.room).emit("language-change-option-client", data);
+  });
 
-  socket.on("change-page-server-1", data => {
-    const dataJSON = JSON.parse(data)
-    socket.to(dataJSON.room).emit("change-page-client-1", data)
-  })
+  socket.on("change-page-server-1", (data) => {
+    const dataJSON = JSON.parse(data);
+    socket.to(dataJSON.room).emit("change-page-client-1", data);
+  });
 
   // Page 1
   // Change Name State
-  socket.on("name-change-server-1", data => {
-    const dataJSON = JSON.parse(data)
-    socket.to(dataJSON.room).emit("name-change-client-1", data)
-  })
+  socket.on("name-change-server-1", (data) => {
+    const dataJSON = JSON.parse(data);
+    socket.to(dataJSON.room).emit("name-change-client-1", data);
+  });
+
+  // Page 2
 
   // Page 2
   // Change House State
@@ -68,26 +70,26 @@ const carbonSocket = socket => {
 
   // Page Change
   // Next page-prev-server
-  socket.on("page-next-server", data => {
-    const dataJSON = JSON.parse(data)
-    socket.to(dataJSON.room).emit("page-next-client", data)
-  })
+  socket.on("page-next-server", (data) => {
+    const dataJSON = JSON.parse(data);
+    socket.to(dataJSON.room).emit("page-next-client", data);
+  });
 
   // Skip
-  socket.on("page-skip-server", data => {
-    const dataJSON = JSON.parse(data)
-    socket.to(dataJSON.room).emit("page-skip-client", data)
-  })
+  socket.on("page-skip-server", (data) => {
+    const dataJSON = JSON.parse(data);
+    socket.to(dataJSON.room).emit("page-skip-client", data);
+  });
 
   // Prev
-  socket.on("page-prev-server", data => {
-    const dataJSON = JSON.parse(data)
-    socket.to(dataJSON.room).emit("page-prev-client", data)
-  })
+  socket.on("page-prev-server", (data) => {
+    const dataJSON = JSON.parse(data);
+    socket.to(dataJSON.room).emit("page-prev-client", data);
+  });
 
   socket.on("disconnect", () => {
-    console.log("Client disconnected:", socket.id)
-  })
-}
+    console.log("Client disconnected:", socket.id);
+  });
+};
 
-module.exports = { carbonSocket }
+module.exports = { carbonSocket };
