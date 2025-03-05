@@ -18,6 +18,7 @@ const io = new Server(server, {
       "http://10.40.110.0:1029",
       "http://localhost:1029",
       "https://pcarbon.vercel.app",
+      "https://carbon-foot-print-dashboard.vercel.app",
     ], // React app URL
     methods: ["GET", "POST", "DELETE", "PUT"],
   },
@@ -32,6 +33,7 @@ const corsOptions = {
     "https://pcarbon.vercel.app",
     "https://project-carbon-footprint-website.vercel.app",
     "https://project-carbon-footprint-website.vercel.app/pledge",
+    "https://carbon-foot-print-dashboard.vercel.app",
   ],
   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"],
   credentials: true,
