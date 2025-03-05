@@ -305,32 +305,78 @@ const getRandomQuestionsByCategories = async (req, res) => {
 // Get 10 random questions: 4 from easy, 4 from medium, and 2 from hard, considering the requested language
 const getRandomQuestionsByDifficulty = async (req, res) => {
   const { language } = req.body;
+
+  if (!language) {
+    return res.status(400).json({ message: "Language is required" });
+  }
+
   try {
-    const easyQuestions = await Question.aggregate([
-      { $match: { difficulty: "Easy", "translations.language": language } },
-      { $sample: { size: 4 } },
-    ]);
+    const difficultyLevels = [
+      { level: "Easy", count: 4 },
+      { level: "Medium", count: 4 },
+      { level: "Difficult", count: 2 },
+    ];
 
-    const mediumQuestions = await Question.aggregate([
-      { $match: { difficulty: "Medium", "translations.language": language } },
-      { $sample: { size: 4 } },
-    ]);
+    let questions = [];
 
-    const hardQuestions = await Question.aggregate([
-      {
-        $match: { difficulty: "Difficult", "translations.language": language },
-      },
-      { $sample: { size: 2 } },
-    ]);
+    for (const { level, count } of difficultyLevels) {
+      const randomQuestions = await Question.aggregate([
+        { $match: { difficulty: level, "translations.language": language } },
+        { $sample: { size: count } },
+        {
+          $project: {
+            difficulty: 1,
+            translations: {
+              $filter: {
+                input: "$translations",
+                as: "t",
+                cond: { $eq: ["$$t.language", language] },
+              },
+            },
+          },
+        },
+      ]);
 
-    const questions = [...easyQuestions, ...mediumQuestions, ...hardQuestions];
+      questions = [...questions, ...randomQuestions];
+    }
+
     res.status(200).json(questions);
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Failed to fetch random questions", error });
+    res.status(500).json({
+      message: "Failed to fetch random questions",
+      error: error.message,
+    });
   }
 };
+
+// const getRandomQuestionsByDifficulty = async (req, res) => {
+//   const { language } = req.body;
+//   try {
+//     const easyQuestions = await Question.aggregate([
+//       { $match: { difficulty: "Easy", "translations.language": language } },
+//       { $sample: { size: 4 } },
+//     ]);
+
+//     const mediumQuestions = await Question.aggregate([
+//       { $match: { difficulty: "Medium", "translations.language": language } },
+//       { $sample: { size: 4 } },
+//     ]);
+
+//     const hardQuestions = await Question.aggregate([
+//       {
+//         $match: { difficulty: "Difficult", "translations.language": language },
+//       },
+//       { $sample: { size: 2 } },
+//     ]);
+
+//     const questions = [...easyQuestions, ...mediumQuestions, ...hardQuestions];
+//     res.status(200).json(questions);
+//   } catch (error) {
+//     res
+//       .status(500)
+//       .json({ message: "Failed to fetch random questions", error });
+//   }
+// };
 
 // Method to fetch random questions for Socket.IO
 const getRandomQuestions = async (categories) => {
