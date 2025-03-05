@@ -47,6 +47,27 @@ const carbonSocket = (socket) => {
 
   // Page 2
 
+  // Page 2
+  // Change House State
+  socket.on("page-2-update-house-server", data => {
+    const dataJSON = JSON.parse(data)
+    socket.to(dataJSON.room).emit("page-2-update-house-client", data)
+  })
+
+  // Page 3
+  // Change Slider State
+  socket.on("page-3-update-slider-server", data => {
+    const dataJSON = JSON.parse(data)
+    socket.to(dataJSON.room).emit("page-3-update-slider-client", data)
+  })
+
+  // Page 4
+  // Change Slider State
+  socket.on("page-update-slider-server", data => {
+    const dataJSON = JSON.parse(data)
+    socket.to(dataJSON.room).emit("page-update-slider-client", data)
+  })
+
   // Page Change
   // Next page-prev-server
   socket.on("page-next-server", (data) => {
