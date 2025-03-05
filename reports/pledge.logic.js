@@ -1,9 +1,13 @@
 const CarbonFootPrint = require("../models/CarbonFootPrint");
 const Pledge = require("../models/Pledge");
+const PledgeSummary = require("../models/PledgeSummary");
 
 const getSummary = async (req, res) => {
   try {
     const totalGuests = await Pledge.countDocuments();
+    const pledgedsummary = await PledgeSummary.findOne();
+    // console.log(pledgedsummary);
+    const numberOfTreesPledged = pledgedsummary?.numberOfTrees || 0;
 
     const today = new Date();
 
@@ -22,6 +26,7 @@ const getSummary = async (req, res) => {
       totalGuests: totalGuests,
       guestsToday: guestsToday,
       guestsThisWeek: guestsThisWeek,
+      numberOfTreesPledged: numberOfTreesPledged,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
