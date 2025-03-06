@@ -13,6 +13,8 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: [
+      "http://10.40.1.25",
+      "http://10.40.1.25:3000",
       "http://10.40.0.119:1029",
       "http://10.40.0.143:1029",
       "http://10.40.110.0:1029",
@@ -26,6 +28,8 @@ const io = new Server(server, {
 
 const corsOptions = {
   origin: [
+    "http://10.40.1.25",
+    "http://10.40.1.25:3000",
     "http://localhost:3000",
     "http://localhost:1029",
     "http://10.40.110.0:1029",
