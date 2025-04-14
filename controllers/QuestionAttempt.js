@@ -42,7 +42,6 @@ const getAllQuestionAttempts = async (req, res) => {
   }
 };
 
-// get top 10 question attempts and rank for the user who attempted the questions at that time
 const getTop10QuestionAttempts = async (req, res) => {
   try {
     const { attemptId } = req.params;
@@ -50,9 +49,16 @@ const getTop10QuestionAttempts = async (req, res) => {
       .sort({ score: -1 })
       .limit(10);
 
+    if (!attemptId || !attemptId.match(/^[0-9a-fA-F]{24}$/)) {
+      return res.status(200).json(topAttempts);
+    }
+
     const userAttempt = await QuestionAttempt.findById(attemptId);
     if (!userAttempt) {
-      return res.status(404).json({ message: "User attempt not found" });
+      return res.status(404).json({
+        message: "User attempt not found",
+        topAttempts,
+      });
     }
 
     const userRank =
@@ -60,11 +66,11 @@ const getTop10QuestionAttempts = async (req, res) => {
         score: { $gt: userAttempt.score },
       })) + 1;
 
-    res.status(200).json({
+    return res.status(200).json({
       topAttempts,
       userName: userAttempt.name,
       userScore: userAttempt.score,
-      userRrank: userRank,
+      userRank: userRank,
     });
   } catch (error) {
     res.status(500).json({

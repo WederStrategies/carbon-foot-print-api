@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
 // Enums for predefined values
-const HousingTypeEnum = ["apartment", "condo", "vila", "hut"];
-const RecycleEnum = ["yes", "no"];
-const RecycleMaterialsEnum = ["paper", "plastic", "bottle", "metal"];
+const HousingTypeEnum = ["apartment", "house", "vila", "hut"]
+const RecycleEnum = ["yes", "no"]
+const RecycleMaterialsEnum = ["paper", "plastic", "bottle", "metal"]
 
 // Subschemas for Household Energy
 const HeatingAndCoolingSchema = new mongoose.Schema({
@@ -13,7 +13,7 @@ const HeatingAndCoolingSchema = new mongoose.Schema({
     enum: ["electric", "charcoal", "buthen", "wood"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
-});
+})
 
 const CookingSchema = new mongoose.Schema({
   type: {
@@ -22,7 +22,7 @@ const CookingSchema = new mongoose.Schema({
     enum: ["electric", "charcoal", "gas", "wood", "dont use any"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
-});
+})
 
 const ElectricApplianceSchema = new mongoose.Schema({
   type: {
@@ -32,7 +32,7 @@ const ElectricApplianceSchema = new mongoose.Schema({
   },
   hourlyUsagePerDay: { type: Number, required: true },
   frequencyperWeek: { type: Number, default: 7, required: true },
-});
+})
 
 const LightBulbSchema = new mongoose.Schema({
   type: {
@@ -41,7 +41,7 @@ const LightBulbSchema = new mongoose.Schema({
     enum: ["incandescent", "cfl", "led", "fluorescent"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
-});
+})
 
 // Subschemas for Transportation
 const TransportSchema = new mongoose.Schema({
@@ -52,7 +52,7 @@ const TransportSchema = new mongoose.Schema({
   },
   distance: { type: Number, required: true },
   frequencyperWeek: { type: Number, required: true },
-});
+})
 
 // Subschemas for Transportation
 const PublicTransportSchema = new mongoose.Schema({
@@ -63,12 +63,12 @@ const PublicTransportSchema = new mongoose.Schema({
   },
   distance: { type: Number, required: true },
   frequencyperWeek: { type: Number, required: true },
-});
+})
 
 const TransportSchemaBicycle = new mongoose.Schema({
   distance: { type: Number, required: true },
   frequencyperWeek: { type: Number, required: true },
-});
+})
 
 // Subschema for Water Usage
 const WaterUsageSchema = new mongoose.Schema({
@@ -81,7 +81,7 @@ const WaterUsageSchema = new mongoose.Schema({
     daysPerWeek: { type: Number, required: true },
     averageDuration: { type: Number, required: true },
   },
-});
+})
 
 // Main Schema
 const CarbonFootprintSchema = new mongoose.Schema(
@@ -126,16 +126,16 @@ const CarbonFootprintSchema = new mongoose.Schema(
               this.wasteDisposal.recycleHabit === "yes" &&
               (!value || value.length === 0)
             ) {
-              return false;
+              return false
             }
             if (
               this.wasteDisposal.recycleHabit === "no" &&
               value &&
               value.length > 0
             ) {
-              return false;
+              return false
             }
-            return true;
+            return true
           },
           message:
             "Please select at least one recycling material if you recycle, or leave it empty if you don't.",
@@ -145,6 +145,6 @@ const CarbonFootprintSchema = new mongoose.Schema(
     waterUsage: WaterUsageSchema,
   },
   { timestamps: true }
-);
+)
 
-module.exports = mongoose.model("CarbonFootprint", CarbonFootprintSchema);
+module.exports = mongoose.model("CarbonFootprint", CarbonFootprintSchema)
