@@ -25,6 +25,12 @@ const carbonSocket = socket => {
     console.log(clients)
   })
 
+  // Reset Pages
+  socket.on("reset-pages-server", data => {
+    const dataJSON = JSON.parse(data)
+    socket.to(dataJSON.room).emit("reset-pages-client", data)
+  })
+
   // Page 1
   // Change Page
 
