@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
 const EndUserSchema = new mongoose.Schema(
   {
@@ -14,14 +14,16 @@ const EndUserSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      unique: true,
+      unique: false,
+      default: "text@gmail.com",
     },
     phoneNumber: {
       type: String,
-      unique: true,
+      unique: false,
+      default: "00",
     },
   },
   { timestamps: true }
-);
+)
 
-module.exports = mongoose.model("EndUser", EndUserSchema);
+module.exports = mongoose.model("EndUser", EndUserSchema)

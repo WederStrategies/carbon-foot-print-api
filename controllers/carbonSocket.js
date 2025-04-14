@@ -81,6 +81,13 @@ const carbonSocket = socket => {
     socket.to(dataJSON.room).emit("page-7-emit-checkbox-change-server", data)
   })
 
+  // Page 20 Results
+  socket.on("page-21-results-server", data => {
+    const dataJSON = JSON.parse(data)
+    console.log("Here")
+    socket.to(dataJSON.room).emit("page-21-results-client", data)
+  })
+
   // Page Change
   // Next page-prev-server
   socket.on("page-next-server", data => {
