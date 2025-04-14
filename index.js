@@ -6,19 +6,19 @@ const cors = require("cors");
 require("dotenv").config();
 const questionController = require("./controllers/Question");
 const carbonSocket = require("./controllers/carbonSocket");
-
+const urlList = require("./utility/urlList")
 const app = express();
 const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "*", // React app URL
+    origin: urlList, // React app URL
     methods: ["GET", "POST", "DELETE", "PUT"],
   },
 });
 
 const corsOptions = {
-  origin: "*",
+  origin: urlList,
   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"],
   credentials: true,
   allowedHeaders: ["Content-Type", "x-auth"],
