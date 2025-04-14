@@ -12,33 +12,13 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: [
-      "http://10.40.1.25",
-      "http://10.40.1.25:3000",
-      "http://10.40.0.119:1029",
-      "http://10.40.0.143:1029",
-      "http://10.40.110.0:1029",
-      "http://localhost:1029",
-      "https://pcarbon.vercel.app",
-      "https://carbon-foot-print-dashboard.vercel.app",
-    ], // React app URL
+    origin: "*", // React app URL
     methods: ["GET", "POST", "DELETE", "PUT"],
   },
 });
 
 const corsOptions = {
-  origin: [
-    "http://10.40.1.25",
-    "http://10.40.1.25:3000",
-    "http://localhost:3000",
-    "http://localhost:1029",
-    "http://10.40.110.0:1029",
-    "http://10.40.0.143:1029",
-    "https://pcarbon.vercel.app",
-    "https://project-carbon-footprint-website.vercel.app",
-    "https://project-carbon-footprint-website.vercel.app/pledge",
-    "https://carbon-foot-print-dashboard.vercel.app",
-  ],
+  origin: "*",
   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"],
   credentials: true,
   allowedHeaders: ["Content-Type", "x-auth"],

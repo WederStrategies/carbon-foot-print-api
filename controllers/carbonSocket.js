@@ -1,6 +1,6 @@
 var defaultRoomName = "room-123";
 const carbonSocket = (socket) => {
-  console.log("New client connected:", socket.id);
+  console.log("New client connected:", `${socket.id} Time: ${new Date()}`);
 
   socket.emit("checkSocketC", "Hello Nigga");
 
@@ -16,7 +16,7 @@ const carbonSocket = (socket) => {
   });
 
   socket.on("join-room", (room) => {
-    // console.log("Room Joined", room)
+    console.log("Room Joined", `Room: ${room} Time: ${new Date()}`)
     socket.join(room);
   });
 

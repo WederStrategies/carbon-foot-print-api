@@ -1,5 +1,5 @@
 const express = require("express");
-const carbonFootPrintController = require("../controllers/carbonFootPrint");
+const carbonFootPrintController = require("../controllers/CarbonFootPrint");
 const authMiddleware = require("../middlewares/authMiddleware");
 const roleMiddleware = require("../middlewares/roleMiddleware");
 const carbonFootPrintRouter = express.Router();
