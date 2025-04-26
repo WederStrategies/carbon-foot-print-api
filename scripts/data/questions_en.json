@@ -1,0 +1,2699 @@
+[
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which of these actions helps protect the environment?",
+        "options": [
+          {
+            "text": "Overusing natural resources",
+            "isCorrect": false,
+            "explanation": "Overuse of natural resources leads to depletion and environmental degradation."
+          },
+          {
+            "text": "Reducing, reusing, and recycling",
+            "isCorrect": true,
+            "explanation": "The '3Rs' (reduce, reuse, recycle) help conserve resources and lower environmental impact."
+          },
+          {
+            "text": "Discarding items after one use",
+            "isCorrect": false,
+            "explanation": "Single-use items increase waste and are not environmentally friendly."
+          },
+          {
+            "text": "Ignoring conservation practices",
+            "isCorrect": false,
+            "explanation": "Ignoring conservation efforts contributes to environmental harm rather than protection."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is one way to lower your electricity bill?",
+        "options": [
+          {
+            "text": "Leaving appliances on standby",
+            "isCorrect": false,
+            "explanation": "Standby appliances consume energy, leading to unnecessary electricity costs."
+          },
+          {
+            "text": "Using energy-efficient devices",
+            "isCorrect": true,
+            "explanation": "Energy-efficient devices use less power, which saves money and reduces energy consumption."
+          },
+          {
+            "text": "Using old light bulbs",
+            "isCorrect": false,
+            "explanation": "Old light bulbs consume more energy than modern LED or CFL bulbs."
+          },
+          {
+            "text": "Running all electronics continuously",
+            "isCorrect": false,
+            "explanation": "Running electronics all the time leads to higher energy consumption and costs."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does 'conservation' mean?",
+        "options": [
+          {
+            "text": "Wasting resources",
+            "isCorrect": false,
+            "explanation": "Conservation is about managing resources sustainably, not wasting them."
+          },
+          {
+            "text": "Protecting and using resources wisely",
+            "isCorrect": true,
+            "explanation": "Conservation is about managing resources in a sustainable way to preserve them for future generations."
+          },
+          {
+            "text": "Overusing natural materials",
+            "isCorrect": false,
+            "explanation": "Overuse leads to resource depletion, which conservation seeks to prevent."
+          },
+          {
+            "text": "Ignoring the environment",
+            "isCorrect": false,
+            "explanation": "Conservation promotes environmental protection, not neglect."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is the benefit of using a reusable water bottle?",
+        "options": [
+          {
+            "text": "It creates more plastic waste",
+            "isCorrect": false,
+            "explanation": "Reusable bottles help reduce plastic waste, not increase it."
+          },
+          {
+            "text": "It reduces the need for single-use plastic bottles",
+            "isCorrect": true,
+            "explanation": "Reusable water bottles help decrease plastic waste and conserve resources."
+          },
+          {
+            "text": "It has no environmental benefit",
+            "isCorrect": false,
+            "explanation": "Using reusable products has a direct positive impact on waste reduction."
+          },
+          {
+            "text": "It uses more energy",
+            "isCorrect": false,
+            "explanation": "Reusable bottles generally have a lower energy footprint than producing multiple disposable bottles."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is 'eco-innovation'?",
+        "options": [
+          {
+            "text": "New ideas that harm the environment",
+            "isCorrect": false,
+            "explanation": "Eco-innovation focuses on sustainability and reducing environmental impact."
+          },
+          {
+            "text": "New ideas that reduce environmental impact",
+            "isCorrect": true,
+            "explanation": "Eco-innovation involves developing creative, sustainable solutions that lessen environmental harm."
+          },
+          {
+            "text": "Traditional methods only",
+            "isCorrect": false,
+            "explanation": "Traditional methods are not necessarily innovative or environmentally friendly."
+          },
+          {
+            "text": "Ignoring modern technology",
+            "isCorrect": false,
+            "explanation": "Eco-innovation embraces modern technology to develop sustainable solutions."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which of these can help lower water usage?",
+        "options": [
+          {
+            "text": "Taking very long showers",
+            "isCorrect": false,
+            "explanation": "Long showers increase water consumption rather than conserving it."
+          },
+          {
+            "text": "Using water-saving fixtures",
+            "isCorrect": true,
+            "explanation": "Water-saving fixtures reduce water consumption, helping to conserve this essential resource."
+          },
+          {
+            "text": "Letting taps run",
+            "isCorrect": false,
+            "explanation": "Leaving taps running wastes water unnecessarily."
+          },
+          {
+            "text": "Ignoring leaks",
+            "isCorrect": false,
+            "explanation": "Fixing leaks is an important way to conserve water."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is 'air pollution'?",
+        "options": [
+          {
+            "text": "Clean air",
+            "isCorrect": false,
+            "explanation": "Air pollution refers to air that contains harmful substances, not clean air."
+          },
+          {
+            "text": "Air containing harmful substances",
+            "isCorrect": true,
+            "explanation": "Air pollution occurs when harmful substances contaminate the air, affecting health and the environment."
+          },
+          {
+            "text": "Fresh oxygen",
+            "isCorrect": false,
+            "explanation": "Pollution reduces air quality, making it different from fresh oxygen."
+          },
+          {
+            "text": "A type of green energy",
+            "isCorrect": false,
+            "explanation": "Air pollution is harmful, whereas green energy sources aim to reduce pollution."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is 'water pollution'?",
+        "options": [
+          {
+            "text": "Clean water",
+            "isCorrect": false,
+            "explanation": "Water pollution refers to water that has been contaminated, not clean water."
+          },
+          {
+            "text": "Water contaminated with harmful substances",
+            "isCorrect": true,
+            "explanation": "Water pollution is the contamination of water bodies with pollutants, making the water unsafe for use."
+          },
+          {
+            "text": "Pure water",
+            "isCorrect": false,
+            "explanation": "Polluted water is the opposite of pure water."
+          },
+          {
+            "text": "Water that is filtered",
+            "isCorrect": false,
+            "explanation": "Filtered water has been cleaned, whereas polluted water contains harmful substances."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which of the following is a simple way to reduce waste?",
+        "options": [
+          {
+            "text": "Buying disposable products",
+            "isCorrect": false,
+            "explanation": "Disposable products increase waste rather than reducing it."
+          },
+          {
+            "text": "Reusing items",
+            "isCorrect": true,
+            "explanation": "Reusing items extends their lifespan and reduces the volume of waste generated."
+          },
+          {
+            "text": "Throwing items away immediately",
+            "isCorrect": false,
+            "explanation": "Throwing away items unnecessarily contributes to waste."
+          },
+          {
+            "text": "Ignoring recycling",
+            "isCorrect": false,
+            "explanation": "Recycling is an essential method of reducing waste."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does 'reusable' mean?",
+        "options": [
+          {
+            "text": "Meant to be used once and discarded",
+            "isCorrect": false,
+            "explanation": "Reusable items are designed for multiple uses, not single-use."
+          },
+          {
+            "text": "Can be used again and again",
+            "isCorrect": true,
+            "explanation": "Reusable products are designed for multiple uses, which helps minimize waste."
+          },
+          {
+            "text": "Made of plastic only",
+            "isCorrect": false,
+            "explanation": "Reusable products can be made from various materials, not just plastic."
+          },
+          {
+            "text": "Difficult to clean",
+            "isCorrect": false,
+            "explanation": "Many reusable items are easy to clean and maintain."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is 'environmental responsibility'?",
+        "options": [
+          {
+            "text": "Ignoring nature",
+            "isCorrect": false,
+            "explanation": "Environmental responsibility involves taking action to protect nature, not ignoring it."
+          },
+          {
+            "text": "Taking action to protect and preserve the environment",
+            "isCorrect": true,
+            "explanation": "Environmental responsibility means being accountable for your actions and their impact on the natural world."
+          },
+          {
+            "text": "Overusing resources",
+            "isCorrect": false,
+            "explanation": "Overusing resources depletes them and harms the environment, which is not responsible."
+          },
+          {
+            "text": "Focusing only on profit",
+            "isCorrect": false,
+            "explanation": "Environmental responsibility considers sustainability alongside economic interests."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is one effect of climate change on weather?",
+        "options": [
+          {
+            "text": "More predictable weather",
+            "isCorrect": false,
+            "explanation": "Climate change causes weather to become more extreme and unpredictable."
+          },
+          {
+            "text": "More frequent extreme weather events",
+            "isCorrect": true,
+            "explanation": "Climate change leads to more extreme and unpredictable weather patterns, such as stronger storms and heatwaves."
+          },
+          {
+            "text": "No change in weather",
+            "isCorrect": false,
+            "explanation": "Climate change significantly alters global weather patterns."
+          },
+          {
+            "text": "Cooler summers everywhere",
+            "isCorrect": false,
+            "explanation": "Climate change generally leads to warmer temperatures, not cooler summers."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does an 'energy audit' help with?",
+        "options": [
+          {
+            "text": "Increasing energy use",
+            "isCorrect": false,
+            "explanation": "Energy audits identify ways to save energy, not increase its use."
+          },
+          {
+            "text": "Finding ways to save energy",
+            "isCorrect": true,
+            "explanation": "An energy audit identifies inefficiencies in energy use, enabling steps to reduce consumption."
+          },
+          {
+            "text": "Wasting resources",
+            "isCorrect": false,
+            "explanation": "The purpose of an energy audit is to improve efficiency, not waste resources."
+          },
+          {
+            "text": "Ignoring energy bills",
+            "isCorrect": false,
+            "explanation": "Energy audits focus on reducing energy bills, not ignoring them."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which of the following helps reduce food waste?",
+        "options": [
+          {
+            "text": "Planning meals and using leftovers",
+            "isCorrect": true,
+            "explanation": "Meal planning and proper use of leftovers help reduce the amount of food that goes to waste."
+          },
+          {
+            "text": "Overbuying food",
+            "isCorrect": false,
+            "explanation": "Buying excessive amounts of food increases the chances of spoilage and waste."
+          },
+          {
+            "text": "Discarding edible food",
+            "isCorrect": false,
+            "explanation": "Throwing away food that is still good contributes to food waste rather than reducing it."
+          },
+          {
+            "text": "Ignoring expiry dates",
+            "isCorrect": false,
+            "explanation": "Being aware of expiration dates helps ensure food is consumed before it spoils."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is the best approach to reducing environmental impact?",
+        "options": [
+          {
+            "text": "Relying only on individual actions",
+            "isCorrect": false,
+            "explanation": "While individuals play a role, large-scale change requires action at multiple levels."
+          },
+          {
+            "text": "Working together—communities, businesses, and governments acting together",
+            "isCorrect": true,
+            "explanation": "Collaborative efforts across all sectors are essential for tackling large-scale environmental challenges effectively."
+          },
+          {
+            "text": "Ignoring sustainability",
+            "isCorrect": false,
+            "explanation": "Ignoring sustainability worsens environmental problems instead of solving them."
+          },
+          {
+            "text": "Focusing only on profit",
+            "isCorrect": false,
+            "explanation": "Sustainability must be balanced with economic interests to protect the environment long-term."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which energy source does not produce CO₂ during operation?",
+        "options": [
+          {
+            "text": "Natural gas",
+            "isCorrect": false,
+            "explanation": "Natural gas burns cleaner than coal but still produces CO₂ emissions."
+          },
+          {
+            "text": "Wind energy",
+            "isCorrect": true,
+            "explanation": "Wind energy generates electricity by harnessing the wind—without burning fuel—resulting in little to no CO₂ emissions."
+          },
+          {
+            "text": "Coal",
+            "isCorrect": false,
+            "explanation": "Coal combustion releases large amounts of CO₂ into the atmosphere."
+          },
+          {
+            "text": "Oil",
+            "isCorrect": false,
+            "explanation": "Oil burning produces CO₂ and other pollutants."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does 'biodegradable' mean?",
+        "options": [
+          {
+            "text": "Something that never breaks down",
+            "isCorrect": false,
+            "explanation": "Biodegradable materials break down naturally, unlike non-biodegradable items that persist in the environment."
+          },
+          {
+            "text": "Something that can naturally decompose",
+            "isCorrect": true,
+            "explanation": "Biodegradable items break down naturally through biological processes without leaving harmful residues."
+          },
+          {
+            "text": "Something made from plastics",
+            "isCorrect": false,
+            "explanation": "Most plastics are not biodegradable and take a long time to decompose."
+          },
+          {
+            "text": "Something that is harmful to nature",
+            "isCorrect": false,
+            "explanation": "Biodegradable materials are designed to minimize environmental harm."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Why is planting trees good for the environment?",
+        "options": [
+          {
+            "text": "They absorb carbon dioxide and produce oxygen",
+            "isCorrect": true,
+            "explanation": "Trees remove CO₂ from the air during photosynthesis and release oxygen, improving air quality."
+          },
+          {
+            "text": "They block sunlight",
+            "isCorrect": false,
+            "explanation": "Trees provide shade but do not block sunlight in a harmful way."
+          },
+          {
+            "text": "They produce more waste",
+            "isCorrect": false,
+            "explanation": "Trees do not contribute to waste; they play an essential role in ecosystems."
+          },
+          {
+            "text": "They cause soil erosion",
+            "isCorrect": false,
+            "explanation": "Trees help prevent soil erosion by stabilizing the soil with their roots."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is one benefit of using energy-efficient appliances?",
+        "options": [
+          {
+            "text": "They use more electricity",
+            "isCorrect": false,
+            "explanation": "Energy-efficient appliances consume less power, reducing overall electricity use."
+          },
+          {
+            "text": "They save energy and reduce bills",
+            "isCorrect": true,
+            "explanation": "Energy-efficient appliances consume less power, saving money and reducing overall energy use."
+          },
+          {
+            "text": "They require more maintenance",
+            "isCorrect": false,
+            "explanation": "Energy-efficient appliances are generally designed to be long-lasting and do not require excessive maintenance."
+          },
+          {
+            "text": "They produce more waste",
+            "isCorrect": false,
+            "explanation": "Energy-efficient appliances help reduce environmental waste through lower energy consumption."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which energy source is considered clean?",
+        "options": [
+          {
+            "text": "Coal",
+            "isCorrect": false,
+            "explanation": "Coal is a fossil fuel that produces significant air pollution and greenhouse gases."
+          },
+          {
+            "text": "Solar",
+            "isCorrect": true,
+            "explanation": "Solar energy produces electricity without combustion, making it one of the cleanest energy sources."
+          },
+          {
+            "text": "Oil",
+            "isCorrect": false,
+            "explanation": "Oil burning releases CO₂ and other pollutants."
+          },
+          {
+            "text": "Natural gas",
+            "isCorrect": false,
+            "explanation": "Natural gas burns cleaner than coal but still produces emissions."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What can you use to replace disposable plastic bottles?",
+        "options": [
+          {
+            "text": "A reusable water bottle",
+            "isCorrect": true,
+            "explanation": "Reusable water bottles help cut down on plastic waste by allowing multiple uses."
+          },
+          {
+            "text": "More plastic bottles",
+            "isCorrect": false,
+            "explanation": "Using more plastic bottles increases waste instead of reducing it."
+          },
+          {
+            "text": "Paper cups",
+            "isCorrect": false,
+            "explanation": "While paper cups are biodegradable, they are still single-use and create waste."
+          },
+          {
+            "text": "Single-use straws",
+            "isCorrect": false,
+            "explanation": "Single-use straws contribute to plastic waste and pollution."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "How does taking shorter showers help the environment?",
+        "options": [
+          {
+            "text": "It uses more water",
+            "isCorrect": false,
+            "explanation": "Shorter showers reduce water consumption, not increase it."
+          },
+          {
+            "text": "It reduces water consumption",
+            "isCorrect": true,
+            "explanation": "Shorter showers use less water, which conserves this essential resource."
+          },
+          {
+            "text": "It increases energy use",
+            "isCorrect": false,
+            "explanation": "Reducing water usage also reduces energy use for heating water."
+          },
+          {
+            "text": "It has no effect",
+            "isCorrect": false,
+            "explanation": "Water conservation, including shorter showers, helps reduce waste and environmental impact."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What are the '3Rs' in waste management?",
+        "options": [
+          {
+            "text": "Reuse, Reduce, Recycle",
+            "isCorrect": true,
+            "explanation": "The 3Rs—reduce, reuse, and recycle—are fundamental practices that help minimize waste."
+          },
+          {
+            "text": "Replace, Recycle, Renew",
+            "isCorrect": false,
+            "explanation": "This is not the correct set of principles; reducing waste is a key factor missing here."
+          },
+          {
+            "text": "Remove, Reuse, Replenish",
+            "isCorrect": false,
+            "explanation": "While similar, 'remove' and 'replenish' are not part of the 3Rs in waste management."
+          },
+          {
+            "text": "Rebuild, Restore, Reclaim",
+            "isCorrect": false,
+            "explanation": "These terms are more applicable to ecological restoration, not waste management."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is one benefit of walking or biking instead of driving?",
+        "options": [
+          {
+            "text": "It increases pollution",
+            "isCorrect": false,
+            "explanation": "Walking and biking produce no emissions, unlike driving a vehicle."
+          },
+          {
+            "text": "It is healthy and produces zero emissions",
+            "isCorrect": true,
+            "explanation": "Walking and biking are clean, zero-emission activities that also promote physical health."
+          },
+          {
+            "text": "It takes too much time",
+            "isCorrect": false,
+            "explanation": "While it may take longer, this does not affect its environmental benefits."
+          },
+          {
+            "text": "It costs more",
+            "isCorrect": false,
+            "explanation": "Walking and biking are low-cost or free alternatives to driving."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Why might reducing meat consumption help the environment?",
+        "options": [
+          {
+            "text": "Meat production uses a lot of water and energy",
+            "isCorrect": true,
+            "explanation": "Meat production is resource-intensive and contributes significantly to greenhouse gas emissions."
+          },
+          {
+            "text": "Meat is unhealthy",
+            "isCorrect": false,
+            "explanation": "While diet choices vary, the environmental impact of meat consumption is unrelated to health considerations."
+          },
+          {
+            "text": "Meat tastes bad",
+            "isCorrect": false,
+            "explanation": "Taste preference is subjective and does not impact environmental sustainability."
+          },
+          {
+            "text": "Meat production is inexpensive",
+            "isCorrect": false,
+            "explanation": "Meat production requires significant resources, making it more expensive compared to plant-based foods."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which of these actions lowers your personal carbon footprint?",
+        "options": [
+          {
+            "text": "Using disposable items",
+            "isCorrect": false,
+            "explanation": "Disposable items contribute to waste and require energy-intensive production, increasing carbon emissions."
+          },
+          {
+            "text": "Recycling and reusing items",
+            "isCorrect": true,
+            "explanation": "Recycling and reusing reduce resource consumption and waste, thereby lowering overall emissions."
+          },
+          {
+            "text": "Taking long flights frequently",
+            "isCorrect": false,
+            "explanation": "Frequent air travel has a high carbon footprint compared to other forms of transportation."
+          },
+          {
+            "text": "Driving alone every day",
+            "isCorrect": false,
+            "explanation": "Single-occupancy vehicle trips contribute significantly to carbon emissions."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is meant by 'waste reduction'?",
+        "options": [
+          {
+            "text": "Producing more waste",
+            "isCorrect": false,
+            "explanation": "Waste reduction focuses on minimizing waste generation, not increasing it."
+          },
+          {
+            "text": "Using less and reusing more",
+            "isCorrect": true,
+            "explanation": "Waste reduction involves minimizing the amount of waste produced through mindful consumption and reuse."
+          },
+          {
+            "text": "Ignoring recycling",
+            "isCorrect": false,
+            "explanation": "Ignoring recycling contributes to more waste accumulation."
+          },
+          {
+            "text": "Disposing of waste in landfills",
+            "isCorrect": false,
+            "explanation": "Landfilling is a waste management method, not a way to reduce waste."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does 'green energy' refer to?",
+        "options": [
+          {
+            "text": "Energy from polluting sources",
+            "isCorrect": false,
+            "explanation": "Green energy comes from clean sources that do not pollute the environment."
+          },
+          {
+            "text": "Energy from renewable and clean sources",
+            "isCorrect": true,
+            "explanation": "Green energy is derived from sources such as solar, wind, and hydro that produce little to no pollution."
+          },
+          {
+            "text": "Energy that is very expensive",
+            "isCorrect": false,
+            "explanation": "Green energy costs are decreasing, and in many cases, they are competitive with fossil fuels."
+          },
+          {
+            "text": "Energy that causes noise pollution",
+            "isCorrect": false,
+            "explanation": "Green energy sources like solar and wind produce minimal noise compared to fossil fuel power plants."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which item is best to use instead of a plastic bag?",
+        "options": [
+          {
+            "text": "A paper bag",
+            "isCorrect": false,
+            "explanation": "Paper bags decompose faster than plastic but still require resources to produce."
+          },
+          {
+            "text": "A reusable cloth bag",
+            "isCorrect": true,
+            "explanation": "Reusable cloth bags reduce the amount of plastic waste generated and are more sustainable."
+          },
+          {
+            "text": "A disposable bag",
+            "isCorrect": false,
+            "explanation": "Disposable bags contribute to waste and pollution."
+          },
+          {
+            "text": "A plastic wrapper",
+            "isCorrect": false,
+            "explanation": "Plastic wrappers are single-use and add to landfill waste."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is 'air quality'?",
+        "options": [
+          {
+            "text": "The clarity of water",
+            "isCorrect": false,
+            "explanation": "Air quality refers to the cleanliness of the air, not water clarity."
+          },
+          {
+            "text": "The cleanliness of the air",
+            "isCorrect": true,
+            "explanation": "Air quality refers to how clean or polluted the air is based on the presence of contaminants."
+          },
+          {
+            "text": "The color of the sky",
+            "isCorrect": false,
+            "explanation": "Sky color does not determine air quality."
+          },
+          {
+            "text": "The temperature outside",
+            "isCorrect": false,
+            "explanation": "Air quality is independent of temperature changes."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is one simple way to reduce home energy use?",
+        "options": [
+          {
+            "text": "Leaving appliances on 24/7",
+            "isCorrect": false,
+            "explanation": "Leaving appliances running unnecessarily wastes energy."
+          },
+          {
+            "text": "Turning off lights when leaving a room",
+            "isCorrect": true,
+            "explanation": "Turning off lights and electronics when not in use conserves energy and lowers electricity bills."
+          },
+          {
+            "text": "Using old light bulbs",
+            "isCorrect": false,
+            "explanation": "Old light bulbs consume more energy compared to modern energy-efficient bulbs."
+          },
+          {
+            "text": "Keeping electronics plugged in all the time",
+            "isCorrect": false,
+            "explanation": "Keeping electronics plugged in leads to phantom power consumption."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is the 'greenhouse effect'?",
+        "options": [
+          {
+            "text": "A process where greenhouse gases trap heat in the atmosphere",
+            "isCorrect": true,
+            "explanation": "The greenhouse effect occurs when gases like CO₂ trap heat in the atmosphere, warming the planet."
+          },
+          {
+            "text": "Cooling of the Earth",
+            "isCorrect": false,
+            "explanation": "The greenhouse effect contributes to warming, not cooling."
+          },
+          {
+            "text": "A type of plant",
+            "isCorrect": false,
+            "explanation": "The greenhouse effect is a climate-related phenomenon, not a type of plant."
+          },
+          {
+            "text": "The reflection of sunlight by clouds",
+            "isCorrect": false,
+            "explanation": "While clouds reflect sunlight, the greenhouse effect specifically involves heat-trapping gases."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which of these practices helps reduce water waste?",
+        "options": [
+          {
+            "text": "Leaving the tap running",
+            "isCorrect": false,
+            "explanation": "Leaving the tap running wastes water unnecessarily."
+          },
+          {
+            "text": "Fixing leaky faucets",
+            "isCorrect": true,
+            "explanation": "Repairing leaks helps conserve water by preventing unnecessary wastage."
+          },
+          {
+            "text": "Taking very long showers",
+            "isCorrect": false,
+            "explanation": "Long showers increase water consumption, leading to waste."
+          },
+          {
+            "text": "Using too much water for cleaning",
+            "isCorrect": false,
+            "explanation": "Excessive water use for cleaning contributes to unnecessary water waste."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is the main goal of energy conservation?",
+        "options": [
+          {
+            "text": "To increase energy use",
+            "isCorrect": false,
+            "explanation": "Energy conservation aims to reduce, not increase, energy use."
+          },
+          {
+            "text": "To use less energy for the same tasks",
+            "isCorrect": true,
+            "explanation": "Energy conservation focuses on reducing energy consumption while still accomplishing needed tasks."
+          },
+          {
+            "text": "To waste electricity",
+            "isCorrect": false,
+            "explanation": "Conserving energy means reducing waste, not increasing it."
+          },
+          {
+            "text": "To power more devices",
+            "isCorrect": false,
+            "explanation": "Energy conservation is about efficiency, not simply increasing power availability."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does 'pollution' mean?",
+        "options": [
+          {
+            "text": "Clean and pure substances",
+            "isCorrect": false,
+            "explanation": "Pollution involves harmful contaminants, not clean substances."
+          },
+          {
+            "text": "The introduction of harmful substances into the environment",
+            "isCorrect": true,
+            "explanation": "Pollution occurs when harmful substances contaminate the air, water, or soil."
+          },
+          {
+            "text": "Natural resources",
+            "isCorrect": false,
+            "explanation": "Natural resources are materials found in nature and are not inherently pollutants."
+          },
+          {
+            "text": "The process of composting",
+            "isCorrect": false,
+            "explanation": "Composting is a waste reduction process, not pollution."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is one benefit of using public transportation?",
+        "options": [
+          {
+            "text": "Increased emissions",
+            "isCorrect": false,
+            "explanation": "Public transportation reduces overall emissions by decreasing the number of individual vehicles on the road."
+          },
+          {
+            "text": "Fewer cars on the road, leading to lower pollution",
+            "isCorrect": true,
+            "explanation": "Public transportation reduces the number of individual vehicles, thereby lowering overall emissions."
+          },
+          {
+            "text": "More traffic jams",
+            "isCorrect": false,
+            "explanation": "Public transportation can help reduce traffic congestion, not increase it."
+          },
+          {
+            "text": "Higher energy use",
+            "isCorrect": false,
+            "explanation": "Public transportation is more energy-efficient per passenger than single-occupancy vehicles."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does 'reuse' mean?",
+        "options": [
+          {
+            "text": "Throwing something away after one use",
+            "isCorrect": false,
+            "explanation": "Reusing an item means using it multiple times instead of discarding it."
+          },
+          {
+            "text": "Using an item multiple times instead of discarding it",
+            "isCorrect": true,
+            "explanation": "Reusing extends the life of products, which reduces waste and conserves resources."
+          },
+          {
+            "text": "Burning an item after use",
+            "isCorrect": false,
+            "explanation": "Burning waste does not contribute to reuse."
+          },
+          {
+            "text": "Recycling without cleaning",
+            "isCorrect": false,
+            "explanation": "Recycling and reusing are different; reuse does not necessarily involve recycling."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is one impact of burning fossil fuels?",
+        "options": [
+          {
+            "text": "Clean energy production",
+            "isCorrect": false,
+            "explanation": "Burning fossil fuels releases CO₂, a major contributor to global warming."
+          },
+          {
+            "text": "Increased carbon dioxide in the atmosphere",
+            "isCorrect": true,
+            "explanation": "Burning fossil fuels releases CO₂, a major contributor to climate change."
+          },
+          {
+            "text": "Renewable energy generation",
+            "isCorrect": false,
+            "explanation": "Fossil fuels are non-renewable, while renewable energy sources do not involve burning."
+          },
+          {
+            "text": "Improved air quality",
+            "isCorrect": false,
+            "explanation": "Burning fossil fuels leads to air pollution, not improved air quality."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which of these materials can break down naturally?",
+        "options": [
+          {
+            "text": "Plastic",
+            "isCorrect": false,
+            "explanation": "Most plastics take hundreds of years to decompose and are not biodegradable."
+          },
+          {
+            "text": "Food waste",
+            "isCorrect": true,
+            "explanation": "Food waste decomposes naturally over time, unlike most plastics, metals, or glass."
+          },
+          {
+            "text": "Metal",
+            "isCorrect": false,
+            "explanation": "Metals do not decompose naturally but can be recycled."
+          },
+          {
+            "text": "Glass",
+            "isCorrect": false,
+            "explanation": "Glass does not decompose naturally and remains in the environment for long periods."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is one benefit of water conservation?",
+        "options": [
+          {
+            "text": "Wasting water resources",
+            "isCorrect": false,
+            "explanation": "Conserving water means reducing unnecessary waste, not increasing it."
+          },
+          {
+            "text": "Ensuring a supply of clean water for the future",
+            "isCorrect": true,
+            "explanation": "Conserving water helps maintain a reliable supply and protects aquatic ecosystems."
+          },
+          {
+            "text": "Increasing water bills",
+            "isCorrect": false,
+            "explanation": "Water conservation reduces consumption and can help lower utility costs."
+          },
+          {
+            "text": "Polluting water bodies",
+            "isCorrect": false,
+            "explanation": "Polluting water bodies is harmful and does not contribute to conservation."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does 'carbon offset' mean?",
+        "options": [
+          {
+            "text": "Ignoring your emissions",
+            "isCorrect": false,
+            "explanation": "Carbon offsetting involves balancing emissions, not ignoring them."
+          },
+          {
+            "text": "Balancing your emissions by reducing CO₂ elsewhere",
+            "isCorrect": true,
+            "explanation": "Carbon offsetting compensates for emissions by funding projects that reduce greenhouse gases."
+          },
+          {
+            "text": "Increasing fossil fuel use",
+            "isCorrect": false,
+            "explanation": "Offsetting aims to reduce, not increase, fossil fuel dependency."
+          },
+          {
+            "text": "Measuring carbon without action",
+            "isCorrect": false,
+            "explanation": "Offsetting involves taking action to counteract emissions, not just measuring them."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which of the following produces little to no pollution?",
+        "options": [
+          {
+            "text": "Coal power plants",
+            "isCorrect": false,
+            "explanation": "Coal power plants produce significant air pollution and CO₂ emissions."
+          },
+          {
+            "text": "Wind turbines",
+            "isCorrect": true,
+            "explanation": "Wind turbines generate electricity by harnessing wind energy and do not burn fossil fuels."
+          },
+          {
+            "text": "Diesel generators",
+            "isCorrect": false,
+            "explanation": "Diesel generators burn fuel and produce emissions."
+          },
+          {
+            "text": "Oil refineries",
+            "isCorrect": false,
+            "explanation": "Oil refineries contribute to air and water pollution through their processing activities."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "How can you help reduce household waste?",
+        "options": [
+          {
+            "text": "Buying disposable items",
+            "isCorrect": false,
+            "explanation": "Using disposable items increases waste generation."
+          },
+          {
+            "text": "Reusing and recycling products",
+            "isCorrect": true,
+            "explanation": "Reusing and recycling extend product lifespans and reduce the amount of waste sent to landfills."
+          },
+          {
+            "text": "Throwing everything away",
+            "isCorrect": false,
+            "explanation": "Discarding items unnecessarily contributes to waste accumulation."
+          },
+          {
+            "text": "Ignoring recycling bins",
+            "isCorrect": false,
+            "explanation": "Using recycling bins properly helps manage waste effectively."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is 'organic farming'?",
+        "options": [
+          {
+            "text": "Farming using only synthetic chemicals",
+            "isCorrect": false,
+            "explanation": "Organic farming avoids synthetic chemicals and relies on natural fertilizers and methods."
+          },
+          {
+            "text": "Farming that avoids harmful chemicals and supports soil health",
+            "isCorrect": true,
+            "explanation": "Organic farming uses natural methods and minimizes chemical inputs, which helps protect the environment."
+          },
+          {
+            "text": "Farming with heavy pesticide use",
+            "isCorrect": false,
+            "explanation": "Organic farming avoids heavy pesticide use, relying instead on natural alternatives."
+          },
+          {
+            "text": "Farming that produces non-edible crops",
+            "isCorrect": false,
+            "explanation": "Organic farming applies to both edible and non-edible crops, focusing on sustainability."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is a simple way to reduce plastic waste?",
+        "options": [
+          {
+            "text": "Using more disposable plastic items",
+            "isCorrect": false,
+            "explanation": "Using disposable plastic increases waste rather than reducing it."
+          },
+          {
+            "text": "Choosing products with less packaging",
+            "isCorrect": true,
+            "explanation": "Choosing products with minimal packaging helps reduce the volume of plastic waste."
+          },
+          {
+            "text": "Throwing away plastic carefully",
+            "isCorrect": false,
+            "explanation": "Careful disposal helps but does not actively reduce plastic waste."
+          },
+          {
+            "text": "Buying plastic only",
+            "isCorrect": false,
+            "explanation": "Purchasing plastic-only products increases waste rather than reducing it."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does 'sustainable' mean in relation to business?",
+        "options": [
+          {
+            "text": "Focusing only on profit",
+            "isCorrect": false,
+            "explanation": "Sustainable business practices balance profit with environmental and social responsibility."
+          },
+          {
+            "text": "Operating in a way that protects the environment and resources for the future",
+            "isCorrect": true,
+            "explanation": "A sustainable business model balances economic success with environmental and social responsibility."
+          },
+          {
+            "text": "Ignoring environmental issues",
+            "isCorrect": false,
+            "explanation": "Ignoring environmental concerns contradicts sustainability principles."
+          },
+          {
+            "text": "Overusing resources",
+            "isCorrect": false,
+            "explanation": "Sustainability aims to use resources efficiently, not overexploit them."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is 'waste management'?",
+        "options": [
+          {
+            "text": "Creating more waste",
+            "isCorrect": false,
+            "explanation": "Waste management aims to reduce waste, not increase it."
+          },
+          {
+            "text": "The process of collecting, treating, and disposing of waste",
+            "isCorrect": true,
+            "explanation": "Waste management involves handling waste in a way that minimizes environmental harm."
+          },
+          {
+            "text": "Ignoring trash",
+            "isCorrect": false,
+            "explanation": "Proper waste management involves responsible disposal and treatment of waste."
+          },
+          {
+            "text": "Burning waste without controls",
+            "isCorrect": false,
+            "explanation": "Uncontrolled burning contributes to air pollution and is not a responsible waste management practice."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which of the following can lower air pollution?",
+        "options": [
+          {
+            "text": "Using older cars with poor emissions",
+            "isCorrect": false,
+            "explanation": "Older cars produce more pollutants and contribute to air pollution."
+          },
+          {
+            "text": "Using cleaner energy sources",
+            "isCorrect": true,
+            "explanation": "Cleaner energy sources produce fewer pollutants, which improves overall air quality."
+          },
+          {
+            "text": "Burning more fossil fuels",
+            "isCorrect": false,
+            "explanation": "Fossil fuel combustion releases greenhouse gases and worsens air pollution."
+          },
+          {
+            "text": "Increasing industrial output",
+            "isCorrect": false,
+            "explanation": "Increasing industrial output without emission controls can contribute to air pollution."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is 'urban green space'?",
+        "options": [
+          {
+            "text": "Concrete areas",
+            "isCorrect": false,
+            "explanation": "Urban green spaces refer to natural areas, not paved or built-up areas."
+          },
+          {
+            "text": "Parks and natural areas in cities",
+            "isCorrect": true,
+            "explanation": "Urban green spaces, such as parks, help improve air quality and offer recreational benefits."
+          },
+          {
+            "text": "High-rise buildings",
+            "isCorrect": false,
+            "explanation": "Buildings do not constitute urban green spaces; they are built environments."
+          },
+          {
+            "text": "Shopping malls",
+            "isCorrect": false,
+            "explanation": "Malls are commercial spaces and do not provide environmental benefits like green spaces do."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which gas is considered the main contributor to the greenhouse effect?",
+        "options": [
+          {
+            "text": "Oxygen",
+            "isCorrect": false,
+            "explanation": "Oxygen does not contribute significantly to the greenhouse effect because it does not trap heat in the Earth's atmosphere."
+          },
+          {
+            "text": "Carbon Dioxide",
+            "isCorrect": true,
+            "explanation": "Carbon dioxide (CO₂) is the primary greenhouse gas produced by human activities such as burning fossil fuels, which traps heat in the atmosphere."
+          },
+          {
+            "text": "Nitrogen",
+            "isCorrect": false,
+            "explanation": "Nitrogen, while the most abundant gas in Earth's atmosphere, is not a greenhouse gas and does not trap heat."
+          },
+          {
+            "text": "Helium",
+            "isCorrect": false,
+            "explanation": "Helium is an inert gas that does not interact with infrared radiation and has no role in the greenhouse effect."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does the term 'carbon footprint' refer to?",
+        "options": [
+          {
+            "text": "The physical trace of carbon in the soil",
+            "isCorrect": false,
+            "explanation": "A carbon footprint refers to emissions of greenhouse gases, not physical traces of carbon in soil."
+          },
+          {
+            "text": "The total amount of greenhouse gases emitted directly and indirectly by an individual, organization, or product",
+            "isCorrect": true,
+            "explanation": "A carbon footprint quantifies the total greenhouse gas emissions (in CO₂ equivalents) caused by human activities."
+          },
+          {
+            "text": "The number of trees needed to absorb emissions",
+            "isCorrect": false,
+            "explanation": "While trees help offset emissions by absorbing CO₂, the carbon footprint measures total emissions, not the offset required."
+          },
+          {
+            "text": "A measurement of soil carbon content",
+            "isCorrect": false,
+            "explanation": "Soil carbon content refers to carbon stored in soil, which is different from a carbon footprint, which measures greenhouse gas emissions."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is recycling?",
+        "options": [
+          {
+            "text": "Burning waste for energy",
+            "isCorrect": false,
+            "explanation": "Burning waste for energy, known as waste-to-energy incineration, does not involve repurposing materials into new products as recycling does."
+          },
+          {
+            "text": "Converting waste materials into new products",
+            "isCorrect": true,
+            "explanation": "Recycling involves processing used materials into new products, conserving resources and reducing waste."
+          },
+          {
+            "text": "Burying waste in landfills",
+            "isCorrect": false,
+            "explanation": "Burying waste in landfills is waste disposal, not recycling, as the materials are not repurposed or reused."
+          },
+          {
+            "text": "Incinerating waste without energy recovery",
+            "isCorrect": false,
+            "explanation": "Incinerating waste without energy recovery simply destroys waste and contributes to pollution without reusing materials."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "How does deforestation contribute to climate change?",
+        "options": [
+          {
+            "text": "By increasing oxygen production",
+            "isCorrect": false,
+            "explanation": "Deforestation removes trees, reducing their ability to absorb CO₂. It does not increase oxygen production."
+          },
+          {
+            "text": "By reducing the number of trees that absorb CO₂",
+            "isCorrect": true,
+            "explanation": "Trees absorb CO₂ during photosynthesis; removing them decreases the natural capacity to capture carbon, thus worsening climate change."
+          },
+          {
+            "text": "By creating more open spaces",
+            "isCorrect": false,
+            "explanation": "While deforestation clears land, this does not directly contribute to climate change. The key issue is the loss of carbon absorption capacity."
+          },
+          {
+            "text": "By increasing soil fertility",
+            "isCorrect": false,
+            "explanation": "Deforestation often leads to soil degradation rather than increasing soil fertility."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which of the following practices helps reduce your carbon footprint?",
+        "options": [
+          {
+            "text": "Driving a car for short trips",
+            "isCorrect": false,
+            "explanation": "Short car trips increase fuel consumption and emissions compared to walking or biking."
+          },
+          {
+            "text": "Recycling and reusing products",
+            "isCorrect": true,
+            "explanation": "Recycling and reusing materials reduce the demand for new resource extraction and processing, thereby lowering overall emissions."
+          },
+          {
+            "text": "Using disposable items",
+            "isCorrect": false,
+            "explanation": "Disposable items create waste and require energy-intensive production, increasing carbon emissions."
+          },
+          {
+            "text": "Increasing energy use",
+            "isCorrect": false,
+            "explanation": "Higher energy consumption, especially from non-renewable sources, increases carbon footprint rather than reducing it."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which of the following actions can conserve water at home?",
+        "options": [
+          {
+            "text": "Leaving the tap running",
+            "isCorrect": false,
+            "explanation": "Leaving the tap running wastes water unnecessarily, increasing consumption."
+          },
+          {
+            "text": "Installing low-flow fixtures",
+            "isCorrect": true,
+            "explanation": "Low-flow fixtures reduce water usage, helping to conserve water and lower utility bills."
+          },
+          {
+            "text": "Taking long showers",
+            "isCorrect": false,
+            "explanation": "Long showers increase water consumption, leading to waste."
+          },
+          {
+            "text": "Overwatering the garden",
+            "isCorrect": false,
+            "explanation": "Overwatering leads to excess water waste and does not contribute to conservation."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is the main goal of environmental awareness campaigns?",
+        "options": [
+          {
+            "text": "To promote industrial waste",
+            "isCorrect": false,
+            "explanation": "Environmental campaigns aim to reduce waste, not promote it."
+          },
+          {
+            "text": "To educate the public about environmental issues and sustainable practices",
+            "isCorrect": true,
+            "explanation": "These campaigns aim to inform people about environmental challenges and motivate them to adopt sustainable behaviors."
+          },
+          {
+            "text": "To encourage deforestation",
+            "isCorrect": false,
+            "explanation": "Deforestation harms the environment, contradicting the goals of awareness campaigns."
+          },
+          {
+            "text": "To increase energy consumption",
+            "isCorrect": false,
+            "explanation": "Environmental campaigns promote energy conservation rather than increasing consumption."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which of the following is a renewable resource?",
+        "options": [
+          {
+            "text": "Oil",
+            "isCorrect": false,
+            "explanation": "Oil is a fossil fuel and is non-renewable because it takes millions of years to form."
+          },
+          {
+            "text": "Natural Gas",
+            "isCorrect": false,
+            "explanation": "Natural gas is also a fossil fuel and not considered renewable."
+          },
+          {
+            "text": "Wind",
+            "isCorrect": true,
+            "explanation": "Wind energy is naturally replenished and sustainable, unlike fossil fuels which are finite."
+          },
+          {
+            "text": "Coal",
+            "isCorrect": false,
+            "explanation": "Coal is a fossil fuel and not renewable because it cannot be replaced in a human timescale."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which factor is a major contributor to urban air pollution?",
+        "options": [
+          {
+            "text": "Bicycle commuting",
+            "isCorrect": false,
+            "explanation": "Bicycles produce no emissions and actually help reduce urban air pollution."
+          },
+          {
+            "text": "Vehicle emissions",
+            "isCorrect": true,
+            "explanation": "Emissions from vehicles release pollutants and greenhouse gases that significantly affect urban air quality."
+          },
+          {
+            "text": "Tree planting",
+            "isCorrect": false,
+            "explanation": "Planting trees helps reduce air pollution rather than contributing to it."
+          },
+          {
+            "text": "Solar power usage",
+            "isCorrect": false,
+            "explanation": "Solar power is a clean energy source and does not contribute to air pollution."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is the primary purpose of recycling?",
+        "options": [
+          {
+            "text": "To increase waste accumulation",
+            "isCorrect": false,
+            "explanation": "Recycling aims to reduce waste, not increase it."
+          },
+          {
+            "text": "To conserve resources and reduce waste sent to landfills",
+            "isCorrect": true,
+            "explanation": "Recycling helps transform waste into new products, conserving raw materials and reducing the amount of waste in landfills."
+          },
+          {
+            "text": "To boost energy production from waste",
+            "isCorrect": false,
+            "explanation": "While waste-to-energy processes exist, the main goal of recycling is resource conservation."
+          },
+          {
+            "text": "To support nonrenewable industries",
+            "isCorrect": false,
+            "explanation": "Recycling focuses on sustainability, not promoting nonrenewable resource use."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which mode of transportation generally has the lowest carbon footprint?",
+        "options": [
+          {
+            "text": "Driving alone in a gasoline car",
+            "isCorrect": false,
+            "explanation": "Driving alone in a gasoline car contributes significantly to carbon emissions."
+          },
+          {
+            "text": "Biking or walking",
+            "isCorrect": true,
+            "explanation": "Walking and biking produce zero direct emissions and are the most environmentally friendly options."
+          },
+          {
+            "text": "Frequent air travel",
+            "isCorrect": false,
+            "explanation": "Air travel has one of the highest carbon footprints per passenger mile."
+          },
+          {
+            "text": "Using a diesel truck",
+            "isCorrect": false,
+            "explanation": "Diesel trucks emit significant greenhouse gases and are not a low-carbon transportation option."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does 'zero waste' mean?",
+        "options": [
+          {
+            "text": "Producing as much waste as possible",
+            "isCorrect": false,
+            "explanation": "Zero waste aims to eliminate waste, not increase it."
+          },
+          {
+            "text": "Eliminating waste by redesigning resource lifecycles so that all materials are reused",
+            "isCorrect": true,
+            "explanation": "The zero-waste approach minimizes waste through reduction, reuse, and recycling, keeping materials in circulation."
+          },
+          {
+            "text": "Only recycling paper and plastic",
+            "isCorrect": false,
+            "explanation": "Zero waste involves a comprehensive approach, not just recycling specific materials."
+          },
+          {
+            "text": "Burning all waste for energy",
+            "isCorrect": false,
+            "explanation": "Burning waste still produces emissions and is not the same as a zero-waste strategy."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which of the following is a benefit of LED bulbs?",
+        "options": [
+          {
+            "text": "They use more energy than incandescent bulbs",
+            "isCorrect": false,
+            "explanation": "LED bulbs are energy-efficient and consume less electricity than incandescent bulbs."
+          },
+          {
+            "text": "They last longer and use less energy",
+            "isCorrect": true,
+            "explanation": "LED bulbs are energy-efficient, consume less electricity, and have a longer lifespan than traditional bulbs."
+          },
+          {
+            "text": "They emit more heat than necessary",
+            "isCorrect": false,
+            "explanation": "LED bulbs produce less heat compared to incandescent bulbs."
+          },
+          {
+            "text": "They are more expensive with no energy savings",
+            "isCorrect": false,
+            "explanation": "Although LED bulbs may have a higher initial cost, they save money in the long run due to their efficiency and longevity."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does the term 'greenhouse gas' refer to?",
+        "options": [
+          {
+            "text": "Gases that cool the planet",
+            "isCorrect": false,
+            "explanation": "Greenhouse gases trap heat in the atmosphere and contribute to global warming, not cooling."
+          },
+          {
+            "text": "Gases that trap heat in the atmosphere",
+            "isCorrect": true,
+            "explanation": "Greenhouse gases trap heat in the Earth's atmosphere, which contributes to global warming."
+          },
+          {
+            "text": "Inert gases with no climate effect",
+            "isCorrect": false,
+            "explanation": "Greenhouse gases have a significant impact on climate, unlike inert gases."
+          },
+          {
+            "text": "Gases that only come from natural sources",
+            "isCorrect": false,
+            "explanation": "Greenhouse gases come from both natural sources and human activities."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which material is biodegradable?",
+        "options": [
+          {
+            "text": "Plastic",
+            "isCorrect": false,
+            "explanation": "Most plastics take hundreds of years to degrade and are not considered biodegradable."
+          },
+          {
+            "text": "Glass",
+            "isCorrect": false,
+            "explanation": "Glass does not decompose naturally in the environment."
+          },
+          {
+            "text": "Food waste",
+            "isCorrect": true,
+            "explanation": "Organic materials like food waste naturally break down over time through biological processes."
+          },
+          {
+            "text": "Aluminum",
+            "isCorrect": false,
+            "explanation": "Aluminum does not break down naturally and requires recycling."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which method is effective for reducing industrial waste?",
+        "options": [
+          {
+            "text": "Increasing production without changes",
+            "isCorrect": false,
+            "explanation": "Increasing production without changes does not address waste reduction."
+          },
+          {
+            "text": "Implementing cleaner production techniques",
+            "isCorrect": true,
+            "explanation": "Cleaner production techniques improve efficiency and minimize waste generation in industrial processes."
+          },
+          {
+            "text": "Disregarding recycling methods",
+            "isCorrect": false,
+            "explanation": "Ignoring recycling leads to more waste rather than reducing it."
+          },
+          {
+            "text": "Expanding landfill space",
+            "isCorrect": false,
+            "explanation": "Creating more landfill space does not reduce waste; it only accommodates it."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does 'eco-friendly' mean?",
+        "options": [
+          {
+            "text": "Harmful to nature",
+            "isCorrect": false,
+            "explanation": "Eco-friendly means minimizing harm to the environment, not causing harm."
+          },
+          {
+            "text": "Having minimal negative impact on the environment",
+            "isCorrect": true,
+            "explanation": "Eco-friendly products and practices are designed to reduce harm to the environment."
+          },
+          {
+            "text": "Unsustainable",
+            "isCorrect": false,
+            "explanation": "Eco-friendly items promote sustainability, not the opposite."
+          },
+          {
+            "text": "Wasteful",
+            "isCorrect": false,
+            "explanation": "Being eco-friendly involves reducing waste, not increasing it."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which factor directly impacts a city's air quality?",
+        "options": [
+          {
+            "text": "The number of parks",
+            "isCorrect": false,
+            "explanation": "While parks help air quality, they are not a primary factor affecting pollution levels."
+          },
+          {
+            "text": "Vehicle and industrial emissions",
+            "isCorrect": true,
+            "explanation": "Emissions from vehicles and industries release pollutants that degrade urban air quality."
+          },
+          {
+            "text": "The color of buildings",
+            "isCorrect": false,
+            "explanation": "Building color does not have a direct impact on air pollution."
+          },
+          {
+            "text": "The number of streetlights",
+            "isCorrect": false,
+            "explanation": "Streetlights do not contribute significantly to air pollution."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which method produces electricity with relatively low emissions?",
+        "options": [
+          {
+            "text": "Coal-fired power plants",
+            "isCorrect": false,
+            "explanation": "Coal-fired power plants release significant amounts of CO₂ and pollutants."
+          },
+          {
+            "text": "Solar farms",
+            "isCorrect": true,
+            "explanation": "Solar farms convert sunlight directly into electricity without combustion, resulting in minimal emissions."
+          },
+          {
+            "text": "Oil refineries",
+            "isCorrect": false,
+            "explanation": "Oil refining processes generate pollution and carbon emissions."
+          },
+          {
+            "text": "Conventional gas power plants",
+            "isCorrect": false,
+            "explanation": "Gas power plants still emit greenhouse gases, although less than coal."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is meant by 'sustainable packaging'?",
+        "options": [
+          {
+            "text": "Packaging that cannot be recycled",
+            "isCorrect": false,
+            "explanation": "Sustainable packaging should be recyclable or biodegradable."
+          },
+          {
+            "text": "Packaging made from renewable, recyclable, or biodegradable materials",
+            "isCorrect": true,
+            "explanation": "Sustainable packaging minimizes environmental impact by using materials that can be reused, recycled, or naturally decomposed."
+          },
+          {
+            "text": "Excessively bulky packaging",
+            "isCorrect": false,
+            "explanation": "Bulky packaging increases waste rather than reducing it."
+          },
+          {
+            "text": "Packaging that is always plastic",
+            "isCorrect": false,
+            "explanation": "Sustainable packaging avoids excessive plastic use and focuses on environmentally friendly materials."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is 'upcycling'?",
+        "options": [
+          {
+            "text": "Discarding old products",
+            "isCorrect": false,
+            "explanation": "Upcycling involves repurposing items instead of discarding them."
+          },
+          {
+            "text": "Transforming waste materials into products of higher value",
+            "isCorrect": true,
+            "explanation": "Upcycling involves creatively reusing materials to make products of higher quality or value than the original."
+          },
+          {
+            "text": "Burning waste for energy",
+            "isCorrect": false,
+            "explanation": "Burning waste does not repurpose it into a valuable product."
+          },
+          {
+            "text": "Recycling into the same product repeatedly",
+            "isCorrect": false,
+            "explanation": "Upcycling often improves the product’s value, whereas standard recycling turns materials into the same or lower-quality products."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Difficult",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is a major consequence of single-use plastics?",
+        "options": [
+          {
+            "text": "They decompose quickly",
+            "isCorrect": false,
+            "explanation": "Single-use plastics take hundreds of years to decompose."
+          },
+          {
+            "text": "They accumulate in landfills and oceans, causing long-term pollution",
+            "isCorrect": true,
+            "explanation": "Single-use plastics persist for hundreds of years and contribute significantly to pollution and wildlife harm."
+          },
+          {
+            "text": "They enhance soil fertility",
+            "isCorrect": false,
+            "explanation": "Plastics do not break down into nutrients that benefit soil."
+          },
+          {
+            "text": "They are easily biodegradable",
+            "isCorrect": false,
+            "explanation": "Most plastics do not degrade naturally and instead break into harmful microplastics."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which action in the workplace helps conserve energy?",
+        "options": [
+          {
+            "text": "Leaving equipment on overnight",
+            "isCorrect": false,
+            "explanation": "Leaving equipment on wastes energy unnecessarily."
+          },
+          {
+            "text": "Implementing energy-saving policies and using energy-efficient equipment",
+            "isCorrect": true,
+            "explanation": "Energy-saving measures in the workplace reduce overall energy consumption and help lower operating costs."
+          },
+          {
+            "text": "Increasing lighting unnecessarily",
+            "isCorrect": false,
+            "explanation": "Overuse of lighting leads to excessive energy consumption."
+          },
+          {
+            "text": "Running outdated machinery continuously",
+            "isCorrect": false,
+            "explanation": "Outdated machinery is less efficient and consumes more energy."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is one benefit of hybrid or electric vehicles?",
+        "options": [
+          {
+            "text": "Higher fuel consumption",
+            "isCorrect": false,
+            "explanation": "Hybrid and electric vehicles are designed to reduce fuel consumption, not increase it."
+          },
+          {
+            "text": "Reduced emissions and improved fuel efficiency",
+            "isCorrect": true,
+            "explanation": "Hybrid and electric vehicles produce less CO₂ and are generally more fuel-efficient compared to conventional vehicles."
+          },
+          {
+            "text": "Increased noise pollution",
+            "isCorrect": false,
+            "explanation": "Electric vehicles are generally quieter than gasoline or diesel vehicles."
+          },
+          {
+            "text": "Greater dependency on fossil fuels",
+            "isCorrect": false,
+            "explanation": "Electric vehicles reduce dependency on fossil fuels by using battery-powered energy."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which practice is essential for sustainable water management?",
+        "options": [
+          {
+            "text": "Over-irrigation",
+            "isCorrect": false,
+            "explanation": "Over-irrigation wastes water and can lead to soil degradation."
+          },
+          {
+            "text": "Rainwater harvesting",
+            "isCorrect": true,
+            "explanation": "Rainwater harvesting captures and stores water for reuse, reducing demand on conventional water supplies."
+          },
+          {
+            "text": "Wasting water during peak hours",
+            "isCorrect": false,
+            "explanation": "Wasting water contradicts the principles of sustainable water management."
+          },
+          {
+            "text": "Ignoring water usage data",
+            "isCorrect": false,
+            "explanation": "Monitoring and managing water usage is crucial for sustainability."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is an environmental benefit of biodegradable packaging?",
+        "options": [
+          {
+            "text": "It remains in landfills for centuries",
+            "isCorrect": false,
+            "explanation": "Biodegradable packaging is designed to decompose naturally, reducing long-term waste."
+          },
+          {
+            "text": "It breaks down naturally, reducing long-term waste",
+            "isCorrect": true,
+            "explanation": "Biodegradable packaging decomposes naturally, which helps reduce persistent waste."
+          },
+          {
+            "text": "It increases production costs",
+            "isCorrect": false,
+            "explanation": "While some biodegradable packaging may have higher upfront costs, its long-term environmental benefits outweigh this."
+          },
+          {
+            "text": "It requires specialized recycling",
+            "isCorrect": false,
+            "explanation": "Biodegradable materials decompose naturally and do not necessarily require recycling."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is the main aim of environmental education?",
+        "options": [
+          {
+            "text": "To promote harmful industrial practices",
+            "isCorrect": false,
+            "explanation": "Environmental education seeks to reduce harm, not encourage it."
+          },
+          {
+            "text": "To raise awareness and encourage sustainable practices",
+            "isCorrect": true,
+            "explanation": "Environmental education is intended to empower people with the knowledge needed to protect natural resources and adopt sustainable behaviors."
+          },
+          {
+            "text": "To focus solely on economic growth",
+            "isCorrect": false,
+            "explanation": "While economic growth is important, environmental education emphasizes sustainability."
+          },
+          {
+            "text": "To discourage technological innovation",
+            "isCorrect": false,
+            "explanation": "Environmental education does not discourage innovation but promotes sustainable technologies."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does 'sustainable transport' mean?",
+        "options": [
+          {
+            "text": "Transport relying solely on fossil fuels",
+            "isCorrect": false,
+            "explanation": "Sustainable transport minimizes the use of fossil fuels."
+          },
+          {
+            "text": "Transport methods that minimize environmental impact",
+            "isCorrect": true,
+            "explanation": "Sustainable transport includes low-emission options such as public transit, biking, and electric vehicles."
+          },
+          {
+            "text": "Expensive, inefficient travel",
+            "isCorrect": false,
+            "explanation": "Sustainable transport aims to be cost-effective and efficient."
+          },
+          {
+            "text": "Air travel without offsets",
+            "isCorrect": false,
+            "explanation": "Sustainable transport includes offsetting emissions and reducing reliance on high-emission travel."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "How can businesses reduce their environmental impact?",
+        "options": [
+          {
+            "text": "Increasing waste production",
+            "isCorrect": false,
+            "explanation": "Increasing waste contributes to environmental damage rather than reducing impact."
+          },
+          {
+            "text": "Implementing green policies and sustainable practices throughout their operations",
+            "isCorrect": true,
+            "explanation": "By adopting sustainable practices, businesses can reduce waste, lower emissions, and improve overall resource efficiency."
+          },
+          {
+            "text": "Ignoring environmental regulations",
+            "isCorrect": false,
+            "explanation": "Ignoring regulations can lead to environmental damage and legal consequences."
+          },
+          {
+            "text": "Relying solely on nonrenewable energy",
+            "isCorrect": false,
+            "explanation": "Reducing reliance on nonrenewable energy is crucial for sustainability."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is deforestation?",
+        "options": [
+          {
+            "text": "Planting trees",
+            "isCorrect": false,
+            "explanation": "Deforestation involves cutting down trees, not planting them."
+          },
+          {
+            "text": "Cutting down trees",
+            "isCorrect": true,
+            "explanation": "Deforestation is the removal of trees from an area, which can lead to reduced CO₂ absorption and ecosystem disruption."
+          },
+          {
+            "text": "Recycling paper",
+            "isCorrect": false,
+            "explanation": "Recycling paper helps reduce deforestation, but it is not the definition of deforestation."
+          },
+          {
+            "text": "Growing crops",
+            "isCorrect": false,
+            "explanation": "Growing crops is not deforestation unless it involves clearing forests for agriculture."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "How can you save energy at home?",
+        "options": [
+          {
+            "text": "Leaving lights on when not needed",
+            "isCorrect": false,
+            "explanation": "Leaving lights on wastes energy unnecessarily."
+          },
+          {
+            "text": "Using energy-efficient appliances",
+            "isCorrect": true,
+            "explanation": "Energy-efficient appliances use less power, helping to reduce overall energy consumption."
+          },
+          {
+            "text": "Running the air conditioner all day",
+            "isCorrect": false,
+            "explanation": "Running the air conditioner continuously increases energy consumption."
+          },
+          {
+            "text": "Keeping devices on standby",
+            "isCorrect": false,
+            "explanation": "Devices on standby still consume power, known as phantom load."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which transportation method produces no emissions?",
+        "options": [
+          {
+            "text": "Driving alone in a car",
+            "isCorrect": false,
+            "explanation": "Gasoline-powered cars produce significant carbon emissions."
+          },
+          {
+            "text": "Biking",
+            "isCorrect": true,
+            "explanation": "Biking is a zero-emission mode of transportation that also promotes personal health."
+          },
+          {
+            "text": "Flying",
+            "isCorrect": false,
+            "explanation": "Airplanes burn fuel and contribute to greenhouse gas emissions."
+          },
+          {
+            "text": "Riding in a diesel bus",
+            "isCorrect": false,
+            "explanation": "Diesel buses emit pollutants, though they are more efficient per passenger than individual cars."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which of these is eco-friendly?",
+        "options": [
+          {
+            "text": "A disposable plastic bag",
+            "isCorrect": false,
+            "explanation": "Plastic bags contribute to pollution and take a long time to decompose."
+          },
+          {
+            "text": "A reusable shopping bag",
+            "isCorrect": true,
+            "explanation": "Reusable shopping bags help reduce waste by minimizing the need for disposable plastics."
+          },
+          {
+            "text": "A single-use cup",
+            "isCorrect": false,
+            "explanation": "Single-use cups generate unnecessary waste."
+          },
+          {
+            "text": "A non-recyclable wrapper",
+            "isCorrect": false,
+            "explanation": "Non-recyclable wrappers add to landfill waste and are not eco-friendly."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does 'energy efficiency' mean?",
+        "options": [
+          {
+            "text": "Using more energy for the same task",
+            "isCorrect": false,
+            "explanation": "Energy efficiency is about reducing energy use, not increasing it."
+          },
+          {
+            "text": "Doing the same work with less energy",
+            "isCorrect": true,
+            "explanation": "Energy efficiency is about achieving the same results while using less energy, which helps lower costs and emissions."
+          },
+          {
+            "text": "Running appliances all day",
+            "isCorrect": false,
+            "explanation": "Running appliances continuously wastes energy and is not efficient."
+          },
+          {
+            "text": "Increasing electricity use",
+            "isCorrect": false,
+            "explanation": "The goal of energy efficiency is to reduce electricity use, not increase it."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What is one benefit of solar panels?",
+        "options": [
+          {
+            "text": "They make noise",
+            "isCorrect": false,
+            "explanation": "Solar panels operate silently and do not produce noise pollution."
+          },
+          {
+            "text": "They produce clean electricity from sunlight",
+            "isCorrect": true,
+            "explanation": "Solar panels generate electricity using sunlight without combustion, which means they produce little to no emissions."
+          },
+          {
+            "text": "They require fossil fuels",
+            "isCorrect": false,
+            "explanation": "Solar panels do not rely on fossil fuels to generate electricity."
+          },
+          {
+            "text": "They pollute the air",
+            "isCorrect": false,
+            "explanation": "Solar panels do not emit air pollutants while generating electricity."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "Which material is easy to recycle?",
+        "options": [
+          {
+            "text": "Food waste (via composting)",
+            "isCorrect": false,
+            "explanation": "Food waste decomposes naturally but is not classified as recyclable in the traditional sense."
+          },
+          {
+            "text": "Plastic bottles",
+            "isCorrect": true,
+            "explanation": "Plastic bottles are widely recyclable and can be reprocessed into new products."
+          },
+          {
+            "text": "Broken glass",
+            "isCorrect": false,
+            "explanation": "While glass is recyclable, broken glass can be hazardous and may require special handling."
+          },
+          {
+            "text": "All of the above",
+            "isCorrect": false,
+            "explanation": "Not all listed materials are recyclable in the same way; composting differs from recycling."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Medium",
+    "translations": [
+      {
+        "language": "English",
+        "question": "What does 'renewable' mean?",
+        "options": [
+          {
+            "text": "Something that runs out quickly",
+            "isCorrect": false,
+            "explanation": "Renewable resources replenish naturally and do not deplete quickly."
+          },
+          {
+            "text": "Something that can be naturally replenished",
+            "isCorrect": true,
+            "explanation": "Renewable resources, such as wind and solar, naturally replenish over time."
+          },
+          {
+            "text": "Something that is very expensive",
+            "isCorrect": false,
+            "explanation": "Renewability is not related to cost; it refers to a resource's ability to replenish."
+          },
+          {
+            "text": "Something that pollutes",
+            "isCorrect": false,
+            "explanation": "Renewable resources are generally considered cleaner than non-renewable alternatives."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "difficulty": "Easy",
+    "translations": [
+      {
+        "language": "English",
+        "question": "How can you reduce your carbon footprint?",
+        "options": [
+          {
+            "text": "Use public transportation or carpool",
+            "isCorrect": true,
+            "explanation": "Using shared or public transportation reduces the number of vehicles on the road, thereby lowering emissions."
+          },
+          {
+            "text": "Fly frequently",
+            "isCorrect": false,
+            "explanation": "Air travel has a high carbon footprint compared to other transportation methods."
+          },
+          {
+            "text": "Drive a large car alone",
+            "isCorrect": false,
+            "explanation": "Single-passenger car trips, especially in large vehicles, generate significant emissions."
+          },
+          {
+            "text": "Use disposable items often",
+            "isCorrect": false,
+            "explanation": "Disposable items contribute to waste and require energy-intensive production, increasing carbon emissions."
+          }
+        ]
+      }
+    ]
+  }
+]
