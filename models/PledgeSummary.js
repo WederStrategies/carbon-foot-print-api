@@ -30,6 +30,14 @@ const PledgeSummarySchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    numberOfPeople: {
+      type: Number,
+      default: 0, // Tracks the number of people who pledged
+    },
+    totalTreesPledged: {
+      type: Number,
+      default: 0, // Tracks the total number of trees pledged
+    },
   },
   { timestamps: true }
 );

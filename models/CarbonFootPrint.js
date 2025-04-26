@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 // Enums for predefined values
 const HousingTypeEnum = ["apartment", "house", "vila", "hut"]
 const RecycleEnum = ["yes", "no"]
-const RecycleMaterialsEnum = ["paper", "plastic", "bottle", "metal"]
+const RecycleMaterialsEnum = ["paper", "plastic", "bottle", "metal", "none"]
 
 // Subschemas for Household Energy
 const HeatingAndCoolingSchema = new mongoose.Schema({
@@ -13,6 +13,7 @@ const HeatingAndCoolingSchema = new mongoose.Schema({
     enum: ["electric", "charcoal", "buthen", "wood"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
+  frequencyperWeek: { type: Number, default: 7, required: true },
 })
 
 const CookingSchema = new mongoose.Schema({
@@ -22,13 +23,15 @@ const CookingSchema = new mongoose.Schema({
     enum: ["electric", "charcoal", "gas", "wood", "dont use any"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
+  frequencyperWeek: { type: Number, default: 7, required: true },
+
 })
 
 const ElectricApplianceSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["tv", "washingMachine", "iron", "refrigerator"],
+    enum: ["tv", "waterboiler", "iron", "refrigerator"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
   frequencyperWeek: { type: Number, default: 7, required: true },
@@ -41,18 +44,27 @@ const LightBulbSchema = new mongoose.Schema({
     enum: ["incandescent", "cfl", "led", "fluorescent"],
   },
   hourlyUsagePerDay: { type: Number, required: true },
+  frequencyperWeek: { type: Number, default: 7, required: true },
+
 })
 
-// Subschemas for Transportation
+// Updated Subschema for Transportation
 const TransportSchema = new mongoose.Schema({
-  type: {
+  overallType: {
     type: String,
     required: true,
-    enum: ["gasPowered", "electricPowered", "hybrid"],
+    enum: ["ownAutomobile", "motorcycle", "bicycle"], // Overall transportation type
+  },
+  type: {
+    type: String,
+    enum: ["gasPowered", "electricPowered", "hybrid"], // Subtypes only for "ownAutomobile"
+    required: function () {
+      return this.overallType === "ownAutomobile"; // Only required for "ownAutomobile"
+    },
   },
   distance: { type: Number, required: true },
   frequencyperWeek: { type: Number, required: true },
-})
+});
 
 // Subschemas for Transportation
 const PublicTransportSchema = new mongoose.Schema({

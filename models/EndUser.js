@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const EndUserSchema = new mongoose.Schema(
   {
@@ -22,8 +22,12 @@ const EndUserSchema = new mongoose.Schema(
       unique: false,
       default: "00",
     },
+    hasPledged: {
+      type: Boolean,
+      default: false, // Indicates whether the user has pledged or not
+    },
   },
   { timestamps: true }
-)
+);
 
-module.exports = mongoose.model("EndUser", EndUserSchema)
+module.exports = mongoose.model("EndUser", EndUserSchema);

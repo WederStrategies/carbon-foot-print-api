@@ -13,7 +13,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: urlList, // React app URL
-    methods: ["GET", "POST", "DELETE", "PUT"],
+    methods: ["GET", "POST", "DELETE", "PUT","PATCH"],
   },
 })
 
@@ -71,6 +71,9 @@ app.use("/api/v1/pledge", require("./routes/pledge"))
 app.use("/api/v1/questionAttempts", require("./routes/questionAttempt"))
 app.use("/api/v1/languages", require("./routes/language"))
 app.use("/api/v1/questionCatagories", require("./routes/questionCategory"))
+
+//update pledge routes
+app.use("/api/v1/pledges",require("./routes/pledgeRouter"))
 
 // for all reports
 app.use("/api/v1/reports/overview", require("./reports/overview.routes"))

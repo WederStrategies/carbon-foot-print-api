@@ -14,16 +14,16 @@ const householdCarbonFootPrintCalculator = (data) => {
   heatingAndCooling.forEach((item) => {
     if (item.type === "electric") {
       heatingAndCoolingCarbonFootPrint +=
-        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 1.5 * year; // 1.5 kw is an average heater capacity
-    } else if (item.type === "charcoal") {
+        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 1.5 * item.frequencyperWeek * week; // 1.5 kw is an average heater capacity
+    } else if (item.type === "charcoal"){ 
       heatingAndCoolingCarbonFootPrint +=
-        item.hourlyUsagePerDay * charcoalCarbonEmitedCo2PerKg * 0.58 * year; // 0.58 kg charcoal is used per hour on average
+        item.hourlyUsagePerDay * charcoalCarbonEmitedCo2PerKg * 0.58 * item.frequencyperWeek * week; // 0.58 kg charcoal is used per hour on average
     } else if (item.type === "buthen") {
       heatingAndCoolingCarbonFootPrint +=
-        item.hourlyUsagePerDay * buthenCarbonEmitedCo2Perkg * 0.189 * year; // 0.189 kg lpg is used per hour on average
+        item.hourlyUsagePerDay * buthenCarbonEmitedCo2Perkg * 0.189 * item.frequencyperWeek * week; // 0.189 kg lpg is used per hour on average
     } else if (item.type === "wood") {
       heatingAndCoolingCarbonFootPrint +=
-        item.hourlyUsagePerDay * woodCarbonEmitedCo2PerKg * 1.3 * year; // // Hourly Firewood Consumption Patterns and CO2 Emission Patterns in Rural Households of Nepal
+        item.hourlyUsagePerDay * woodCarbonEmitedCo2PerKg * 1.3 * item.frequencyperWeek * week; // // Hourly Firewood Consumption Patterns and CO2 Emission Patterns in Rural Households of Nepal
     }
   });
 
@@ -33,16 +33,16 @@ const householdCarbonFootPrintCalculator = (data) => {
   cooking.forEach((item) => {
     if (item.type === "electric") {
       cookingCarbonFootPrint +=
-        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 1.5 * year; // 1.5 kw is an average heater capacity
+        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 1.5 * item.frequencyperWeek * week; // 1.5 kw is an average heater capacity
     } else if (item.type === "charcoal") {
       cookingCarbonFootPrint +=
-        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.58 * year; // 0.58 kg charcoal is used per hour on average
+        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.58 * item.frequencyperWeek * week; // 0.58 kg charcoal is used per hour on average
     } else if (item.type === "gas") {
       cookingCarbonFootPrint +=
-        item.hourlyUsagePerDay * buthenCarbonEmitedCo2Perkg * 0.189 * year; // 0.189 kg lpg is used per hour on average
+        item.hourlyUsagePerDay * buthenCarbonEmitedCo2Perkg * 0.189 * item.frequencyperWeek * week; // 0.189 kg lpg is used per hour on average
     } else if (item.type === "wood") {
       cookingCarbonFootPrint +=
-        item.hourlyUsagePerDay * woodCarbonEmitedCo2PerKg * 1.3 * year; // Hourly Firewood Consumption Patterns and CO2 Emission Patterns in Rural Households of Nepal
+        item.hourlyUsagePerDay * woodCarbonEmitedCo2PerKg * 1.3 * item.frequencyperWeek * week; // Hourly Firewood Consumption Patterns and CO2 Emission Patterns in Rural Households of Nepal
     }
   });
 
@@ -52,7 +52,7 @@ const householdCarbonFootPrintCalculator = (data) => {
   electricAppliance.forEach((item) => {
     if (item.type === "tv") {
       electricApplianceCarbonFootPrint +=
-        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.1 * year; // 0.1kw is the average wattage of a tv by assuming an avarage of 40 inch lcd tv
+        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.1 * item.frequencyperWeek * week; // 0.1kw is the average wattage of a tv by assuming an avarage of 40 inch lcd tv
     } else if (item.type === "washingMachine") {
       frequencyperWeek = item.frequencyperWeek ? item.frequencyperWeek : 3;
       electricApplianceCarbonFootPrint +=
@@ -82,13 +82,13 @@ const householdCarbonFootPrintCalculator = (data) => {
   lightBulbs.forEach((item) => {
     if (item.type === "incandescent") {
       lightBulbsCarbonFootPrint +=
-        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.04 * year; // 0.04kw is the average wattage of an iron
+        item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.04 * item.frequencyperWeek * week; // 0.04kw is the average wattage of an iron
     } else if (item.type === "cfl") {
-      item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.013 * year; // 0.013kw is the average  wattage of a cfl
+      item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.013 * item.frequencyperWeek * week; // 0.013kw is the average  wattage of a cfl
     } else if (item.type === "led") {
-      item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.007 * year; // 0.007kw is the average wattage of a led
+      item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.007 * item.frequencyperWeek * week; // 0.007kw is the average wattage of a led
     } else if (item.type === "fluorescent") {
-      item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.036 * year; //  0.036kw is the average wattage of a fluorescent
+      item.hourlyUsagePerDay * electricCarbonEmitedKgPerKwh * 0.036 * item.frequencyperWeek * week; //  0.036kw is the average wattage of a fluorescent
     }
   });
 
@@ -100,68 +100,68 @@ const householdCarbonFootPrintCalculator = (data) => {
   );
 };
 
-// transportation mode carbon footprint calculator
+// Updated transportation mode carbon footprint calculator
 const transportationModeCarbonFootPrintCalculator = (data) => {
-  //for own automobile
-  const ownAutomobile = data.ownAutomobile;
-  let ownAutomobileCarbonFootPrint = 0;
+  let totalCarbonFootPrint = 0;
+
+  // Handle own automobile
+  const ownAutomobile = data.ownAutomobile || [];
   ownAutomobile.forEach((item) => {
-    if (item.type === "gasPowered") {
-      ownAutomobileCarbonFootPrint +=
-        item.distance * item.frequencyperWeek * 0.15 * week; //0.15kg is the average co2 emission of a gas powered car per km
-    } else if (item.type === "electricPowered") {
-      ownAutomobileCarbonFootPrint +=
-        item.distance * item.frequencyperWeek * 0.037 * week; // 0.033kg is the average co2 emission of an electric car per km
-    } else if (item.type === "hybrid") {
-      ownAutomobileCarbonFootPrint +=
-        item.distance * item.frequencyperWeek * 0.08 * week; // 0.08kg is the average co2 emission of an electric car per km
+    if (item.overallType === "ownAutomobile") {
+      if (item.type === "gasPowered") {
+        totalCarbonFootPrint +=
+          item.distance * item.frequencyperWeek * 0.15 * week; // 0.15kg is the average CO2 emission of a gas-powered car per km
+      } else if (item.type === "electricPowered") {
+        totalCarbonFootPrint +=
+          item.distance * item.frequencyperWeek * 0.037 * week; // 0.037kg is the average CO2 emission of an electric car per km
+      } else if (item.type === "hybrid") {
+        totalCarbonFootPrint +=
+          item.distance * item.frequencyperWeek * 0.08 * week; // 0.08kg is the average CO2 emission of a hybrid car per km
+      }
     }
   });
 
-  //for public transport
-  const publicTransport = data.publicTransport;
-  let publicTransportCarbonFootPrint = 0;
+  // Handle public transport
+  const publicTransport = data.publicTransport || [];
   publicTransport.forEach((item) => {
     if (item.type === "bus") {
-      publicTransportCarbonFootPrint +=
-        ((item.distance * item.frequencyperWeek * 1.1) / 100) * week; // 0.01kg is the average co2 emission of a bus per km over 100 passengers
+      totalCarbonFootPrint +=
+        ((item.distance * item.frequencyperWeek * 1.1) / 100) * week; // 1.1kg CO2 per km over 100 passengers
     } else if (item.type === "taxi") {
-      publicTransportCarbonFootPrint +=
-        ((item.distance * item.frequencyperWeek * 0.159) / 14) * week; // 0.0114kg is the average co2 emission of a taxi per km over 14 passengers
+      totalCarbonFootPrint +=
+        ((item.distance * item.frequencyperWeek * 0.159) / 14) * week; // 0.159kg CO2 per km over 14 passengers
     } else if (item.type === "train") {
-      publicTransportCarbonFootPrint +=
+      totalCarbonFootPrint +=
         item.distance *
         item.frequencyperWeek *
         electricCarbonEmitedKgPerKwh *
         0.57 *
-        week; // 0.57kwh is the average usage of a train per km
+        week; // 0.57kWh is the average energy usage of a train per km
     } else if (item.type === "ride") {
-      publicTransportCarbonFootPrint +=
-        item.distance * item.frequencyperWeek * 0.15 * week; // 0.15kg is the average co2 emission of a ride per km
+      totalCarbonFootPrint +=
+        item.distance * item.frequencyperWeek * 0.15 * week; // 0.15kg CO2 per km for ride-sharing
     }
   });
 
-  //for bicycle
-  const bicycle = data.bicycle;
-  let bicycleCarbonFootPrint = 0;
+  // Handle bicycle
+  const bicycle = data.bicycle || [];
   bicycle.forEach((item) => {
-    bicycleCarbonFootPrint +=
-      item.distance * item.frequencyperWeek * 0.021 * week; // 0.021kg is the average co2 emission of a bicycle per km
-  });
-  //for walking
-  const walking = data.walking;
-  let walkingCarbonFootPrint = 0;
-  walking.forEach((item) => {
-    walkingCarbonFootPrint +=
-      item.distance * item.frequencyperWeek * 0.036 * week; // 0.036kg is the average co2 emission of a walking per km
+    if (item.overallType === "bicycle") {
+      totalCarbonFootPrint +=
+        item.distance * item.frequencyperWeek * 0.021 * week; // 0.021kg CO2 per km for a bicycle
+    }
   });
 
-  return (
-    ownAutomobileCarbonFootPrint +
-    publicTransportCarbonFootPrint +
-    bicycleCarbonFootPrint +
-    walkingCarbonFootPrint
-  );
+  // Handle walking
+  const walking = data.walking || [];
+  walking.forEach((item) => {
+    if (item.overallType === "walking") {
+      totalCarbonFootPrint +=
+        item.distance * item.frequencyperWeek * 0.036 * week; // 0.036kg CO2 per km for walking
+    }
+  });
+
+  return totalCarbonFootPrint;
 };
 
 // diet and food carbon footprint calculator

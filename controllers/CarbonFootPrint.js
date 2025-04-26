@@ -6,45 +6,82 @@ const carbonFootPrintCalculator = require("../utility/carbonFootPrintCalculator"
 // Create a new carbon footprint entry
 const createCarbonFootprint = async (req, res) => {
   try {
+    console.log("API called: createCarbonFootprint"); // Log API call
     const data = req.body;
+    console.log("Request body:", data); // Log request body
+
     const userName = data.name;
+    console.log("Extracted userName:", userName); // Log extracted user name
+
+    // Check for duplicate entry
+    const duplicateEntry = await CarbonFootPrint.findOne({
+      endUser: data.endUser,
+      householdEnergy: data.householdEnergy,
+      transportationMode: data.transportationMode,
+      dietAndFood: data.dietAndFood,
+      foodWastage: data.foodWastage,
+      wasteDisposal: data.wasteDisposal,
+      waterUsage: data.waterUsage,
+    });
+
+    if (duplicateEntry) {
+      console.log("Duplicate entry found, ignoring request."); // Log duplicate entry
+      return res.status(200).json({
+        message: "Duplicate carbon footprint entry detected. Request ignored.",
+      });
+    }
 
     const newEndUser = await EndUser.create({
       name: userName,
       userId: `user-${Date.now()}`,
     });
+    console.log("New end user created:", newEndUser); // Log new end user creation
 
     const { totalSum, average } =
       carbonFootPrintCalculator.totalCarbonFootPrintCalculator(data);
+    console.log("Total carbon footprint calculated:", { totalSum, average }); // Log total carbon footprint calculation
+
     const carbonFootprint = new CarbonFootPrint(data);
     carbonFootprint.endUser = newEndUser._id;
 
     await carbonFootprint.save(carbonFootprint);
+    console.log("Carbon footprint saved:", carbonFootprint); // Log saved carbon footprint
 
     const householdEnergy =
       carbonFootPrintCalculator.householdCarbonFootPrintCalculator(
         data.householdEnergy
       );
+    console.log("Household energy carbon footprint:", householdEnergy); // Log household energy calculation
+
     const transportationMode =
       carbonFootPrintCalculator.transportationModeCarbonFootPrintCalculator(
         data.transportationMode
       );
+    console.log("Transportation mode carbon footprint:", transportationMode); // Log transportation mode calculation
+
     const dietAndFood =
       carbonFootPrintCalculator.dietAndFoodCarbonFootPrintCalculator(
         data.dietAndFood
       );
+    console.log("Diet and food carbon footprint:", dietAndFood); // Log diet and food calculation
+
     const foodWastage =
       carbonFootPrintCalculator.foodWastageCarbonFootPrintCalculator(
         data.foodWastage
       );
+    console.log("Food wastage carbon footprint:", foodWastage); // Log food wastage calculation
+
     const wasteDisposal =
       carbonFootPrintCalculator.wasteDisposalCarbonFootPrintCalculator(
         data.wasteDisposal
       );
+    console.log("Waste disposal carbon footprint:", wasteDisposal); // Log waste disposal calculation
+
     const waterUsage =
       carbonFootPrintCalculator.waterUsageCarbonFootPrintCalculator(
         data.waterUsage
       );
+    console.log("Water usage carbon footprint:", waterUsage); // Log water usage calculation
 
     const carbonFootPrintData = {
       householdEnergy,
@@ -54,8 +91,10 @@ const createCarbonFootprint = async (req, res) => {
       wasteDisposal,
       waterUsage,
     };
+    console.log("Carbon footprint data:", carbonFootPrintData); // Log aggregated carbon footprint data
 
     let existingSummary = await CarbonFootPrintSummary.findOne();
+    console.log("Existing summary:", existingSummary); // Log existing summary if found
 
     if (existingSummary) {
       existingSummary.householdEnergy =
@@ -76,29 +115,33 @@ const createCarbonFootprint = async (req, res) => {
       existingSummary.waterUsage =
         (existingSummary.waterUsage + carbonFootPrintData.waterUsage) / 2;
       await existingSummary.save();
+      console.log("Updated existing summary:", existingSummary); // Log updated summary
     } else {
       const newSummary = new CarbonFootPrintSummary({
-        householdEnergy: carbonFootPrintData.householdEnergy,
-        transportationMode: carbonFootPrintData.transportationMode,
-        dietAndFood: carbonFootPrintData.dietAndFood,
-        foodWastage: carbonFootPrintData.foodWastage,
-        wasteDisposal: carbonFootPrintData.wasteDisposal,
-        waterUsage: carbonFootPrintData.waterUsage,
+        householdEnergy: carbonFootPrintData.householdEnergy.toFixed(0),
+        transportationMode: carbonFootPrintData.transportationMode.toFixed(0),
+        dietAndFood: carbonFootPrintData.dietAndFood.toFixed(0),
+        foodWastage: carbonFootPrintData.foodWastage.toFixed(0),
+        wasteDisposal: carbonFootPrintData.wasteDisposal.toFixed(0),
+        waterUsage: carbonFootPrintData.waterUsage.toFixed(0),
       });
       await newSummary.save();
+      console.log("New summary created:", newSummary); // Log new summary creation
     }
 
     res.status(201).json({
       message: "Carbon footprint created successfully",
-      householdEnergy: (householdEnergy / totalSum) * 100,
-      transportationMode: (transportationMode / totalSum) * 100,
-      dietAndFood: (dietAndFood / totalSum) * 100,
-      foodWastage: (foodWastage / totalSum) * 100,
-      wasteDisposal: (wasteDisposal / totalSum) * 100,
-      waterUsage: (waterUsage / totalSum) * 100,
+      householdEnergy: householdEnergy,
+      transportationMode: transportationMode,
+      dietAndFood: dietAndFood,
+      foodWastage: foodWastage,
+      wasteDisposal: wasteDisposal,
+      waterUsage: waterUsage,
       data: carbonFootPrintData,
     });
+    console.log("Response sent successfully"); // Log successful response
   } catch (error) {
+    console.error("Error in createCarbonFootprint:", error.message); // Log error
     res.status(500).json({
       message: "Failed to create carbon footprint",
       error: error.message,
