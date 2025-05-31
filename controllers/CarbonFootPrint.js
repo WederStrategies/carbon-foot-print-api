@@ -131,12 +131,12 @@ const createCarbonFootprint = async (req, res) => {
 
     res.status(201).json({
       message: "Carbon footprint created successfully",
-      householdEnergy: householdEnergy,
+      /*householdEnergy: householdEnergy,
       transportationMode: transportationMode,
       dietAndFood: dietAndFood,
       foodWastage: foodWastage,
       wasteDisposal: wasteDisposal,
-      waterUsage: waterUsage,
+      waterUsage: waterUsage,*/
       data: carbonFootPrintData,
     });
     console.log("Response sent successfully"); // Log successful response

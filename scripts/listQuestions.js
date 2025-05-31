@@ -1,10 +1,13 @@
+require("dotenv").config({path: "../.env"});
 const mongoose = require("mongoose");
 const Question = require("../models/Question");
 
 // MongoDB connection
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/carbonFootprintDB", {
+    console.log("Attempting to connect to MongoDB...");
+    const dbConnectionString = process.env.DB_CONNECTION ;
+    await mongoose.connect(dbConnectionString, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -18,6 +21,7 @@ const connectDB = async () => {
 // Function to list all questions
 const listQuestions = async () => {
   try {
+    console.log("Fetching questions from the database...");
     const questions = await Question.find();
 
     if (questions.length === 0) {
@@ -47,9 +51,13 @@ const listQuestions = async () => {
 
 // Main function
 const main = async () => {
+  console.log("Starting the script...");
   await connectDB();
+  console.log("Database connection established. Proceeding to fetch questions...");
   await listQuestions();
+  console.log("Closing the database connection...");
   mongoose.connection.close();
+  console.log("Script execution completed.");
 };
 
 main();

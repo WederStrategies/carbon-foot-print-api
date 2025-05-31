@@ -7,16 +7,6 @@ const createQuestion = async (req, res) => {
   try {
     const { translations } = req.body;
 
-    // Validate category
-    // const categoryExists = await QuestionCategory.findOne({ name: category });
-    // if (!categoryExists) {
-    //   return res.status(400).json({
-    //     message: `Category with name ${category} does not exist`,
-    //   });
-    // }
-    // categoryExists.numberOfQuestions += 1;
-    // await categoryExists.save();
-
     if (!translations.length) {
       return res.status(404).json({ message: "Language not selected " });
     }
@@ -85,27 +75,6 @@ const updateQuestion = async (req, res) => {
     if (!question) {
       return res.status(404).json({ message: "Question not found" });
     }
-
-    // // Decrement the number of questions in the old category if different
-    // if (question.category !== category) {
-    //   const oldCategory = await QuestionCategory.findOne({
-    //     name: question.category,
-    //   });
-    //   if (oldCategory) {
-    //     oldCategory.numberOfQuestions -= 1;
-    //     await oldCategory.save();
-    //   }
-
-    //   // Increment the number of questions in the new category
-    //   const newCategory = await QuestionCategory.findOne({ name: category });
-    //   if (!newCategory) {
-    //     return res.status(400).json({
-    //       message: `Category with name ${category} does not exist`,
-    //     });
-    //   }
-    //   newCategory.numberOfQuestions += 1;
-    //   await newCategory.save();
-    // }
 
     // Decrement the number of questions in the old languages if different
     const oldLanguages = question.translations.map((t) => t.language);
@@ -337,8 +306,18 @@ const getRandomQuestionsByDifficulty = async (req, res) => {
         },
       ]);
 
+      // Shuffle options for each question
+      randomQuestions.forEach((question) => {
+        question.translations.forEach((translation) => {
+          translation.options = translation.options.sort(() => Math.random() - 0.5);
+        });
+      });
+
       questions = [...questions, ...randomQuestions];
     }
+
+    // Log the total number of questions assembled
+    console.log(`Total number of questions assembled: ${questions.length}`);
 
     res.status(200).json(questions);
   } catch (error) {
@@ -348,35 +327,6 @@ const getRandomQuestionsByDifficulty = async (req, res) => {
     });
   }
 };
-
-// const getRandomQuestionsByDifficulty = async (req, res) => {
-//   const { language } = req.body;
-//   try {
-//     const easyQuestions = await Question.aggregate([
-//       { $match: { difficulty: "Easy", "translations.language": language } },
-//       { $sample: { size: 4 } },
-//     ]);
-
-//     const mediumQuestions = await Question.aggregate([
-//       { $match: { difficulty: "Medium", "translations.language": language } },
-//       { $sample: { size: 4 } },
-//     ]);
-
-//     const hardQuestions = await Question.aggregate([
-//       {
-//         $match: { difficulty: "Difficult", "translations.language": language },
-//       },
-//       { $sample: { size: 2 } },
-//     ]);
-
-//     const questions = [...easyQuestions, ...mediumQuestions, ...hardQuestions];
-//     res.status(200).json(questions);
-//   } catch (error) {
-//     res
-//       .status(500)
-//       .json({ message: "Failed to fetch random questions", error });
-//   }
-// };
 
 // Method to fetch random questions for Socket.IO
 const getRandomQuestions = async (categories) => {

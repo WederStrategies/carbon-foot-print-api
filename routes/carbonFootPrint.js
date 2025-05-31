@@ -18,7 +18,7 @@ carbonFootPrintRouter.get(
   carbonFootPrintController.getAllCarbonFootprints
 );
 
-// ger carbon foot print by end user id
+// get carbon foot print by end user id
 
 carbonFootPrintRouter.get(
   "/enduser/:id",
