@@ -49,38 +49,38 @@ const createCarbonFootprint = async (req, res) => {
 
     const householdEnergy =
       carbonFootPrintCalculator.householdCarbonFootPrintCalculator(
-        data.householdEnergy
-      );
+        carbonFootprint.householdEnergy
+      ).toFixed(0);
     console.log("Household energy carbon footprint:", householdEnergy); // Log household energy calculation
 
     const transportationMode =
       carbonFootPrintCalculator.transportationModeCarbonFootPrintCalculator(
-        data.transportationMode
-      );
+        carbonFootprint.transportationMode
+      ).toFixed(0);
     console.log("Transportation mode carbon footprint:", transportationMode); // Log transportation mode calculation
 
     const dietAndFood =
       carbonFootPrintCalculator.dietAndFoodCarbonFootPrintCalculator(
-        data.dietAndFood
-      );
+        carbonFootprint.dietAndFood
+      ).toFixed(0);
     console.log("Diet and food carbon footprint:", dietAndFood); // Log diet and food calculation
 
     const foodWastage =
       carbonFootPrintCalculator.foodWastageCarbonFootPrintCalculator(
-        data.foodWastage
-      );
+        carbonFootprint.foodWastage
+      ).toFixed(0);
     console.log("Food wastage carbon footprint:", foodWastage); // Log food wastage calculation
 
     const wasteDisposal =
       carbonFootPrintCalculator.wasteDisposalCarbonFootPrintCalculator(
-        data.wasteDisposal
-      );
+        carbonFootprint.wasteDisposal
+      ).toFixed(0);
     console.log("Waste disposal carbon footprint:", wasteDisposal); // Log waste disposal calculation
 
     const waterUsage =
       carbonFootPrintCalculator.waterUsageCarbonFootPrintCalculator(
-        data.waterUsage
-      );
+        carbonFootprint.waterUsage
+      ).toFixed(0);
     console.log("Water usage carbon footprint:", waterUsage); // Log water usage calculation
 
     const carbonFootPrintData = {
@@ -93,50 +93,11 @@ const createCarbonFootprint = async (req, res) => {
     };
     console.log("Carbon footprint data:", carbonFootPrintData); // Log aggregated carbon footprint data
 
-    let existingSummary = await CarbonFootPrintSummary.findOne();
-    console.log("Existing summary:", existingSummary); // Log existing summary if found
-
-    if (existingSummary) {
-      existingSummary.householdEnergy =
-        (existingSummary.householdEnergy +
-          carbonFootPrintData.householdEnergy) /
-        2;
-      existingSummary.transportationMode =
-        (existingSummary.transportationMode +
-          carbonFootPrintData.transportationMode) /
-        2;
-      existingSummary.dietAndFood =
-        (existingSummary.transportationMode + carbonFootPrintData.dietAndFood) /
-        2;
-      existingSummary.foodWastage =
-        (existingSummary.foodWastage + carbonFootPrintData.foodWastage) / 2;
-      existingSummary.wasteDisposal =
-        (existingSummary.wasteDisposal + carbonFootPrintData.wasteDisposal) / 2;
-      existingSummary.waterUsage =
-        (existingSummary.waterUsage + carbonFootPrintData.waterUsage) / 2;
-      await existingSummary.save();
-      console.log("Updated existing summary:", existingSummary); // Log updated summary
-    } else {
-      const newSummary = new CarbonFootPrintSummary({
-        householdEnergy: carbonFootPrintData.householdEnergy.toFixed(0),
-        transportationMode: carbonFootPrintData.transportationMode.toFixed(0),
-        dietAndFood: carbonFootPrintData.dietAndFood.toFixed(0),
-        foodWastage: carbonFootPrintData.foodWastage.toFixed(0),
-        wasteDisposal: carbonFootPrintData.wasteDisposal.toFixed(0),
-        waterUsage: carbonFootPrintData.waterUsage.toFixed(0),
-      });
-      await newSummary.save();
-      console.log("New summary created:", newSummary); // Log new summary creation
-    }
+    /**/
 
     res.status(201).json({
       message: "Carbon footprint created successfully",
-      /*householdEnergy: householdEnergy,
-      transportationMode: transportationMode,
-      dietAndFood: dietAndFood,
-      foodWastage: foodWastage,
-      wasteDisposal: wasteDisposal,
-      waterUsage: waterUsage,*/
+      
       data: carbonFootPrintData,
     });
     console.log("Response sent successfully"); // Log successful response
@@ -220,27 +181,27 @@ const getCarbonFootPrintByEndUserId = async (req, res) => {
         householdEnergy:
           carbonFootPrintCalculator.householdCarbonFootPrintCalculator(
             entries[0].householdEnergy
-          ),
+          ).toFixed(0),
         transportationMode:
           carbonFootPrintCalculator.transportationModeCarbonFootPrintCalculator(
             entries[0].transportationMode
-          ),
+          ).toFixed(0),
         dietAndFood:
           carbonFootPrintCalculator.dietAndFoodCarbonFootPrintCalculator(
             entries[0].dietAndFood
-          ),
+          ).toFixed(0),
         foodWastage:
           carbonFootPrintCalculator.foodWastageCarbonFootPrintCalculator(
             entries[0].foodWastage
-          ),
+          ).toFixed(0),
         wasteDisposal:
           carbonFootPrintCalculator.wasteDisposalCarbonFootPrintCalculator(
             entries[0].wasteDisposal
-          ),
+          ).toFixed(0),
         waterusage:
           carbonFootPrintCalculator.waterUsageCarbonFootPrintCalculator(
             entries[0].waterUsage
-          ),
+          ).toFixed(0),
       },
     });
   } catch (error) {

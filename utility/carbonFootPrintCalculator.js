@@ -180,12 +180,12 @@ const dietAndFoodCarbonFootPrintCalculator = (data) => {
   // for meat
   const meat = data.meat;
   let meatCarbonFootPrint = 0;
-  meatCarbonFootPrint += ((meat?.weeklyUsage * 0.52) / year) * 27 * week; // 27kg is the average co2 emission with one kg meal of meat and 0.52kg is the average meal a person eats per year
+  meatCarbonFootPrint += ((meat?.weeklyUsage * 12) / year) * 27 * week; // 27kg is the average co2 emission with one kg meal of meat and 12kg is the average meal a person eats per year
 
   // for fish
   const fish = data.fish;
   let fishCarbonFootPrint = 0;
-  fishCarbonFootPrint += ((fish?.weeklyUsage * 12) / year) * 27 * week; // 27kg is the average co2 emission with one kg meal of fish and 12kg is the average meal a person eats per year
+  fishCarbonFootPrint += ((fish?.weeklyUsage * 0.52) / year) * 2.2 * week; // 2.2kg is the average co2 emission with one kg meal of fish and 0.52kg is the average meal a person eats per year https://www.frdc.com.au/fish-vol-30-2/calculating-seafoods-carbon-footprint
 
   return (
     poultryCarbonFootPrint +
