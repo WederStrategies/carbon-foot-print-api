@@ -32,7 +32,7 @@ const getEndUsersForLast24Hours = async (req, res) => {
   try {
     const date = new Date();
     //date.setDate(date.getDate() - 1);
-    date.setHours(8, 0, 0, 0); // Set time to 8:00 AM of the current day
+    date.setHours(0, 0, 0, 0); // Set time to 12:00 AM of the current day
     const search = req.query.search || "";
     const searchRegex = new RegExp(search, "i");
     const endUsers = await EndUser.find({
